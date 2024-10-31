@@ -8,10 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
+        colors : {
+          'klightGrey' : '#18181C',
+          'klightGreyHover' : '#18181C',
+          'kpink' : '#FF9898',
+          'kpurple' : '#8054FF',
+          'klight' : '#9E9E9E',
+          'kblack' : '#000000'
+        }
     },
   },
   plugins: [],
