@@ -8,10 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        customPink: '#FF9898',
-        customPurple: '#8054FF',
-      },
+        colors : {
+          'klightGrey' : '#18181C',
+          'kpink' : '#FF9898',
+          'kpurple' : '#8054FF',
+          'klight' : '#9E9E9E',
+          'kblack' : '#000000'
+        }
     },
   },
   plugins: [],
