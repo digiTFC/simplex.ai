@@ -1,6 +1,7 @@
 import Button from "../components/general-components/button";
 import GridCard from "../components/general-components/gridCard";
 import gridCard from "../components/general-components/gridCard";
+import RegisterForm from "../components/general-components/RegisterForm";
 
 const setBackground = (index: number): string => {
     switch(index) {
@@ -15,8 +16,8 @@ const setBackground = (index: number): string => {
 
 const LoginSignup = () => {
     return <div>
-        <div className="flex h-screen  ">
-        <div className="w-1/2"><Button label="button"></Button></div>
+        <div className="flex h-screen overflow-hidden ">
+        <div className="w-1/2 flex items-center justify-center"> <RegisterForm></RegisterForm>  </div>
         <div className="w-1/2 self-end">
             <div className="grid grid-cols-3">
                 {
