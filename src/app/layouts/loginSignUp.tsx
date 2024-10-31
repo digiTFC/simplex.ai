@@ -1,3 +1,4 @@
+import Button from "../components/general-components/button";
 import GridCard from "../components/general-components/gridCard";
 import gridCard from "../components/general-components/gridCard";
 
@@ -15,7 +16,7 @@ const setBackground = (index: number): string => {
 const LoginSignup = () => {
     return <div>
         <div className="flex h-screen  ">
-        <div className="w-1/2"></div>
+        <div className="w-1/2"><Button label="button"></Button></div>
         <div className="w-1/2 self-end">
             <div className="grid grid-cols-3">
                 {
