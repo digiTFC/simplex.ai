@@ -1,9 +1,10 @@
-import RegisterForm from "./components/general-components/RegisterForm";
+import Image from "next/image";
+import LoginSignup from "./layouts/loginSignUp";
 
 export default function Home() {
   return (
-    <div>
-      <RegisterForm />
+    <div className="">
+      <LoginSignup></LoginSignup>
     </div>
   );
 }
