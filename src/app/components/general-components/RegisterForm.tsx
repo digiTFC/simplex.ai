@@ -25,7 +25,8 @@ const RegisterForm = () => {
                             name="Email" 
                             id="Email" 
                             placeholder='Full Name'
-                            className={`${inputStyle}`} 
+                            className={`${inputStyle}`}
+                            required
                         />
                     </div>
                     <div>
@@ -35,6 +36,7 @@ const RegisterForm = () => {
                             id="Email" 
                             placeholder='Your Email'
                             className={`${inputStyle}`} 
+                            required
                         />
                     </div>
                     <div>
@@ -43,7 +45,8 @@ const RegisterForm = () => {
                             name="password" 
                             id="Email" 
                             placeholder='Password'
-                            className={`${inputStyle}`} 
+                            className={`${inputStyle}`}
+                            required 
                         />
                     </div>
                     <div>
@@ -53,6 +56,7 @@ const RegisterForm = () => {
                             id="Email" 
                             placeholder='Repeat Password'
                             className={`${inputStyle}`}
+                            required
                         />
                     </div>
                 </div>
