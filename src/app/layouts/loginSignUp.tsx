@@ -1,6 +1,4 @@
-import Button from "../components/general-components/button";
 import GridCard from "../components/general-components/gridCard";
-import gridCard from "../components/general-components/gridCard";
 import RegisterForm from "../components/general-components/RegisterForm";
 
 const setBackground = (index: number): string => {
@@ -22,7 +20,7 @@ const LoginSignup = () => {
             <div className="grid grid-cols-3">
                 {
                     Array.from({length:3}).map((item,index) => {
-                        let  backgroundImage = setBackground(index);
+                        const  backgroundImage = setBackground(index);
                         return <div key={index} className={`${index == 1 ?`relative top-40 `:`relative top-8 `}grid-rows-3 grid gap-7`}>
                             {Array.from({length:5}).map((itm, index) => {
                                return <div key={index}>

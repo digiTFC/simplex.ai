@@ -2,8 +2,6 @@
 import { useState } from "react";
 import Button from "../components/general-components/button";
 import Titles from "../components/general-components/Titles";
-import PrincingTile from "../components/pricingComponents/princingTile";
-import pricingCard from "../components/pricingComponents/princingCard";
 import PricingCard from "../components/pricingComponents/princingCard";
 
 const pricingData = [
