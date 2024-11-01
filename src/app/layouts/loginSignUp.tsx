@@ -25,11 +25,10 @@ const LoginSignup = () => {
                         let  backgroundImage = setBackground(index);
                         return <div key={index} className={`${index == 1 ?`relative top-40 `:`relative top-8 `}grid-rows-3 grid gap-7`}>
                             {Array.from({length:5}).map((itm, index) => {
-                               return <div>
+                               return <div key={index}>
                                     <GridCard index={index} background={backgroundImage}  ></GridCard>
                                </div>
                             })}
-                            
                         </div>
                     }
                     )

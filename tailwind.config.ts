@@ -8,14 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
-        colors : {
-          'klightGrey' : '#18181C',
-          'klightGreyHover' : '#18181C',
-          'kpink' : '#FF9898',
-          'kpurple' : '#8054FF',
-          'klight' : '#9E9E9E',
-          'kblack' : '#000000'
-        }
+      colors: {
+        khr: "#404047",
+
+        
+        kOnSecondary : '#222228',
+        klightGrey: "#18181C",
+        klightGreyHover: "#2F2F34",
+        kpink: "#FF9898",
+        kpurple: "#8054FF",
+        klight: "#9E9E9E",
+        kblack: "#000000",
+      },
     },
   },
   plugins: [],
