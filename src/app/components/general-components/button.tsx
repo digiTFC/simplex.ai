@@ -16,7 +16,7 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   className,
 }) => {
-  const disabledStyle = 'bg-gray-300 text-gray-700 cursor-not-allowed';
+  const disabledStyle = 'bg-gray-300 text-gray-700 cursor-not-allowed ';
 
   return (
     <button
