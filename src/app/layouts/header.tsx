@@ -8,8 +8,7 @@ const Header = ({}) => {
 
   return (
     <div className="w-full overflow-hidden ">
-      <div className=" curve relative  flex py-24 pb-[300px] -ml-[6vw] flex-col z-50 bg-black w-[112vw] ">
-        {/* <div className="w-full relative h-full  grid grid-cols-12"></div> */}
+      <div className=" curve-b relative  flex pt-24 pb-[300px] -ml-[6vw] flex-col z-50 bg-black w-[112vw] ">
         <div className="relative w-1/2 m-auto  text-center">
           <Titles
             title="Beautiful Landing Page Design for You"
@@ -19,7 +18,9 @@ const Header = ({}) => {
           ></Titles>
 
           <Button label="Signup Now " className={defaultStyle}></Button>
-          <div><InsightCard></InsightCard></div>
+          <div>
+            <InsightCard></InsightCard>
+          </div>
         </div>
       </div>
       <div className=" relative  bottom-40  w-full bg-gradient-to-r from-kpink to-kpurple h-[474px] "></div>
