@@ -1,4 +1,5 @@
 import Button from "../components/general-components/button";
+import Nav from "../components/general-components/nav";
 
 const NavBar = ({}) => {
   return (
@@ -38,13 +39,8 @@ const NavBar = ({}) => {
             />
           </svg>
         </div>
-        <div className="relative left-[42px] text-md w-7/12 text-klight flex justify-evenly">
-            <a className="text-hover hover:text-white hover:scale-110 transition-all duration-200">Home</a>
-            <a className="text-hover hover:text-white hover:scale-110 transition-all duration-200"> Pricing</a>
-            <a className="text-hover hover:text-white hover:scale-110 transition-all duration-200">About</a>
-            <a className="text-hover hover:text-white hover:scale-110 transition-all duration-200">Contact</a>
-        </div> 
-
+        <div className="w-7/12"><Nav ></Nav></div>
+        
         <div className="flex">
           <Button className="underline-offset-8 border  text-white w-[109px] mr-[10px] rounded hover:bg-white hover:text-black " label="Login"></Button>
           <Button  label="Signup"></Button>
