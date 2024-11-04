@@ -1,5 +1,6 @@
 import Button from "../components/general-components/button";
 import Titles from "../components/general-components/Titles";
+import InsightCard from "../components/homeComponents/insightCard";
 
 const Header = ({}) => {
   const defaultStyle =
@@ -7,7 +8,7 @@ const Header = ({}) => {
 
   return (
     <div className="w-full overflow-hidden ">
-      <div className=" curve relative w-screen flex py-24 pb-[300px] -ml-[6vw] flex-col z-50 bg-black w-[112vw] ">
+      <div className=" curve relative  flex py-24 pb-[300px] -ml-[6vw] flex-col z-50 bg-black w-[112vw] ">
         {/* <div className="w-full relative h-full  grid grid-cols-12"></div> */}
         <div className="relative w-1/2 m-auto  text-center">
           <Titles
@@ -18,7 +19,7 @@ const Header = ({}) => {
           ></Titles>
 
           <Button label="Signup Now " className={defaultStyle}></Button>
-          <div className="absolute inset-x-0  top-[115%] w-[50vw] h-[calc(50vw/1.61)] m-auto bg-klightGrey rounded-3xl"></div>
+          <div><InsightCard></InsightCard></div>
         </div>
       </div>
       <div className=" relative  bottom-40  w-full bg-gradient-to-r from-kpink to-kpurple h-[474px] "></div>
