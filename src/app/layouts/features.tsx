@@ -103,7 +103,7 @@ const Features = ({}) => {
   ];
 
   return (
-    <div className="relative bottom-56">
+    <div className="relative bottom-28">
       <div className=" absolute  w-full bg-gradient-to-r from-kpink to-kpurple h-[174px] "></div>
 
       <div className=" curve-t relative pt-32  flex  items-center justify-center py-12 -ml-[6vw] flex-col z-50 bg-black  w-[112vw] ">
@@ -114,7 +114,7 @@ const Features = ({}) => {
             subtitleStyle="w-5/12"
             subTitle="A good design is not only aesthetically pleasing, but also functional. It should be able to solve the problem "
           ></Titles>
-          <div className="grid grid-cols-3 gap-y-8 my-12">
+          <div className="grid grid-cols-3 gap-y-8 mt-12">
             {featuresIcons.map((feature, index) => {
               return (
                 <div key={index}>

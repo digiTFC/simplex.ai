@@ -2,6 +2,7 @@ import Features from "./layouts/features";
 import Header from "./layouts/header";
 import NavBar from "./layouts/navBar";
 import Pricing from "./layouts/pricing";
+import Purpose from "./layouts/pupose";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <NavBar></NavBar>
       <Header></Header>
       <Features></Features>
+      <Purpose></Purpose>
     </div>
   );
 }

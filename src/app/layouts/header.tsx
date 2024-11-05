@@ -23,7 +23,7 @@ const Header = ({}) => {
           </div>
         </div>
       </div>
-      <div className=" relative  bottom-40  w-full bg-gradient-to-r from-kpink to-kpurple h-[474px] "></div>
+      <div className=" relative  bottom-24  w-full bg-gradient-to-r from-kpink to-kpurple h-[424px] "></div>
     </div>
   );
 };
