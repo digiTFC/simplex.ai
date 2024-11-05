@@ -42,8 +42,11 @@ const NavBar = ({}) => {
         <div className="w-7/12"><Nav ></Nav></div>
         
         <div className="flex">
-          <Button className="underline-offset-8 border  text-white w-[109px] mr-[10px] rounded hover:bg-white hover:text-black " label="Login"></Button>
-          <Button  label="Signup"></Button>
+        <Button label="Login" className="bg-black text-white hover:text-black px-8 h-[44px] rounded-md group relative overflow-hidden border border-white right-4"><div className="absolute inset-0  bg-white flex items-center justify-center rounded-lg transition-transform duration-200 transform scale-0 group-hover:scale-100 "><span className="opacity-0 group-hover:opacity-100 transition-all ">Login</span>
+        </div></Button>
+          <Button  label="Signup">
+            
+          </Button>
         </div>
       </div>
     </div>
