@@ -1,8 +1,4 @@
-interface navProps{
-
-}
-
-const Nav:React.FC<navProps> = ({}) => {
+const Nav:React.FC = ({}) => {
     return <div>
             <div className="relative left-[42px] text-md  text-klight flex justify-evenly">
             <a className="text-hover hover:text-white hover:scale-110 transition-all duration-200">Home</a>

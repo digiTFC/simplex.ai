@@ -1,12 +1,8 @@
 import Button from "../components/general-components/button";
-import GradientCircle from "../components/general-components/gradientCircle";
 import Titles from "../components/general-components/Titles";
-import InsightCard from "../components/homeComponents/insightCard";
 import PurposeIllustration from "../components/homeComponents/purposeIllustarion";
 
 const Purpose = ({}) => {
-  const defaultStyle =
-    "bg-gradient-to-r from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700  w-[159px] h-[44px]  rounded-[5px]  px-[32px]";
 
   return (
     <div className="w-9/12 m-auto justify-between items-center flex">
