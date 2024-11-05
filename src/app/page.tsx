@@ -1,3 +1,5 @@
+
+import Contact from "./layouts/contactUs";
 import Features from "./layouts/features";
 import Header from "./layouts/header";
 import NavBar from "./layouts/navBar";
@@ -12,6 +14,8 @@ export default function Home() {
       <Features></Features>
       <Purpose></Purpose>
       <Partners></Partners>
+      <Contact></Contact>
+      
     </div>
   );
 }
