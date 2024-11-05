@@ -27,9 +27,15 @@ body {
   transition: 0.2s ;
 }
 
-.curve{
+.curve-b{
   border-radius: 0 0 50% 50% / 50px 50px 180px 180px;
 }
+
+.curve-t{
+  border-radius:  50% 50% 0 0 / 180px 180px 50px 50px ;
+}
+
+
 
 @layer base {
   :root {
