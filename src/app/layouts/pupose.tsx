@@ -5,7 +5,7 @@ import PurposeIllustration from "../components/homeComponents/purposeIllustarion
 const Purpose = ({}) => {
 
   return (
-    <div className="w-9/12 m-auto justify-between items-center flex">
+    <div className="w-9/12 m-auto pb-24 justify-between items-center flex">
       <div className="w-1/2">
         <PurposeIllustration></PurposeIllustration>
       </div>
