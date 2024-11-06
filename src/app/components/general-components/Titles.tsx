@@ -13,7 +13,7 @@ const Titles: React.FC<TitleProps> = ({title,  subTitle, TitleStyle, subtitleSty
   const defaulSubTitle = "text-[18px] text-klight"
   return (
     <div>
-        <div>
+        <div className='flex flex-col'>
             <h2 className={`${TitleStyle} ${defaultStyle ? defaulTitle : 'text-white'} `}>{title}</h2>
             <p className={`${subtitleStyle} ${defaultStyle ? defaulSubTitle : 'text-klight'} `}>{subTitle}</p>
         </div>

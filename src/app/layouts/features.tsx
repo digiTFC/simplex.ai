@@ -1,4 +1,3 @@
-import IconBox from "../components/general-components/iconBox";
 import Titles from "../components/general-components/Titles";
 import FeatureCard from "../components/homeComponents/featuresCard";
 

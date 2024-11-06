@@ -1,7 +1,9 @@
+
+import Contact from "./layouts/contactUs";
 import Features from "./layouts/features";
 import Header from "./layouts/header";
 import NavBar from "./layouts/navBar";
-import Pricing from "./layouts/pricing";
+import Partners from "./layouts/partners";
 import Purpose from "./layouts/pupose";
 
 export default function Home() {
@@ -11,6 +13,9 @@ export default function Home() {
       <Header></Header>
       <Features></Features>
       <Purpose></Purpose>
+      <Partners></Partners>
+      <Contact></Contact>
+      
     </div>
   );
 }
