@@ -6,9 +6,9 @@ const Contact = ({}) => {
     
 
   return (
-    <div className="w-10/12 pb-24 m-auto">
-        <div className="pt-[260px] flex items-center justify-between">     
-         <div><svg
+    <div className="w-12/12 md:w-10/12 bottom-16 relative md:bottom-0 md:pb-24 m-auto ">
+        <div className="pt-[260px] relative  flex items-center justify-between">     
+         <div className="opacity-50 md:opacity-100 absolute md:relative"><svg
         width="542"
         height="542"
         viewBox="0 0 542 542"
@@ -748,7 +748,7 @@ const Contact = ({}) => {
           fill="#3A3A47"
         />
          </svg></div>
-        <div className="w-5/12 ">
+        <div className="md:w-5/12 w-10/12 ml-auto z-50 ">
             <ContactForm></ContactForm>
         </div>
       </div>

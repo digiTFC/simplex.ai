@@ -35,6 +35,22 @@ body {
   border-radius:  50% 50% 0 0 / 180px 180px 50px 50px ;
 }
 
+@media screen and (max-width:620px) {
+  .curve-b{
+    border-radius: 0 0 50% 50% / 50px 50px 80px 80px;
+  }
+  
+  .curve-t{
+    border-radius:  50% 50% 0 0 / 80px 80px 50px 50px ;
+  }
+  
+  .text-hover:hover::after{
+    width: 0%;
+    transition: 0.2s ;
+  }
+
+}
+
 
 
 @layer base {

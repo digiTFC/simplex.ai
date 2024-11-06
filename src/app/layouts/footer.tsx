@@ -3,9 +3,9 @@ import Titles from "../components/general-components/Titles";
 
 const Footer = ({}) => {
   return (
-    <div className="bg-klightGrey py-24">
-      <div className="w-10/12 m-auto flex justify-between items-center h-[22vh]">
-        <div className="w-3/12 flex flex-col h-full justify-between">
+    <div className="bg-klightGrey py-16">
+      <div className="w-10/12 m-auto flex md:flex-row flex-col justify-between items-center ">
+        <div className="md:w-3/12 flex flex-col h-[1/2] justify-between">
           <svg
             width="56"
             height="46"
@@ -20,15 +20,16 @@ const Footer = ({}) => {
           </svg>
           <Titles
             title=""
+            subtitleStyle="pt-6 pb-10 md:pt-16 md:pb-0"
             subTitle="A good design is not only aesthetically pleasing, but also functional. It should be able to solve the problem "
           ></Titles>
         </div>
         <div className="flex flex-col items-start h-full justify-between">
             <Titles title="Sections" TitleStyle="text-[16px] text-white pb-6 font-semibold"></Titles>
             <div className="grid grid-cols-3 gap-36">
-                <Nav column={true } ></Nav>
-                <Nav column={true } ></Nav>
-                <Nav column={true } ></Nav>
+                <Nav column={true} style="text-start"></Nav>
+                <Nav column={true} style="text-start"></Nav> 
+                <Nav column={true} style="text-start"></Nav>
             </div>
         </div>
       </div>

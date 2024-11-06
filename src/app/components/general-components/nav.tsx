@@ -1,15 +1,18 @@
+import { styleText } from "util"
 import { boolean } from "yup"
 
 interface navPros{
     column? : boolean
+    style? : String
 }
-const Nav:React.FC<navPros> = ({column}) => {
+const Nav:React.FC<navPros> = ({column,style}) => {
+    const navStyle = `text-hover md:hover:text-white md:hover:scale-110 transition-all duration-200  ${style} border-kOnSecondary py-4  text-center ${column? '  md:py-2' : `md:py-0`}`
     return <div>
-            <div className={`relative  text-md  text-klight flex  justify-evenly  ${column? 'flex-col h-full' : `left-[42px]`} ` }>
-            <a className={`text-hover hover:text-white hover:scale-110 transition-all duration-200 ${column? 'my-2' : ``}`}>Home</a>
-            <a className={`text-hover hover:text-white hover:scale-110 transition-all duration-200 ${column? 'my-2' : ``}`}> Pricing</a>
-            <a className={`text-hover hover:text-white hover:scale-110 transition-all duration-200 ${column? 'my-2' : ``}`}>About</a>
-            <a className={`text-hover hover:text-white hover:scale-110 transition-all duration-200 ${column? 'my-2' : ``}`}>Contact</a>
+            <div className={`relative  text-md  w-full  text-klight flex  md:justify-evenly flex-col  ${column? 'flex-col h-full' : `h-full md:flex-row  left-[42px]`} ` }>
+            <a className={navStyle}>Home</a>
+            <a className={navStyle}> Pricing</a>
+            <a className={navStyle}>About</a>
+            <a className={navStyle}>Contact</a>
         </div> 
     </div>
 }

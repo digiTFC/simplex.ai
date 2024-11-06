@@ -1,11 +1,13 @@
 import GradientCircle from "../general-components/gradientCircle";
 
 const PurposeIllustration = ({}) => {
+  const _boxStyle = "border-kOnSecondary box-border flex items-center justify-center  rounded-full border"
   return (
-    <div className="w-[500px] h-[500px]  border-kOnSecondary  flex items-center justify-center rounded-full border">
-      <div className="w-[360px] h-[360px] relative  border-kOnSecondary box-border flex items-center justify-center  rounded-full border">
+    <div className={`md:w-[640px] md:h-[640px] mt-12 md:mt-0   w-[400px] h-[400px]  ${_boxStyle}`}>
+          <div className={`md:w-[500px] md:h-[500px] w-[300px] h-[300px] ${_boxStyle}`}>
+      <div className={`md:w-[360px] md:h-[360px] w-[200px] h-[200px] relative ${_boxStyle} `}>
         <svg
-          className="absolute left-0 top-10 translate-x-[15%] "
+          className=" scale-75 md:scale-100 absolute md:left-0 md:top-10 -left-24 -top-4 translate-x-[70%] md:translate-x-[14%] "
           width="66"
           height="66"
           viewBox="0 0 66 66"
@@ -33,7 +35,8 @@ const PurposeIllustration = ({}) => {
         </svg>
 
         <svg
-          className="absolute right-0 top-[90px] translate-x-[25%] box-border"
+          className="scale-75 md:scale-100  absolute -right-16 md:-right-0 top-[90px] 
+          md:translate-x-[30%] translate-x-[23%] md:translate-x-[23%] box-border"
           width="66"
           height="66"
           viewBox="0 0 66 66"
@@ -61,7 +64,7 @@ const PurposeIllustration = ({}) => {
         </svg>
 
         <svg
-          className="absolute left-[90px] -bottom-6 translate-x-[15%] "
+          className=" scale-75 md:scale-100 absolute md:left-[90px] md:-bottom-6 -bottom-20 left-6 translate-x-[15%] "
           width="66"
           height="66"
           viewBox="0 0 66 66"
@@ -88,15 +91,16 @@ const PurposeIllustration = ({}) => {
           </defs>
         </svg>
 
-        <div className="absolute left-0 top-[220px] -translate-x-[2px]">
+        <div className="absolute md:left-0 right-0 md:top-[220px]
+        top-[210px] -translate-x-[2px]">
           <GradientCircle></GradientCircle>
         </div>
 
-        <div className="absolute right-8 bottom-[55px] -translate-x-[2px]">
+        <div className="absolute md:left-[300px] bottom-10 -left-12 md:bottom-[55=px] -translate-x-[2px]">
           <GradientCircle></GradientCircle>
         </div>
 
-        <div className="absolute left-56 top-[0px] -translate-x-[2px]">
+        <div className="absolute md:left-56 left-44 md:top-[0px]  -top-[32px]  -translate-x-[2px]">
           <GradientCircle></GradientCircle>
         </div>
 
@@ -117,6 +121,7 @@ const PurposeIllustration = ({}) => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
