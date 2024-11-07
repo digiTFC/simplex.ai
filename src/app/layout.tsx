@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import CursorFollower from "./components/general-components/cursorFollower";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,6 +18,7 @@ export default function RootLayout({
         className={`antialiased bg-black`}
       >
         {children}
+        <CursorFollower></CursorFollower>
       </body>
     </html>
   );

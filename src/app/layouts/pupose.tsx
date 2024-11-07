@@ -5,11 +5,11 @@ import PurposeIllustration from "../components/homeComponents/purposeIllustarion
 const Purpose = ({}) => {
 
   return (
-    <div className="w-9/12 m-auto pb-24 justify-between items-center flex">
-      <div className="w-1/2">
+    <div className="w-9/12 m-auto pb-24 justify-between items-center flex-col md:flex-row flex">
+      <div className="md:w-1/2 md:order-first order-last ">
         <PurposeIllustration></PurposeIllustration>
       </div>
-      <div className="w-4/12">
+      <div className="md:w-5/12">
         <Titles
           title="We're here to guide and help you at all times"
           subtitleStyle="py-4 pb-6"

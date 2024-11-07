@@ -1,11 +1,17 @@
+'use client'
 import Button from "../components/general-components/button";
 import Nav from "../components/general-components/nav";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+
 
 const NavBar = ({}) => {
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <div>
       <div className="mt-[32px] w-10/12 m-auto flex items-center justify-between">
-        <div>
+        <div className="z-50">
           <svg
             width="132"
             height="34"
@@ -39,9 +45,12 @@ const NavBar = ({}) => {
             />
           </svg>
         </div>
-        <div className="w-7/12"><Nav ></Nav></div>
+        <div className="md:w-7/12  z-50">
+        <div className={`  md:left-0  ${isOpen ? 'w-full  bg-black flex  justify-center  inset-0  absolute z-40':'absolute left-[100vw]'} md:relative top-[80px] md:top-0 h-3/6 transition-all duration-500`}><Nav column={isOpen} style={"w-[100vw] md:w-fit border-t md:border-none"} ></Nav></div>
+       <FontAwesomeIcon icon={faBars} onClick={() => setIsOpen(!isOpen)}  className="text-white scale-150 md:hidden" />
+        </div>
         
-        <div className="flex">
+        <div className="flex hidden md:block">
         <Button label="Login" className="bg-black text-white hover:text-black px-8 h-[44px] rounded-md group relative overflow-hidden border border-white right-4"><div className="absolute inset-0  bg-white flex items-center justify-center rounded-lg transition-transform duration-200 transform scale-0 group-hover:scale-100 "><span className="opacity-0 group-hover:opacity-100 transition-all ">Login</span>
         </div></Button>
           <Button  label="Signup">

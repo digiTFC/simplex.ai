@@ -102,18 +102,19 @@ const Features = ({}) => {
   ];
 
   return (
-    <div className="relative bottom-28">
+    <div className="relative bottom-32">
       <div className=" absolute  w-full bg-gradient-to-r from-kpink to-kpurple h-[174px] "></div>
 
-      <div className=" curve-t relative pt-32  flex  items-center justify-center py-12 -ml-[6vw] flex-col z-50 bg-black  w-[112vw] ">
+      <div className=" curve-t relative pt-32  flex  items-center justify-center py-12 -left-[6vw] flex-col z-50 bg-black  w-[112vw] ">
         <div className="w-screen">
-        <div className="w-9/12 m-auto ">
+        <div className="w-10/12 m-auto flex flex-col  relative md:left-[3vw] ">
           <Titles
             title="Feature Boxes"
-            subtitleStyle="w-5/12"
+            subtitleStyle="md:w-5/12"
             subTitle="A good design is not only aesthetically pleasing, but also functional. It should be able to solve the problem "
           ></Titles>
-          <div className="grid grid-cols-3 gap-y-8 mt-12">
+            <div className="flex items-center justify-center">
+            <div className="grid md:grid-cols-3  md:mr-[6vw] gap-8   mt-12">
             {featuresIcons.map((feature, index) => {
               return (
                 <div key={index}>
@@ -122,6 +123,7 @@ const Features = ({}) => {
               );
             })}
           </div>
+            </div>
         </div>
         </div>
       </div>
