@@ -1,6 +1,7 @@
-import Button from "../components/general-components/button";
-import ContactForm from "../components/general-components/contactForm";
-import Titles from "../components/general-components/Titles";
+import ContactForm from "@/app/components/general-components/contactForm";
+
+
+
 
 const Contact = ({}) => {
     

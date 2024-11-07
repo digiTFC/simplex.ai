@@ -1,9 +1,10 @@
 'use client'
-import Button from "../components/general-components/button";
-import Nav from "../components/general-components/nav";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import Button from "@/app/components/general-components/button";
+import Nav from "@/app/components/general-components/nav";
 
 
 const NavBar = ({}) => {

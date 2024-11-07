@@ -1,5 +1,6 @@
-import Titles from "../components/general-components/Titles";
-import FeatureCard from "../components/homeComponents/featuresCard";
+import Titles from "@/app/components/general-components/Titles";
+import FeatureCard from "@/app/components/homeComponents/featuresCard";
+
 
 const Features = ({}) => {
   const featuresIcons = [

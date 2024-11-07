@@ -1,12 +1,13 @@
 import React from 'react'
-import NavBar from '../layouts/navBar'
-import Header from '../layouts/header'
-import Features from '../layouts/features'
-import Purpose from '../layouts/pupose'
-import Partners from '../layouts/partners'
-import Contact from '../layouts/contactUs'
-import Footer from '../layouts/footer'
-import CopyRight from '../layouts/copyright'
+
+import Features from '../layouts/home/features'
+import Purpose from '../layouts/home/pupose'
+import Partners from '../layouts/home/partners'
+import Contact from '../layouts/home/contactUs'
+import NavBar from '../layouts/core/navBar'
+import Header from '../layouts/home/header'
+import Footer from '../layouts/core/footer'
+import CopyRight from '../layouts/core/copyright'
 
 const Home = () => {
   return (

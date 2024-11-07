@@ -1,11 +1,11 @@
-import Titles from "../components/general-components/Titles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
   faTwitter,
   faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
-import IconBox from "../components/general-components/iconBox";
+import IconBox from "@/app/components/general-components/iconBox";
+import Titles from "@/app/components/general-components/Titles";
 
 const CopyRight = ({}) => {
   return (

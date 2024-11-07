@@ -1,6 +1,7 @@
-import Button from "../components/general-components/button";
-import Titles from "../components/general-components/Titles";
-import InsightCard from "../components/homeComponents/insightCard";
+import Button from "@/app/components/general-components/button";
+import Titles from "@/app/components/general-components/Titles";
+import InsightCard from "@/app/components/homeComponents/insightCard";
+
 
 const Header = ({}) => {
   const defaultStyle =
