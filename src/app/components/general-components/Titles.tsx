@@ -9,13 +9,13 @@ interface TitleProps{
 }
 
 const Titles: React.FC<TitleProps> = ({title,  subTitle, TitleStyle, subtitleStyle, defaultStyle = true}) => {
-  const defaulTitle = "text-[39px] md:text-[48px] font-semibold text-white"
-  const defaulSubTitle = "text-[14px] md:text-[18px] text-klight"
+  const defaulTitle = "text-[39px] md:text-[48px] font-semibold "
+  const defaulSubTitle = "text-[14px] md:text-[18px]"
   return (
     <div>
         <div className='flex flex-col'>
-            <h2 className={`${TitleStyle} ${defaultStyle ? defaulTitle : 'text-white'} `}>{title}</h2>
-            <p className={`${subtitleStyle} ${defaultStyle ? defaulSubTitle : 'text-klight'} `}>{subTitle}</p>
+            <h2 className={`${TitleStyle} ${defaultStyle ? defaulTitle : ''}text-white `}>{title}</h2>
+            <p className={`${subtitleStyle} ${defaultStyle ? defaulSubTitle : ''} text-klight`}>{subTitle}</p>
         </div>
     </div>
   )

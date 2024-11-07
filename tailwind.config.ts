@@ -16,6 +16,7 @@ const config: Config = {
   			klightGreyHover: '#2F2F34',
   			kpink: '#FF9898',
   			kpurple: '#8054FF',
+			konPurple:  '#6447A5',
   			klight: '#9E9E9E',
   			kblack: '#000000',
   			background: 'hsl(var(--background))',

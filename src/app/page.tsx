@@ -1,10 +1,12 @@
-import Faq from "./layouts/faq";
+
+import { ContentCards } from "./layouts/core/contentCards";
+
 
 
 export default function Home() {
   return (
-    <div>
-      <Faq></Faq>
+    <div className="">
+      <ContentCards></ContentCards>
     </div>
   );
 }

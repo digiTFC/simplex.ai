@@ -1,6 +1,7 @@
-import Titles from "../components/general-components/Titles";
-import CallToAction from "../components/homeComponents/callToAction";
-import PartnerBox from "../components/homeComponents/partnerBox";
+import Titles from "@/app/components/general-components/Titles";
+import CallToAction from "@/app/components/homeComponents/callToAction";
+import PartnerBox from "@/app/components/homeComponents/partnerBox";
+
 
 const Partners = ({}) => {
   return (

@@ -1,5 +1,6 @@
-import Nav from "../components/general-components/nav";
-import Titles from "../components/general-components/Titles";
+import Nav from "@/app/components/general-components/nav";
+import Titles from "@/app/components/general-components/Titles";
+
 
 const Footer = ({}) => {
   return (
