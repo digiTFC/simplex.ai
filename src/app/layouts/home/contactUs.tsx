@@ -749,7 +749,7 @@ const Contact = ({}) => {
           fill="#3A3A47"
         />
          </svg></div>
-        <div className="md:w-5/12 w-10/12 ml-auto z-50 ">
+        <div className="md:w-5/12 w-9/12 m-auto md:ml-auto z-50 ">
             <ContactForm></ContactForm>
         </div>
       </div>
