@@ -1,12 +1,9 @@
-
-import { ContentCards } from "./layouts/core/contentCards";
-
-
+import HomePage from "./pages/home";
 
 export default function Home() {
   return (
     <div className="">
-      <ContentCards></ContentCards>
+      <HomePage></HomePage>
     </div>
   );
 }

@@ -9,7 +9,7 @@ import Header from '../layouts/home/header'
 import Footer from '../layouts/core/footer'
 import CopyRight from '../layouts/core/copyright'
 
-const Home = () => {
+const HomePage = () => {
   return (
     <div className=" w-full overflow-x-hidden">
     <div><NavBar></NavBar></div>
@@ -26,4 +26,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default HomePage
