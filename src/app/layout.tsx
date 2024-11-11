@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased bg-black`}
+        className={`antialiased bg-black w-[100vw] overflow-x-hidden`}
       >
         {children}
         <CursorFollower></CursorFollower>

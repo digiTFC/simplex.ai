@@ -12,7 +12,7 @@ interface pricingProps{
 const PricingCard:React.FC<pricingProps> = ({icon,title,features,price}) => {
   const style = 'bg-gradient-to-r from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700  w-[139px] h-[44px]  rounded-[5px]  px-[32px]'
 
-    return <div>
+    return <div className="text-white">
         <div>
                 <div className="w-[350px] h-[495px] relative bg-klightGrey flex flex-col justify-between  items-center  text-center  rounded-2xl px-[24px] py-8">
         <div className=" w-[76px] h-[76px] absolute   -translate-y-[50%] top-0  flex items-center justify-center rounded-full bg-kOnSecondary">

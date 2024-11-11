@@ -27,7 +27,7 @@ const Footer = ({}) => {
         </div>
         <div className="flex flex-col items-start h-full justify-between">
             <Titles title="Sections" TitleStyle="text-[16px] text-white pb-6 font-semibold"></Titles>
-            <div className="grid grid-cols-3 gap-36">
+            <div className="grid grid-cols-3 gap-32">
                 <Nav column={true} style="text-start"></Nav>
                 <Nav column={true} style="text-start"></Nav> 
                 <Nav column={true} style="text-start"></Nav>

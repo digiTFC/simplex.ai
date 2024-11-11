@@ -262,15 +262,15 @@ const pricingData = [
 const Pricing = () => {
   const [val, setVal] = useState(1);
   return (
-    <div className="w-10/12 m-auto">
-      <div className="flex justify-between items-center">
-        <Titles title="Pricing" TitleStyle="text-[48px] py-[64px]"></Titles>
-        <div className="flex relative rounded-full bg-clip-content bg-klightGrey w-[277px] h-[44px] text-center">
+    <div className="w-10/12 m-auto overflow-x-hidden">
+      <div className="flex justify-between flex-col text-center items-center">
+        <Titles title="Purchase A Subscription" subTitle="Choose the plan that works for you" TitleStyle="text-[48px]" subtitleStyle=""></Titles>
+        <div className="text-white flex relative rounded-full bg-clip-content mt-12 my-20 bg-klightGrey w-[277px] h-[50px] text-center">
           <Button
           label=""
             className={`${
               val == 1 ? "" : `left-[calc(277px/2)]`
-            } transition-all duration-500 absolute inset-0  bg-gradient-to-r from-kpink to-kpurple text-white rounded-full w-[calc(277px/2)]`}
+            } transition-all duration-300 absolute inset-0  bg-gradient-to-r from-kpink to-kpurple text-white rounded-full w-[calc(277px/2)]`}
           ></Button>
           <Button
           label="Monthly"
@@ -288,7 +288,7 @@ const Pricing = () => {
           </Button>
         </div>
       </div>
-      <div className="flex justify-between">
+      <div className="flex md:justify-between items-center justify-center flex-wrap gap-20 md:gap-0">
         {Array.from({ length: 3 }).map((_, index) => {
           return (
             <div key={index}>
