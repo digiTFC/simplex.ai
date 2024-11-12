@@ -1,11 +1,12 @@
 import Nav from "@/app/components/general-components/nav";
 import Titles from "@/app/components/general-components/Titles";
+import CopyRight from "./copyright";
 
 
 const Footer = ({}) => {
   return (
-    <div className="bg-klightGrey py-16">
-      <div className="w-10/12 m-auto flex md:flex-row flex-col justify-between items-center ">
+    <div className="bg-klightGrey">
+      <div className="w-10/12 m-auto  py-16 flex md:flex-row flex-col justify-between items-center ">
         <div className="md:w-3/12 flex flex-col h-[1/2] justify-between">
           <svg
             width="56"
@@ -34,6 +35,9 @@ const Footer = ({}) => {
             </div>
         </div>
       </div>
+      <div>
+    <CopyRight></CopyRight>
+    </div>
     </div>
   );
 };
