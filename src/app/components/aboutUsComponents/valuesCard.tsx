@@ -10,7 +10,7 @@ interface valuesCardProps{
 export const ValuesCard:React.FC <valuesCardProps> = ({title,subtitle,children}) => {
   return (
     <div>
-                    <div className="flex flex-col items-center justify-evenly bg-klightGrey w-fit p-8 px-10 w-[330px] h-[230px] rounded-2xl">
+                    <div className="flex flex-col items-center justify-evenly bg-klightGrey  p-8 px-10 w-[320px] h-[230px] rounded-2xl">
                       {children}
                       <Titles
                         title={title}

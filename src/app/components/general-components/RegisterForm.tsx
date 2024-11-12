@@ -3,8 +3,8 @@ import Titles from './Titles'
 import Button from './button'
 
 const RegisterForm = () => {
-    const buttonStyle = 'px-4 '
-    const buttonSign = 'bg-gradient-to-r from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700 w-[139px] top-[986px] left-[5292px] mt-3 rounded-[5px] py-[12px] px-[22px]'
+    const buttonStyle = 'px-4 text-white'
+    const buttonSign = 'bg-gradient-to-r text-white from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700 w-[139px] top-[986px] left-[5292px] mt-3 rounded-[5px] py-[12px] px-[22px]'
     const inputStyle = 'border border-klightGrey  hover:border-klightGreyHover w-[350px] top-[746px] outline-none py-[12px] px-[28px] bg-klightGrey left-[5292px] rounded-[5px] my-[10px]'
   return (
     <div>
@@ -81,7 +81,7 @@ const RegisterForm = () => {
                             </svg>
                         </div>
                         <div>
-                            <p className='text-sm font-thin px-4'>Register with</p>
+                            <p className='text-sm font-thin px-4 text-white'>Register with</p>
                             <Button label='Google' className={`${buttonStyle}`} />
                         </div>
                     </div>
@@ -92,7 +92,7 @@ const RegisterForm = () => {
                             </svg>
                         </div>
                         <div className=''>
-                            <p className='text-sm font-thin px-4'>Register with</p> 
+                            <p className='text-sm text-white font-thin px-4'>Register with</p> 
                             <Button label='Twitter' className={`${buttonStyle}`} />
                         </div>
                     </div>

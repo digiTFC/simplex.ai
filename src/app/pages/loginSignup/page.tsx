@@ -1,5 +1,6 @@
-import GridCard from "../components/general-components/gridCard";
-import RegisterForm from "../components/general-components/RegisterForm";
+import GridCard from "@/app/components/general-components/gridCard";
+import RegisterForm from "@/app/components/general-components/RegisterForm";
+
 
 const setBackground = (index: number): string => {
     switch(index) {
