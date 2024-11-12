@@ -9,7 +9,8 @@ import Titles from "@/app/components/general-components/Titles";
 
 const CopyRight = ({}) => {
   return (
-    <div className="flex justify-between  items-center w-10/12 m-auto py-6">
+    <div className=" bg-black     py-6">
+      <div className="w-10/12 items-center m-auto flex justify-between" >
       <Titles
         title=""
         subtitleStyle="text-[14px]"
@@ -48,6 +49,7 @@ const CopyRight = ({}) => {
             <FontAwesomeIcon icon={faLinkedinIn} className="h-[18px]" />
           </a></div>
         </IconBox>
+      </div>
       </div>
     </div>
   );
