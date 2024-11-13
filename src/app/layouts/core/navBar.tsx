@@ -5,8 +5,10 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import Button from "@/app/components/general-components/button";
 import Nav from "@/app/components/general-components/nav";
+import { useRouter } from "next/navigation";
 
 const NavBar = ({}) => {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="">
@@ -81,7 +83,7 @@ const NavBar = ({}) => {
               </span>
             </div>
           </Button>
-          <Button label="Signup"></Button>
+          <Button label="Signup" onClick={() => router.push('/pages/loginSignup')}></Button>
         </div>
       </div>
     </div>

@@ -6,12 +6,6 @@ export const Team = () => {
 
     const members = [
         {
-            name : 'Tchoffo Cabrel',
-            role : 'DevOps Intern',
-            image : 'https://res.cloudinary.com/ddqkpyo5u/image/upload/v1727640305/Cabrel_devops_f3uyo7.jpg',
-            link: 'https://www.linkedin.com/in/cabrel-tchoffo-907206256/',
-        },
-        {
             name : 'Sanguo Ledoux',
             role : 'FrontEnd Developper',
             image : 'https://res.cloudinary.com/ddqkpyo5u/image/upload/v1727641034/c836ef26-2237-4b2e-b823-c5f49c38c878.png',
@@ -26,7 +20,7 @@ export const Team = () => {
         {
             name : 'Pamel Fichieu',
             role : 'BackEnd Developer',
-            image : 'https://res.cloudinary.com/ddqkpyo5u/image/upload/v1727640305/Cabrel_devops_f3uyo7.jpg',
+            image : 'https://res.cloudinary.com/ddqkpyo5u/image/upload/v1727640283/hermann_data_anlytics_le01ky.jpg',
             link : 'Hermann Nzeudeu'
         },
     ]
@@ -35,7 +29,7 @@ export const Team = () => {
     <div className="bg-klightGrey rounded-3xl py-12 sm:px-12  ">
     <Titles title="Meet Our Team" TitleStyle="text-center"></Titles>
 
-    <div className="flex flex-col gap-y-10  md:flex-row flex-wrap justify-center items-center md:justify-evenly py-12">
+    <div className="flex flex-col md:grid grid-cols-3 place-items-center gap-y-10  md:flex-row  justify-center items-center md:justify-evenly py-12">
       {members.map((member,index) => {
         return <div key={index} className="w-fit p-[1px] relative rounded-3xl">
         <div className="bg-gradient-to-br absolute via-blue-500 inset-0 from-kpink to-kpurple rounded-3xl"></div>

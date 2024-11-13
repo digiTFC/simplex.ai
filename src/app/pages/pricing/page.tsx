@@ -1,3 +1,4 @@
+import { CallToAction } from '@/app/components/general-components/callToAction'
 import Footer from '@/app/layouts/core/footer'
 import NavBar from '@/app/layouts/core/navBar'
 import Pricing from '@/app/layouts/pricing'
@@ -12,7 +13,10 @@ import React from 'react'
         <div className='py-16'>
             <Pricing></Pricing>
         </div>
-        <div className='pt-16'>
+        <div className='w-10/12 m-auto py-10'>
+            <CallToAction></CallToAction>
+        </div>
+        <div className=''>
             <Footer></Footer>
         </div>
     </div>
