@@ -1,12 +1,23 @@
+'use client'
 import React from 'react'
 import Titles from './Titles'
 import Button from './button'
+import { useRouter } from 'next/navigation'
+import { toast } from 'sonner'
 
 const RegisterForm = () => {
+    const router = useRouter()
     const buttonStyle = 'px-4 text-white'
     const buttonSign = 'bg-gradient-to-r text-white from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700 w-[139px] top-[986px] left-[5292px] mt-3 rounded-[5px] py-[12px] px-[22px]'
     const inputStyle = 'border border-klightGrey  hover:border-klightGreyHover w-[350px] top-[746px] outline-none py-[12px] px-[28px] bg-klightGrey left-[5292px] rounded-[5px] my-[10px]'
-  return (
+  
+  const login = () => {
+    toast.success('Authentification Success',)
+    setTimeout(() => {
+        router.push('/');  }, 2000) 
+  }
+  
+    return (
     <div>
         <div className='w-[359px] top-[569px] left-[5292px] bg-black rounded-[1px]'>
             <form action="">
@@ -61,7 +72,7 @@ const RegisterForm = () => {
                     </div>
                 </div>
                 <div>
-                    <Button label='Signup Now' className={`${buttonSign}`} />
+                    <Button label='Signup Now' className={`${buttonSign}`} onClick={() => login()} />
                 </div>
                 <div className='grid grid-cols-2 mt-[35px] w-[350px] h-[51px] top-[1069px] left-[5292px]'>
                     <div className='w-[168px] flex justify-center py-[4px] left-[5292] rounded-[5px] bg-klightGrey hover:bg-klightGreyHover transition-all'>
