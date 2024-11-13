@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Toaster, toast } from 'sonner'
 import CursorFollower from "./components/general-components/cursorFollower";
 
 export const metadata: Metadata = {
@@ -17,8 +18,10 @@ export default function RootLayout({
       <body
         className={`antialiased bg-black w-[100vw] overflow-x-hidden`}
       >
+        <Toaster position="top-right" duration={1500}/>
         {children}
         <CursorFollower></CursorFollower>
+        
       </body>
     </html>
   );
