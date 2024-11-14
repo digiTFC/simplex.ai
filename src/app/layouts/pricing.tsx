@@ -3,6 +3,7 @@ import { useState } from "react";
 import Button from "../components/general-components/button";
 import Titles from "../components/general-components/Titles";
 import PricingCard from "../components/pricingComponents/princingCard";
+import { useRouter } from "next/navigation";
 
 const pricingData = [
   {
@@ -261,6 +262,7 @@ const pricingData = [
 
 const Pricing = () => {
   const [val, setVal] = useState(1);
+  const router = useRouter();
   return (
     <div className="w-10/12 m-auto overflow-x-hidden">
       <div className="flex justify-between flex-col text-center items-center">
@@ -297,6 +299,7 @@ const Pricing = () => {
                 icon={pricingData[index].icon}
                 title={pricingData[index].name}
                 features={pricingData[index].features}
+                onClick={() => router.push("/pages/paiment")}
                 price={
                   val == 1
                     ? pricingData[index].monthlyPrice.toString()
