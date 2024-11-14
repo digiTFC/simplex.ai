@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Toaster, toast } from 'sonner'
+import { Toaster } from 'sonner'
 import CursorFollower from "./components/general-components/cursorFollower";
 
 export const metadata: Metadata = {

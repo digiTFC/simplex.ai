@@ -1,6 +1,5 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { string } from "yup"
 
 interface infoTileProps{
     icon : IconDefinition
