@@ -47,3 +47,5 @@ export const Team = () => {
   </div>
   )
 }
+
+

@@ -20,8 +20,7 @@ export default function RootLayout({
       >
         <Toaster position="top-right" duration={1500}/>
         {children}
-        <CursorFollower></CursorFollower>
-        
+        <CursorFollower></CursorFollower> 
       </body>
     </html>
   );
