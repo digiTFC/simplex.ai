@@ -77,7 +77,7 @@ const NavBar = ({}) => {
             label="Login"
             className="bg-black text-white hover:text-black px-8 h-[44px] rounded-md group relative overflow-hidden border border-white right-4"
           >
-            <div className="absolute inset-0  bg-white flex items-center justify-center rounded-lg transition-transform duration-200 transform scale-0 group-hover:scale-100 ">
+            <div className="absolute inset-0  bg-white flex items-center justify-center  transition-transform duration-200 transform scale-0 group-hover:scale-100 ">
               <span className="opacity-0 group-hover:opacity-100 transition-all ">
                 Login
               </span>

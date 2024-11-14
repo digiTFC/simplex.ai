@@ -13,7 +13,7 @@ const Nav:React.FC<navPros> = ({column,style}) => {
             <a className={navStyle} onClick={()=> router.push('/')}>Home</a>
             <a className={navStyle} onClick={()=> router.push('/pages/pricing')}>Pricing</a>
             <a className={navStyle} onClick={()=> router.push('/pages/aboutUs')}>About</a>
-            <a className={navStyle}>Contact</a>
+            <a className={navStyle} onClick={()=> router.push('/pages/contactUs')}>Contact</a>
         </div> 
     </div>
 }
