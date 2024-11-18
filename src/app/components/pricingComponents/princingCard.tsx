@@ -1,15 +1,18 @@
 import { ReactNode } from "react"
 import Button from "../general-components/button"
 import PrincingTile from "./princingTile"
+
 interface pricingProps{
     icon : ReactNode,
 
     title : string,
     features : string[],
     price :string
+    onClick : () => void
 
 }
-const PricingCard:React.FC<pricingProps> = ({icon,title,features,price}) => {
+const PricingCard:React.FC<pricingProps> = ({icon,title,features,price,onClick}) => {
+
   const style = 'bg-gradient-to-r from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700  w-[139px] h-[44px]  rounded-[5px]  px-[32px]'
 
     return <div className="text-white">
@@ -28,7 +31,7 @@ const PricingCard:React.FC<pricingProps> = ({icon,title,features,price}) => {
         <hr className="w-full py-2 border-khr "/>
         <div className=" w-full flex items-center justify-between">
             <h1 className="text-[40px] font-medium transition-all">${price}<span className="text-[14px] font-normal text-klight">/mo</span> </h1>
-            <Button label="Signup" className={style}></Button>
+            <Button label="Signup" onClick={onClick} className={style}></Button>
         </div>
       </div>
         </div>
