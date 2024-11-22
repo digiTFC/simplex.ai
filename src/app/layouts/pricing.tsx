@@ -291,7 +291,7 @@ const Pricing = () => {
         </div>
       </div>
             
-            <div className="flex place-items-center items-center justify-center flex-wrap md:grid grid-cols-3 gap-20 md:gap-0">
+            <div className="flex place-items-center items-center justify-center flex-wrap md:grid grid-cols-3 w-fit 2xl:gap-40 gap-20  m-auto">
         {Array.from({ length: 3 }).map((_, index) => {
           return (
             <div key={index}>

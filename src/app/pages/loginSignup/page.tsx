@@ -15,10 +15,10 @@ const setBackground = (index: number): string => {
 
 const LoginSignup = () => {
     return <div>
-        <div className="flex h-screen overflow-hidden ">
-        <div className="w-1/2 flex items-center justify-center"> <RegisterForm></RegisterForm>  </div>
-        <div className="w-1/2 self-end">
-            <div className="grid grid-cols-3">
+        <div className="flex items-center justify-center h-screen overflow-hidden">
+        <div className="md:w-1/2 md:flex items-center justify-center"> <RegisterForm></RegisterForm>  </div>
+        <div className="w-1/2 self-end md:block hidden">
+            <div className="md:grid grid-cols-3  ">
                 {
                     Array.from({length:3}).map((item,index) => {
                         const  backgroundImage = setBackground(index);

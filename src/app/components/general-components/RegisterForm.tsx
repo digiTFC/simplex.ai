@@ -1,78 +1,152 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import Titles from './Titles'
 import Button from './button'
-import { useRouter } from 'next/navigation'
+import { registerSchema } from '@/app/scheme/registerSchema'
+import { useFormik } from 'formik';
+import { User } from '@/app/models/user';
 import { toast } from 'sonner'
 
+
+
+
 const RegisterForm = () => {
-    const router = useRouter()
     const buttonStyle = 'px-4 text-white'
-    const buttonSign = 'bg-gradient-to-r text-white from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700 w-[139px] top-[986px] left-[5292px] mt-3 rounded-[5px] py-[12px] px-[22px]'
-    const inputStyle = 'border border-klightGrey  hover:border-klightGreyHover w-[350px] top-[746px] outline-none py-[12px] px-[28px] bg-klightGrey left-[5292px] rounded-[5px] my-[10px]'
-  
-  const login = () => {
-    toast.success('Authentification Success',)
-    setTimeout(() => {
-        router.push('/');  }, 2000) 
-  }
-  
+    const errorStyke = 'text-red-400 text-[12px] absolute  -bottom-1'
+    const buttonSign = 'bg-gradient-to-r text-white from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700 w-[185px] top-[986px] left-[5292px] mt-3 rounded-[5px] py-[12px] px-[22px]'
+    const inputStyle = 'text-klight border border-klightGrey   w-[350px] top-[746px] outline-none py-[12px]  px-[28px] bg-klightGrey left-[5292px] rounded-[5px] my-[12px]'
+  const [isLoading, setIsLoading] =  useState(false)
+
+
+
+  const postUser = async (user : User) => {
+
+    setIsLoading(true)
+    try {
+        const response = await fetch('http://40.125.45.80:8005/api/manage_users/register/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "email": user.email,
+                "first_name": user.first_name,
+                "last_name": user.last_name,
+                "organization_name": "ledoux",
+                "password": user.password,
+                "password_confirm": user.password,
+            }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            // If status code is 2xx, success
+            toast.success('Authentication Success');
+        } else {
+            // If the response status is not 2xx, show error with response text
+            toast.error(await response.text()); // Await the response.text() to get the error message
+        }
+
+        console.log(result); // Log the result for debugging
+    } catch (error) {
+        // Catch network or any other errors
+        toast.error(!error);
+
+    } finally {
+        setIsLoading(false); // Set loading state to false after the request completes
+    }
+}
+
+//   const login = () => {
+
+//     // setTimeout(() => {
+//     //     router.push('/'); setIsLoading(false) }, 2000)
+//     }
+
+  const formik = useFormik({
+    initialValues: {
+        name :"",
+        email:"",
+        password:"",
+        confirmPassword:""
+      },
+      validationSchema : registerSchema,
+      onSubmit : (values) => {
+
+        const user = new User(values.name,values.name,values.email,values.password,)
+
+        postUser(user)
+      }
+})
+
     return (
     <div>
         <div className='w-[359px] top-[569px] left-[5292px] bg-black rounded-[1px]'>
-            <form action="">
+
+        <form onSubmit={formik.handleSubmit}>
                 <div>
-                    <Titles 
+                    <Titles
                         title='Register'
                         subTitle='A good design is not only aesthetically pleasing, but also functional.'
                         TitleStyle='text-[48px]'
-                        subtitleStyle='text-[18px] w-[358px] h-[66px] leading-[28px] top-[653px] left-[5293px] font-[400] color-klight' 
+                        subtitleStyle='text-[18px] w-[358px] h-[66px] leading-[28px] top-[653px] left-[5293px] font-[400] color-klight'
                     />
                 </div>
                 <div className='pt-[12px]'>
-                    <div>
-                        <input 
-                            type="text" 
-                            name="Email" 
-                            id="Email" 
+                    <div className='relative'>
+                        <input
+                            type="text"
+                            name="name"
                             placeholder='Full Name'
-                            className={`${inputStyle}`}
-                            required
+                            className={`${inputStyle} ${formik.errors.name == null ? 'hover:border-klightGreyHover ' :'border-red-400'}`}
+                            onChange={formik.handleChange}
+                            value={formik.values.name}
                         />
+                        {formik.errors.name ? <div className={errorStyke}>{formik.errors.name}</div>:null}
                     </div>
-                    <div>
-                        <input 
-                            type="text" 
-                            name="Email" 
-                            id="Email" 
+                    <div className='relative'>
+                        <input
+                            type="text"
+                            name="email"
                             placeholder='Your Email'
-                            className={`${inputStyle}`} 
+                            className={`${inputStyle} ${formik.errors.email== null ? 'hover:border-klightGreyHover ' :'border-red-400'}`}
+                            onChange={formik.handleChange}
+                            value={formik.values.email}
                             required
                         />
+                        {formik.errors.email ? <div className={errorStyke}>{formik.errors.email}</div>:null}
+
                     </div>
-                    <div>
-                        <input 
-                            type="password" 
-                            name="password" 
-                            id="Email" 
+                    <div className='relative'>
+                        <input
+                            type="password"
+                            name="password"
                             placeholder='Password'
-                            className={`${inputStyle}`}
-                            required 
-                        />
-                    </div>
-                    <div>
-                        <input 
-                            type="password" 
-                            name="confirm password" 
-                            id="Email" 
-                            placeholder='Repeat Password'
-                            className={`${inputStyle} `}
+                            onChange={formik.handleChange}
+                            value={formik.values.password}
+                            className={`${inputStyle} ${formik.errors.password == null ? 'hover:border-klightGreyHover ' :'border-red-400'}`}
                             required
                         />
+                        {formik.errors.password ? <div className={errorStyke}>{formik.errors.password}</div>:null}
+
+                    </div>
+                    <div className='relative'>
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            placeholder='Repeat Password'
+                            onChange={formik.handleChange}
+                            value={formik.values.confirmPassword}
+                            className={`${inputStyle} ${formik.errors.confirmPassword == null ? 'hover:border-klightGreyHover ' :'border-red-400'} `}
+                            required
+                        />
+                        {formik.errors.confirmPassword ? <div className={errorStyke}>{formik.errors.confirmPassword}</div>:null}
+
                     </div>
                 </div>
                 <div>
-                    <Button label='Signup Now' className={`${buttonSign}`} onClick={() => login()} />
+                    <Button label='Signup Now' className={`${buttonSign}`} isLoading={isLoading} onClick={() => formik.submitForm()} />
                 </div>
                 <div className='grid grid-cols-2 mt-[35px] w-[350px] h-[51px] top-[1069px] left-[5292px]'>
                     <div className='w-[168px] flex justify-center py-[4px] left-[5292] rounded-[5px] bg-klightGrey hover:bg-klightGreyHover transition-all'>
@@ -103,7 +177,7 @@ const RegisterForm = () => {
                             </svg>
                         </div>
                         <div className=''>
-                            <p className='text-sm text-white font-thin px-4'>Register with</p> 
+                            <p className='text-sm text-white font-thin px-4'>Register with</p>
                             <Button label='Twitter' className={`${buttonStyle}`} />
                         </div>
                     </div>

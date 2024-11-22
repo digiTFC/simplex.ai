@@ -10,12 +10,13 @@ import { Team } from "../../layouts/aboutUs/team";
 const AboutUs = () => {
   return (
     <div>
+      <main className="3xl:w-9/12 m-auto">
       <div>
         <NavBar></NavBar>
       </div>
 
       <div className="w-10/12 m-auto overflow-hidden">
-        <div className="md:w-2/4 py-24  text-center m-auto">
+        <div className="md:w-2/4 3xl:w-4/6  pt-24 pb-12  text-center m-auto">
           <Titles
             title="Our vision is to make work inspiring and fulfilling"
             subTitle="HRLInk is a cloud-based HR system designed to simplify and streamline HR processes. Grove HR is a powerful tool that can help SMB businesses manage their HR operations with ease."
@@ -23,11 +24,11 @@ const AboutUs = () => {
           ></Titles>
         </div>
 
-        <div>
+        <div className="max-w-[1700px] m-auto">
           <Founders></Founders>
         </div>
 
-        <div>
+        <div className="max-w-[1700px] m-auto">
           <Team></Team>
         </div>
 
@@ -35,10 +36,11 @@ const AboutUs = () => {
           <Values></Values>
         </div>
 
-        <div>
+        <div className="max-w-[1700px] m-auto">
           <CallToAction></CallToAction>
         </div>
       </div>
+      </main>
       <div className="">
         <Footer></Footer>
       </div>

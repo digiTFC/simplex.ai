@@ -23,9 +23,9 @@ export const MemberCard:React.FC<cardProps> = ({name,position,image,textEnd,link
         src={
           image
         }
-        className="w-full  rounded"
+        className="w-[325px] rounded"
         alt="ledoux picture"
-        width={600}
+        width={700}
         height={400}
       ></Image>
       <div  className={`cursor-pointer px-3 py-4 flex   ${textEnd ? 'justify-end ' : ''}`}
@@ -36,7 +36,7 @@ export const MemberCard:React.FC<cardProps> = ({name,position,image,textEnd,link
           TitleStyle="!text-[20px] "
           subtitleStyle="!text-[14px] "
         ></Titles>
-        <a href={link}><FontAwesomeIcon icon={faLinkedinIn} className='scale-75 bg-white p-[4px] mt-1 ml-2 rounded'></FontAwesomeIcon></a>
+        <a href={link} target='_blank'><FontAwesomeIcon icon={faLinkedinIn} className='scale-75 bg-white p-[4px] mt-1 ml-2 rounded'></FontAwesomeIcon></a>
       </div>
     </div>
   </ContentBox>

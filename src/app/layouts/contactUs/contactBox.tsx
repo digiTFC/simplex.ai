@@ -9,7 +9,7 @@ import React from 'react'
 
 export const ContactBox = () => {
   return (
-    <main className="md:w-8/12 w-10/12 text-center md:text-start m-auto relative">
+    <main className="md:w-8/12 max-w-[1000px] w-10/12 text-center md:text-start m-auto relative">
         <div className="border border-khr overflow-hidden rounded-2xl flex md:flex-row flex-col ">
           <div className="md:w-5/12 bg-klightGrey md:p-12 py-12 flex flex-col justify-between items-center">
             <div>

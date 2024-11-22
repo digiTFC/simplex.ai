@@ -16,7 +16,7 @@ const Paiement = () => {
     const router = useRouter();
   const style = "text-white text-[30px] font-semibold";
   return (
-    <div className="w-9/12 py-12 m-auto">
+    <div className="w-9/12 py-12 m-auto flex items-start justify-center flex-col h-full">
       <div className=" cursor-pointer flex items-center text-black group rounded-lg transition-all bg-white px-8 py-2 w-fit" onClick={()=>router.back()}>
         <FontAwesomeIcon icon={faArrowLeft} width={10} className="transition-all duration-200 group-hover:-translate-x-2 "></FontAwesomeIcon>
         <span className="pl-3">Back</span>

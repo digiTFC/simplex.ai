@@ -4,8 +4,8 @@ import React from 'react'
 
 export const Founders = () => {
   return (
-    <div className="flex items-end flex-col md:flex-row justify-between md:py-24 py-12">
-    <div className="md:w-1/2 order-last mt-4 md:m-0 md:order-first">
+    <div className="flex items-end  flex-col md:flex-row justify-center md:py-24 py-12">
+    <div className="md:w-1/2 2xl-w-1/3  text-center md:text-start order-last mt-4 md:m-0 md:order-first">
       <Paragraph
         chidlren="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
         numquam perferendis illum laboriosam autem, soluta a labore
@@ -31,7 +31,7 @@ export const Founders = () => {
         <MemberCard
           name="Pamel Fichieu"
           position="Founder"
-          image="https://res.cloudinary.com/ddqkpyo5u/image/upload/v1727641034/c836ef26-2237-4b2e-b823-c5f49c38c878.png"
+          image="https://res.cloudinary.com/ddqkpyo5u/image/upload/v1732025369/de2efce3-65d4-45fd-a761-73e9f17b2940.png"
           link=''
         ></MemberCard>
       </div>

@@ -12,7 +12,7 @@ const NavBar = ({}) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="">
-      <div className="mt-[32px] w-10/12 m-auto flex items-center justify-between">
+      <div className="mt-[32px] w-10/12  m-auto flex items-center justify-between">
         <div className="z-50">
           <svg
             width="132"
