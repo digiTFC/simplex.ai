@@ -28,12 +28,12 @@ const Button: React.FC<ButtonProps> = ({
 <button
       type={type}
       onClick={onClick}
-      className={`${className ?? defaultStyle} transition-all   z-50  ${disabled ? disabledStyle : ''}`}
+      className={`${className ?? defaultStyle} transition-all ${isLoading != null ? 'overflow-hidden relative' :''}  z-50  ${disabled ? disabledStyle : ''}`}
       disabled={disabled}
     >
       <div className='flex items-center justify-center'>
       {children}
-    {isLoading ? <div className='border-t-transparent border mr-3  left-0 border-2 w-[20px] h-[20px] rounded-full animate-spin'></div> : ''}
+       <div className={`${isLoading ? 'transition-all  transition-all  border-t-transparent border mr-3 w left-0 border-2 w-[20px] h-[20px] rounded-full animate-spin':'absolute' }  `}></div> 
 
       {label}
       </div>

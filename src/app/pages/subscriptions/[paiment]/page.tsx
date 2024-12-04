@@ -3,9 +3,10 @@ import { PaiementForm } from "@/app/components/pricingComponents/paiementForm";
 import React from "react";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import GradientCircle from "@/app/components/general-components/gradientCircle";
 import { LoopsIllustration } from "@/app/components/general-components/loopsIllustration";
+import { pricingData } from "@/data/subcriptions";
 
 // interface paimentProps {
 //   plan: string;
@@ -14,6 +15,16 @@ import { LoopsIllustration } from "@/app/components/general-components/loopsIllu
 
 const Paiement = () => {
     const router = useRouter();
+    const params = useParams();
+    const index = Number(params!.paiment.toString().substring(1,-1))
+    const duration = params!.paiment.toString().substring(4)
+    const data = pricingData[index] 
+    const price = duration == "monthly" ? data.monthlyPrice : data.yearlyPrice 
+
+
+      // const data = pricingData[Number(index)]
+
+
   const style = "text-white text-[30px] font-semibold";
   return (
     <div className="w-9/12 py-12 m-auto flex items-start justify-center flex-col h-full">
@@ -24,8 +35,8 @@ const Paiement = () => {
       <div className=" m-auto pt-12 flex md:flex-row flex-col  justify-between">
         <div className="md:w-5/12 text-white">
           <div className="flex justify-between">
-            <span className={style}>Profesional Plan</span>
-            <span className={style}>$206.65</span>
+            <span className={style}>{data.name}</span>
+            <span className={style}>${price.toFixed(2)}</span>
           </div>
 
           <div className="overflow-hidden mt-10 h-[40vh] w-full bg-klightGrey rounded-3xl relative">
@@ -59,7 +70,7 @@ const Paiement = () => {
           </div>
         </div>
         <div className="md:w-4/12 overflow-x-hidden pt-16 md:pt-0">
-          <PaiementForm></PaiementForm>
+          <PaiementForm price={price}></PaiementForm>
         </div>
       </div>
     </div>

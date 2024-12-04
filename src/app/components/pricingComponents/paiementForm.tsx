@@ -5,11 +5,18 @@ import Button from '../general-components/button';
 import { useFormik } from 'formik';
 import { paymentScheme } from '@/app/scheme/paymentScheme';
 import { toast} from 'sonner';
-export const PaiementForm = () => {
+
+interface paiementFormProprs{
+    price : number
+}
+
+export const PaiementForm:React.FC<paiementFormProprs> = ({price}) => {
     const [isLoading, setIsLoading] = useState(false)
 
     const  login = () => {
         toast.success('Payment Succesful')
+        setIsLoading(false)
+
     } 
 
     const formik = useFormik({
@@ -26,9 +33,13 @@ export const PaiementForm = () => {
             setTimeout(login,
                 2000
             )
+
+
         },
     })
-    
+
+    const tva = price * 0.2
+    const total = price + tva    
   return (
     <div className='text-white'>
         <form onSubmit={formik.handleSubmit}> 
@@ -48,21 +59,21 @@ export const PaiementForm = () => {
         <div  className='w-[380px] px-8 my-10  py-2 rounded-md  border border-klight border-dashed'>
             <div className='flex justify-between'>
                 <span>Subtotal</span>
-                <span>$111.00</span>
+                <span>${price.toFixed(2)}</span>
             </div>
             <div className='flex my-3 justify-between' >
                 <span>TVA(0.7)</span>
-                <span>$1.00</span>
+                <span>${tva.toFixed(2)}</span>
             </div>
             <div className='flex justify-between'>
                 <span>Total</span>
-                <span>$129.00</span>
+                <span>${total.toFixed(2)}</span>
             </div>
         </div>
 
         <div className='w-fit text-center flex flex-col'>
         <div className='relative'>
-        <Button className='bg-gradient-to-br from-kpink to-kpurple  rounded h-[44px] w-[380px] focus:w-[375px]' isLoading={isLoading} onClick={() => formik.submitForm()} label={isLoading ? 'Processing...' : 'Pay 299'}></Button>
+        <Button className='bg-gradient-to-br from-kpink to-kpurple  rounded h-[44px] w-[380px] focus:w-[375px]' isLoading={isLoading} onClick={() => formik.submitForm()} label={isLoading ? 'Processing...' : `Pay ${total.toFixed(2)}$`}></Button>
             
         </div>
         <span className='text-klight text-[12px]'>Payments are encrypted and secured</span>
