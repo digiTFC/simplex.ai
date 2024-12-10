@@ -32,7 +32,9 @@ const PricingCard:React.FC<pricingProps> = ({icon,title,features,price,onClick})
         onMouseMove={handleMouseMove}>
                 <div className=" w-[350px] h-[495px] relative bg-klightGrey flex flex-col justify-between  items-center  text-center  rounded-2xl px-[24px] py-8">
         <div className=" w-[76px] h-[76px] absolute   -translate-y-[50%] top-0  flex items-center justify-center rounded-full bg-kOnSecondary">
+          <div className="translate-x-[8px] translate-y-[8px] scale-75">
           {icon}
+          </div>
         </div>
         <h1 className="text-[20px] font-medium mt-4">{title}</h1>
         <hr className=" w-full my-[20px] border-khr" />

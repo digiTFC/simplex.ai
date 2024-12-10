@@ -3,17 +3,14 @@ import Footer from "@/app/layouts/core/footer";
 import NavBar from "@/app/layouts/core/navBar";
 import React from "react";
 import { CallToAction } from "@/app/components/general-components/callToAction";
-import { Founders } from "../../layouts/aboutUs/founders";
-import { Values } from "@/app/layouts/aboutUs/values";
-import { Team } from "../../layouts/aboutUs/team";
+import { Founders } from "./_components/founders";
+import { Values } from "@/app/pages/(public)/(with-navbar)/aboutUs/_components/values";
+import { Team } from "./_components/team";
 
 const AboutUs = () => {
   return (
     <div>
       <main className="3xl:w-9/12 m-auto">
-      <div>
-        <NavBar></NavBar>
-      </div>
 
       <div className="w-10/12 m-auto overflow-hidden">
         <div className="md:w-2/4 3xl:w-4/6  pt-24 pb-12  text-center m-auto">

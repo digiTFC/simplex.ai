@@ -2,12 +2,11 @@ import Titles from "@/app/components/general-components/Titles";
 import Footer from "@/app/layouts/core/footer";
 import NavBar from "@/app/layouts/core/navBar";
 import React from "react";
-import { ContactBox } from "@/app/layouts/contactUs/contactBox";
+import { ContactBox } from "@/app/pages/(public)/(with-navbar)/contactUs/_components/contactBox";
 
 const ContacUS = () => {
   return (
     <div>
-      <NavBar></NavBar>
       <div className="text-center py-12">
           <Titles
             title="Contact Us"

@@ -1,16 +1,14 @@
 import { CallToAction } from '@/app/components/general-components/callToAction'
 import Footer from '@/app/layouts/core/footer'
 import NavBar from '@/app/layouts/core/navBar'
-import Pricing from '@/app/layouts/pricing'
+
 import React from 'react'
+import Pricing from './_components/pricing'
 
  const PricingPage = () => {
   return (
     <div>
         <main className='3xl:w-8/12 m-auto'>
-        <div>
-            <NavBar></NavBar>
-        </div>
         <div className='py-16'>
             <Pricing></Pricing>
         </div>
@@ -18,9 +16,7 @@ import React from 'react'
             <CallToAction></CallToAction>
         </div>
         </main>
-        <div className=''>
-            <Footer></Footer>
-        </div>
+
     </div>
   )
 }

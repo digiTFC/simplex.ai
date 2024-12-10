@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
 <button
       type={type}
       onClick={onClick}
-      className={`${className ?? defaultStyle} transition-all ${isLoading != null ? 'overflow-hidden relative' :''}  z-50  ${disabled ? disabledStyle : ''}`}
+      className={`${className ?? defaultStyle} transition-all ${isLoading != null  ? 'overflow-hidden relative' :''}  z-50  ${disabled ? disabledStyle : ''}`}
       disabled={disabled}
     >
       <div className='flex items-center justify-center'>

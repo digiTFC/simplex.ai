@@ -9,7 +9,7 @@ const Header = ({}) => {
 
   return (
     <div className="w-full overflow-hidden ">
-      <div className=" curve-b relative  flex pt-24 md:pb-[300px] pb-[200px] -ml-[6vw] flex-col z-40 bg-black w-[112vw] ">
+      <div className=" curve-b relative  flex pt-12 md:pb-[300px] pb-[200px] -ml-[6vw] flex-col z-40 bg-black w-[112vw] ">
         <div className="relative w-10/12 md:w-1/2 m-auto  text-center">
           <Titles
             title="Beautiful Landing Page Design for You"

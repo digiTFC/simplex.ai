@@ -72,8 +72,9 @@ const NavBar = ({}) => {
                     />}
         </div>
 
-        <div className="flex hidden md:block">
+        <div className="flex block">
           <Button
+          onClick={() => router.push(`/pages/auth/${"login"}`)}
             label="Login"
             className="bg-black text-white hover:text-black px-8 h-[44px] rounded-md group relative overflow-hidden border border-white right-4"
           >
@@ -83,7 +84,7 @@ const NavBar = ({}) => {
               </span>
             </div>
           </Button>
-          <Button label="Signup" onClick={() => router.push('/pages/loginSignup')}></Button>
+          <Button label="Signup" onClick={() => router.push(`/pages/auth/${"signup"}`)}></Button>
         </div>
       </div>
     </div>
