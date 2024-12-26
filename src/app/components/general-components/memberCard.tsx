@@ -36,7 +36,7 @@ export const MemberCard:React.FC<cardProps> = ({name,position,image,textEnd,link
           TitleStyle="!text-[20px] "
           subtitleStyle="!text-[14px] "
         ></Titles>
-        <a href={link} target='_blank'><FontAwesomeIcon icon={faLinkedinIn} className='scale-75 bg-white p-[4px] mt-1 ml-2 rounded'></FontAwesomeIcon></a>
+        <a href={link} target='_blank'><FontAwesomeIcon icon={faLinkedinIn} color='black' className='scale-75 bg-white p-[6px] px-[7px] mt- ml-2 rounded'></FontAwesomeIcon></a>
       </div>
     </div>
   </ContentBox>

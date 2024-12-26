@@ -16,9 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased bg-black w-[100vw] overflow-x-hidden`}
+        className={`antialiased bg-black w-[100vw] text-white overflow-x-hidden`}
       >
-        <Toaster position="top-right" duration={1500}/>
+        <Toaster position="top-right" duration={2000}/>
         {children}
         <CursorFollower></CursorFollower> 
       </body>

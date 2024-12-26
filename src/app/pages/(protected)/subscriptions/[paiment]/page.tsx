@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useParams, useRouter } from "next/navigation";
 import GradientCircle from "@/app/components/general-components/gradientCircle";
 import { LoopsIllustration } from "@/app/components/general-components/loopsIllustration";
-import { pricingData } from "@/data/subcriptions";
+import { pricingData } from "@/app/pages/(public)/data/subcriptions";
 
 // interface paimentProps {
 //   plan: string;
@@ -70,7 +70,7 @@ const Paiement = () => {
           </div>
         </div>
         <div className="md:w-4/12 overflow-x-hidden pt-16 md:pt-0">
-          <PaiementForm price={price}></PaiementForm>
+          <PaiementForm price={price} subscriptionId={index+1}></PaiementForm>
         </div>
       </div>
     </div>

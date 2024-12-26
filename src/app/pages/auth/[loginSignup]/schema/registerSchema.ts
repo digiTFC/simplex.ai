@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import * as crypto from 'crypto';
+// import * as crypto from 'crypto';
 
 export const registerSchema = Yup.object({
   first_name: Yup.string().required('FirstName is required'),

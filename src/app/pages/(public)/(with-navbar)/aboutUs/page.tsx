@@ -1,6 +1,4 @@
 import Titles from "@/app/components/general-components/Titles";
-import Footer from "@/app/layouts/core/footer";
-import NavBar from "@/app/layouts/core/navBar";
 import React from "react";
 import { CallToAction } from "@/app/components/general-components/callToAction";
 import { Founders } from "./_components/founders";
@@ -10,10 +8,10 @@ import { Team } from "./_components/team";
 const AboutUs = () => {
   return (
     <div>
-      <main className="3xl:w-9/12 m-auto">
+      <div className="3xl:w-9/12 m-auto">
 
       <div className="w-10/12 m-auto overflow-hidden">
-        <div className="md:w-2/4 3xl:w-4/6  pt-24 pb-12  text-center m-auto">
+        <div className="md:w-2/4 3xl:w-4/6  py-16 text-center m-auto">
           <Titles
             title="Our vision is to make work inspiring and fulfilling"
             subTitle="HRLInk is a cloud-based HR system designed to simplify and streamline HR processes. Grove HR is a powerful tool that can help SMB businesses manage their HR operations with ease."
@@ -25,11 +23,11 @@ const AboutUs = () => {
           <Founders></Founders>
         </div>
 
-        <div className="max-w-[1700px] m-auto">
+        <div className="max-w-[1700px] my-16 m-auto">
           <Team></Team>
         </div>
 
-        <div>
+        <div className="my-16">
           <Values></Values>
         </div>
 
@@ -37,9 +35,6 @@ const AboutUs = () => {
           <CallToAction></CallToAction>
         </div>
       </div>
-      </main>
-      <div className="">
-        <Footer></Footer>
       </div>
     </div>
   );

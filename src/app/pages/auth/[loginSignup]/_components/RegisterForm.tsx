@@ -3,9 +3,7 @@ import React, { useState } from "react";
 import Titles from "../../../../components/general-components/Titles";
 import Button from "../../../../components/general-components/button";
 import { useFormik } from "formik";
-import { User } from "@/app/models/user";
 import { toast } from "sonner";
-import apiClient from "@/app/utils/axios/axiosConfig";
 import { registerSchema } from "@/app/pages/auth/[loginSignup]/schema/registerSchema";
 import { registerUser } from "../_service/register";
 import { useRouter } from "next/navigation";
@@ -20,12 +18,6 @@ const RegisterForm = () => {
     "text-klight border border-klightGrey   w-[350px] top-[746px] outline-none py-[12px]  px-[28px] bg-klightGrey left-[5292px] rounded-[5px] my-[8px]";
   const [isLoading, setIsLoading] = useState(false);
 
-  //   const login = () => {
-
-  //     // setTimeout(() => {
-  //     //     router.push('/'); setIsLoading(false) }, 2000)
-  //     }
-
   const formik = useFormik({
     initialValues: {
       first_name: "",
@@ -37,7 +29,7 @@ const RegisterForm = () => {
     },
     validationSchema: registerSchema,
     onSubmit: async (values) => {
-      console.log("click");
+      setIsLoading(true);
       const response = await registerUser({
         email: values.email,
         first_name: values.first_name,
@@ -48,9 +40,13 @@ const RegisterForm = () => {
       });
 
       if (response.succes) {
-        toast.success("SignUp Sucessfull");
+        toast.success("SignUp Sucessfull ✅");
         router.replace("../verifyAccount");
+      } else {
+        toast.error(response.message);
       }
+
+      setIsLoading(false);
     },
   });
 
@@ -64,6 +60,7 @@ const RegisterForm = () => {
           <div className="pt-[12px]">
             <div className="relative">
               <input
+                autoComplete="off"
                 type="text"
                 name="first_name"
                 placeholder="First Name"
@@ -81,6 +78,7 @@ const RegisterForm = () => {
             </div>
             <div className="relative">
               <input
+                autoComplete="off"
                 type="text"
                 name="last_name"
                 placeholder="Last Name"
@@ -98,6 +96,7 @@ const RegisterForm = () => {
             </div>
             <div className="relative">
               <input
+                autoComplete="off"
                 type="text"
                 name="email"
                 placeholder="Your Email"
@@ -117,6 +116,7 @@ const RegisterForm = () => {
             <div className="relative">
               <input
                 type="text"
+                autoComplete="off"
                 name="organization_name"
                 placeholder="Organization Name"
                 className={`${inputStyle} ${
@@ -135,6 +135,7 @@ const RegisterForm = () => {
             </div>
             <div className="relative">
               <input
+                autoComplete="off"
                 type="password"
                 name="password"
                 placeholder="Password"
@@ -153,6 +154,7 @@ const RegisterForm = () => {
             </div>
             <div className="relative">
               <input
+                autoComplete="off"
                 type="password"
                 name="password_confirm"
                 placeholder="Repeat Password"
@@ -175,6 +177,7 @@ const RegisterForm = () => {
           <div>
             <Button
               label="Signup Now"
+              isLoading={isLoading}
               className={`${buttonSign}`}
               onClick={() => formik.submitForm()}
             />

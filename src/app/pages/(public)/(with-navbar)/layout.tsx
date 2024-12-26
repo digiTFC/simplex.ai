@@ -1,5 +1,5 @@
 import Footer from "@/app/layouts/core/footer";
-import "../../globals.css";
+import "../../../globals.css";
 import NavBar from "@/app/layouts/core/navBar";
 
 export default function RootLayout({

@@ -4,7 +4,7 @@ import React from 'react'
 
 export const Founders = () => {
   return (
-    <div className="flex items-end  flex-col md:flex-row justify-center md:py-24 py-12">
+    <div className="flex items-end  flex-col md:flex-row justify-center">
     <div className="md:w-1/2 2xl-w-1/3  text-center md:text-start order-last mt-4 md:m-0 md:order-first">
       <Paragraph
         chidlren="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla

@@ -1,7 +1,7 @@
 "use client";
 import GridCard from "@/app/components/general-components/gridCard";
 import RegisterForm from "@/app/pages/auth/[loginSignup]/_components/RegisterForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoginForm from "./_components/login-form";
 import { useParams } from "next/navigation";
 
@@ -19,26 +19,29 @@ const setBackground = (index: number): string => {
 const LoginSignUP = () => {
   const [isLogin, setIsLogin] = useState(false);
   const params = useParams()
- let state = params?.loginSignup.toString()
+  const state = params?.loginSignup.toString()
+
+ useEffect(()=>{
+
+  if(state == "login"){
+    setIsLogin(true)
+  }
+ },[state])
 
   return (
     <div>
       <div className="flex items-center justify-center h-screen overflow-hidden">
         <div className="md:w-1/2 flex  flex-col items-center justify-center">
-          {state == "login" || isLogin ? <LoginForm></LoginForm> : <RegisterForm></RegisterForm>}
+          {isLogin ? <LoginForm></LoginForm> : <RegisterForm></RegisterForm>}
           <p
             className="text-klight cursor-pointer transition-all hover:text-white"
             onClick={() =>{
-              if(state == "login"){
-                state=""
-                setIsLogin(false)
-              }else{
-                setIsLogin(!isLogin)
-              }
+              
+              setIsLogin(!isLogin)
                 
             }}
           >
-            {state == "login" || isLogin ? "No account yet" : "Already have an account ?"}
+            { isLogin ? "No account yet" : "Already have an account ?"}
           </p>
         </div>
         <div className="w-1/2 self-end md:block hidden">

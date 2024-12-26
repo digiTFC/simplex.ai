@@ -2,6 +2,7 @@ import React from 'react'
 import { LoopsIllustration } from './loopsIllustration'
 import Titles from './Titles'
 import Button from './button'
+import Link from 'next/link'
 
 export const CallToAction = () => {
   return (
@@ -25,7 +26,9 @@ export const CallToAction = () => {
             ></Titles>
           </div>
           <div className="pt-6 z-50 ">
+            <Link href={'pages/auth/signup'}>
             <Button label="Join Us" ></Button>
+            </Link>
           </div>
         </div>
   )

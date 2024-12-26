@@ -1,4 +1,81 @@
 export const pricingData = [
+  {
+    name: "Standart Package",
+    monthlyPrice: 0,
+    yearlyPrice: 0,
+    features: [
+      "100 + Free Templates",
+      "100 + Free Templates",
+      "100 + Free Templates",
+      "100 + Free Templates",
+      "100 + Free Templates",
+    ],
+    icon: (
+      <svg
+        className="scale-150 "
+        width="121"
+        height="138"
+        viewBox="0 0 121 138"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g filter="url(#filter0_d_430_127)">
+          <path
+            d="M53.6841 61.1105V43.6672L43.3701 62.255L53.6841 61.1105Z"
+            fill="#BCD4F5"
+          />
+          <path
+            d="M53.6841 61.1105V43.6672L63.9998 62.255L53.6841 61.1105Z"
+            fill="#DDE8FA"
+          />
+          <path
+            d="M43.3701 62.255L53.6841 80.8428V61.1105L43.3701 62.255Z"
+            fill="#A7BDEB"
+          />
+          <path
+            d="M63.9998 62.255L53.6841 80.8428V61.1105L63.9998 62.255Z"
+            fill="#B2CBF0"
+          />
+        </g>
+        <defs>
+          <filter
+            id="filter0_d_430_127"
+            x="0.370117"
+            y="0.667236"
+            width="120.63"
+            height="137.176"
+            filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB"
+          >
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feColorMatrix
+              in="SourceAlpha"
+              type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              result="hardAlpha"
+            />
+            <feOffset dx="7" dy="7" />
+            <feGaussianBlur stdDeviation="25" />
+            <feColorMatrix
+              type="matrix"
+              values="0 0 0 0 0.490196 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+            />
+            <feBlend
+              mode="normal"
+              in2="BackgroundImageFix"
+              result="effect1_dropShadow_430_127"
+            />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="effect1_dropShadow_430_127"
+              result="shape"
+            />
+          </filter>
+        </defs>
+      </svg>
+    ),
+  },
     {
       name: "Silver Package",
       monthlyPrice: 9,
@@ -12,7 +89,7 @@ export const pricingData = [
       ],
       icon: (
         <svg
-          className="scale-150 translate-x-[139px] translate-y-[6px]"
+          className="scale-150 "
           width="121"
           height="138"
           viewBox="0 0 121 138"
@@ -89,7 +166,7 @@ export const pricingData = [
       ],
       icon: (
         <svg
-          className="scale-150 translate-x-[7px] translate-y-[6px]"
+          className="scale-150 "
           width="137"
           height="139"
           viewBox="0 0 137 139"
@@ -171,7 +248,7 @@ export const pricingData = [
       ],
       icon: (
         <svg
-          className="scale-150 translate-x-[7px] translate-y-[6px]"
+          className="scale-150 "
           width="130"
           height="135"
           viewBox="0 0 130 135"

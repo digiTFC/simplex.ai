@@ -3,27 +3,21 @@ import React, { useState } from "react";
 import Titles from "../../../../components/general-components/Titles";
 import Button from "../../../../components/general-components/button";
 import { useFormik } from "formik";
-import { User } from "@/app/models/user";
 import { toast } from "sonner";
-import apiClient from "@/app/utils/axios/axiosConfig";
-import { registerSchema } from "@/app/pages/auth/[loginSignup]/schema/registerSchema";
-import { loginUser, registerUser } from "../_service/register";
 import { loginSchema } from "../schema/loginSchema";
+import { useRouter } from "next/navigation";
+import { loginUser } from "../_service/login";
+import Link from "next/link";
 
 const LoginForm = () => {
+  const router = useRouter();
   const buttonStyle = "px-4 text-white";
-  const errorStyke = "text-red-400 text-[12px] absolute  -bottom-2";
+  const errorStyke = "text-red-400 text-[12px] absolute  -bottom-[12px]";
   const buttonSign =
     "bg-gradient-to-r text-white from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700 w-[185px] text-white z-50 top-[986px] left-[5292px] mt-3 rounded-[5px] py-[12px] px-[22px]";
   const inputStyle =
-    "text-klight border border-klightGrey   w-[350px] top-[746px] outline-none py-[12px]  px-[28px] bg-klightGrey left-[5292px] rounded-[5px] my-[8px]";
+    "text-klight border border-klightGrey   w-[350px] top-[746px] outline-none py-[12px]  px-[28px] bg-klightGrey left-[5292px] rounded-[5px] my-[10px]";
   const [isLoading, setIsLoading] = useState(false);
-
-  //   const login = () => {
-
-  //     // setTimeout(() => {
-  //     //     router.push('/'); setIsLoading(false) }, 2000)
-  //     }
 
   const formik = useFormik({
     initialValues: {
@@ -32,9 +26,22 @@ const LoginForm = () => {
     },
     validationSchema: loginSchema,
     onSubmit: async (values) => {
-      const response = await loginUser({ "email": values.email, "password": values.password });
+      setIsLoading(true);
+      const response = await loginUser({
+        email: values.email,
+        password: values.password,
+      });
+      setIsLoading(false);
 
-      response.succes ? toast.success("Login Succesful 🥳") : toast.error(`${response.message}`)
+      if (response.succes == false) {
+        toast.error(`${response.message}`);
+        return;
+      }
+
+      toast.success("Login Succesful 🥳");
+      setTimeout(() => {
+        router.replace("../dashboard");
+      }, 2000);
     },
   });
 
@@ -50,6 +57,7 @@ const LoginForm = () => {
             <input
               type="text"
               name="email"
+              autoComplete="off"
               placeholder="Your Email"
               className={`${inputStyle} ${
                 formik.errors.email == null
@@ -67,26 +75,35 @@ const LoginForm = () => {
             <div className="relative">
               <input
                 type="password"
+                autoComplete="off"
                 name="password"
                 placeholder="Password"
                 onChange={formik.handleChange}
                 value={formik.values.password}
-                className={`${inputStyle} ${
+                className={`${inputStyle}  ${
                   formik.errors.password == null
                     ? "hover:border-klightGreyHover "
                     : "border-red-400"
                 }`}
                 required
               />
-              {formik.errors.password ? (
-                <div className={errorStyke}>{formik.errors.password}</div>
-              ) : null}
+              <div className="flex text-klight">
+                {formik.errors.password ? (
+                  <div className={errorStyke}>{formik.errors.password}</div>
+                ) : null}
+                <Link href={"../password-reset-link"} target="_blank">
+                  <span className="hover:text-white transition-all absolute text-[14px] right-3 -bottom-[13px] ">
+                    Forgot password ?
+                  </span>
+                </Link>
+              </div>
             </div>
           </div>
           <div>
             <Button
               label="Login"
-              className={`${buttonSign}`}
+              className={`${buttonSign} mt-6`}
+              isLoading={isLoading}
               onClick={() => formik.submitForm()}
             />
           </div>

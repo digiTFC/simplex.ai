@@ -1,12 +1,11 @@
 import apiClient from "@/app/utils/axios/axiosConfig";
 import { AxiosError } from "axios";
-import { number } from "yup";
 
-export async function verifyEmail(
+export default async function verifyEmail(
   code: string
 ): Promise<{ sucess: boolean; message: string }> {
   try {
-    const response = apiClient.post("http://13.91.1.165:8005/api/manage_users/verify-email/", { "code": code });
+      await apiClient.post("http://13.91.1.165:8005/api/manage_users/verify-email/", { "code": code });
       return {
         sucess: true,
         message: "Verication Successful",

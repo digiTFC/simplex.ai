@@ -3,6 +3,8 @@ import Titles from '@/app/components/general-components/Titles';
 import React from 'react'
 
 export const Values = () => {
+
+  
     const values = {
         icon :  <svg
     
@@ -25,16 +27,17 @@ export const Values = () => {
           />
         </g></svg>
       }
+
+
   return (
-    <div className="py-24 text-center">
+    <div className=" text-center">
     <div className="md:w-2/4 m-auto">
       <Titles
         title="Our Core Values"
         subTitle="It takes great pupil to make great product our company culture champions diversity and our team members embody Pidedrive's values"
       ></Titles>
     </div>
-    <div className="flex">
-      <div className="m-auto grid md:grid-cols-3 py-12 gap-12">
+      <div className="m-auto w-fit grid md:grid-cols-3 py-12 gap-12">
         {Array.from({ length: 6 }).map((_,index) => {
           return (
               <div key={index}>
@@ -46,6 +49,5 @@ export const Values = () => {
         })}
       </div>
     </div>
-  </div>
   )
 }

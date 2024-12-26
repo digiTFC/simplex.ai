@@ -3,14 +3,16 @@ import Titles from '../general-components/Titles'
 import { Input } from '../general-components/input'
 import Button from '../general-components/button';
 import { useFormik } from 'formik';
-import { paymentScheme } from '@/app/scheme/paymentScheme';
+import { paymentScheme } from '@/app/pages/(protected)/subscriptions/[paiment]/scheme/paymentScheme';
 import { toast} from 'sonner';
+import subscriptionChoice from '@/app/pages/(protected)/subscriptions/_service/subscription-choice';
 
 interface paiementFormProprs{
     price : number
+    subscriptionId : number
 }
 
-export const PaiementForm:React.FC<paiementFormProprs> = ({price}) => {
+export const PaiementForm:React.FC<paiementFormProprs> = ({price,subscriptionId}) => {
     const [isLoading, setIsLoading] = useState(false)
 
     const  login = () => {
@@ -21,20 +23,20 @@ export const PaiementForm:React.FC<paiementFormProprs> = ({price}) => {
 
     const formik = useFormik({
         initialValues : {
-            "email":'',
+            "phone_number":'',
             "cardDetails":'',
             "name":'',
             "country":'',
             "adress":'',
         },
         validationSchema : paymentScheme,
-        onSubmit : () => {
+        onSubmit : (values) => {
             setIsLoading(true)
+            subscriptionChoice(subscriptionId,values.phone_number)
+            console.log("click")
             setTimeout(login,
                 2000
             )
-
-
         },
     })
 
@@ -46,7 +48,7 @@ export const PaiementForm:React.FC<paiementFormProprs> = ({price}) => {
         <div className=''><Titles title='Payment Details' subTitle='Complete your purchase by providing payment details'></Titles></div>
        
         <div className='relative'>
-        <Input placeholder='Email address' value={formik.values.email} error={formik.errors.email} name='email' onChange={formik.handleChange}></Input>
+        <Input placeholder='Phone Number' value={formik.values.phone_number} error={formik.errors.phone_number} name='phone_number' onChange={formik.handleChange}></Input>
         </div>
         <div className='w-fit relative'>
             <Input placeholder='Card details' type='number' value={formik.values.cardDetails} error={formik.errors.cardDetails}  name='cardDetails' onChange={formik.handleChange}/>
