@@ -8,8 +8,13 @@ build:
   before_script:
     - npm install --legacy-peer-deps
   script:
-    - yarn install
     - npm run build
   artifacts:
     paths:
       - dist/
+
+
+test:
+  stage: test
+  script:
+    - npm test
