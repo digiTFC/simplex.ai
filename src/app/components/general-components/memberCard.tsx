@@ -1,11 +1,11 @@
 import React from 'react'
 import ContentBox from './contentBox'
 import Image from 'next/image'
-import Titles from './Titles'
 import {
   faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Titles } from './Titles';
 
 interface cardProps{
     name : string

@@ -1,4 +1,4 @@
-import Titles from "@/app/components/general-components/Titles";
+import { Titles } from "@/app/components/general-components/Titles";
 import CallToAction from "@/app/components/homeComponents/callToAction";
 import PartnerBox from "@/app/components/homeComponents/partnerBox";
 

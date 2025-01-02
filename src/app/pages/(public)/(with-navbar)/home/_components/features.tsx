@@ -1,4 +1,4 @@
-import Titles from "@/app/components/general-components/Titles";
+import { Titles } from "@/app/components/general-components/Titles";
 import FeatureCard from "@/app/components/homeComponents/featuresCard";
 
 

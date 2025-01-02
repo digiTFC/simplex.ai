@@ -1,11 +1,11 @@
 "use client";
 import Button from "@/app/components/general-components/button";
 import SearchInput from "@/app/components/general-components/search-input";
-import Titles from "@/app/components/general-components/Titles";
 import Link from "next/link";
 import "../../../../globals.css";
 import { TableRow } from "./_components/table-row";
 import { useChatBots } from "./_services/get_chatbots";
+import { Titles } from "@/app/components/general-components/Titles";
 
 const ChatBotMenu = () => {
   const { chatbots, loading, error } = useChatBots();

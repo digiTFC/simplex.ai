@@ -1,5 +1,5 @@
 import Button from "@/app/components/general-components/button";
-import Titles from "@/app/components/general-components/Titles";
+import { Titles } from "@/app/components/general-components/Titles";
 import PurposeIllustration from "@/app/components/homeComponents/purposeIllustarion";
 import Link from "next/link";
 

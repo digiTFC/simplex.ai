@@ -8,7 +8,7 @@ interface TitleProps{
     defaultStyle?: boolean;
 }
 
-const Titles: React.FC<TitleProps> = ({title,  subTitle, TitleStyle, subtitleStyle, defaultStyle = true}) => {
+export const Titles: React.FC<TitleProps> = ({title,  subTitle, TitleStyle, subtitleStyle, defaultStyle = true}) => {
   const defaulTitle = "text-[39px] md:text-[48px] font-semibold "
   const defaulSubTitle = "text-[14px] md:text-[18px]"
   return (
@@ -20,5 +20,3 @@ const Titles: React.FC<TitleProps> = ({title,  subTitle, TitleStyle, subtitleSty
     </div>
   )
 }
-
-export default Titles

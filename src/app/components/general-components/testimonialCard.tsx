@@ -1,8 +1,8 @@
 import React from 'react'
 import Paragraph from './text'
-import Titles from './Titles'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Titles } from './Titles'
 
 interface testimonialProps{
     name : string,

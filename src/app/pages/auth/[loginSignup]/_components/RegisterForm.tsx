@@ -1,12 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import Titles from "../../../../components/general-components/Titles";
 import Button from "../../../../components/general-components/button";
 import { useFormik } from "formik";
 import { toast } from "sonner";
 import { registerSchema } from "@/app/pages/auth/[loginSignup]/schema/registerSchema";
 import { registerUser } from "../_service/register";
 import { useRouter } from "next/navigation";
+import { Titles } from "@/app/components/general-components/Titles";
 
 const RegisterForm = () => {
   const router = useRouter();

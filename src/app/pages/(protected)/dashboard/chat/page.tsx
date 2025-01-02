@@ -1,11 +1,11 @@
 "use client";
 import { Input } from "@/app/components/general-components/input";
 import React, { useState } from "react";
-import Titles from "@/app/components/general-components/Titles";
 import { useFormik } from "formik";
 import sendChat from "./_service/send-chat";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Titles } from "@/app/components/general-components/Titles";
 
 const ChatPage = () => {
   const [loading, setLoading] = useState(false);

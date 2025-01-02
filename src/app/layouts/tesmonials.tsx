@@ -1,5 +1,4 @@
 import React from "react";
-import Titles from "../components/general-components/Titles";
 
 
 // Import Swiper styles
@@ -7,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { Titles } from "../components/general-components/Titles";
 
 export const Testimonials = () => {
   return (

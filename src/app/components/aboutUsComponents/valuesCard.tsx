@@ -1,4 +1,4 @@
-import Titles from "../general-components/Titles";
+import { Titles } from "../general-components/Titles";
 
 interface valuesCardProps {
   title: string;

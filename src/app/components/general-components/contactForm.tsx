@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Button from "./button"
-import Titles from "./Titles"
+import { Titles } from "./Titles"
 
 interface contactForm {
     hideTitle? : boolean

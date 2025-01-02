@@ -5,9 +5,9 @@ import { useFormik } from "formik";
 import { verificationScheme } from "./_schema/verfiaction-schema";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import Titles from "@/app/components/general-components/Titles";
 import MotionButton from "../_components/motion-button";
 import verifyEmail from "./_service/verify-email";
+import { Titles } from "@/app/components/general-components/Titles";
 
 const VerifyAccount = () => {
   const [loading, setLoading] = useState(false);

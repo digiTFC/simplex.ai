@@ -1,6 +1,6 @@
 import Nav from "@/app/components/general-components/nav";
-import Titles from "@/app/components/general-components/Titles";
 import CopyRight from "./copyright";
+import { Titles } from "@/app/components/general-components/Titles";
 
 
 const Footer = ({}) => {

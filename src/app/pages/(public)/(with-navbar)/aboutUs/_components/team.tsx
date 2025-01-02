@@ -1,7 +1,7 @@
 import { MemberCard } from '@/app/components/general-components/memberCard'
-import Titles from '@/app/components/general-components/Titles'
 import React from 'react'
 import { members } from '../_data/members'
+import { Titles } from '@/app/components/general-components/Titles'
 
 export const Team = () => {
 

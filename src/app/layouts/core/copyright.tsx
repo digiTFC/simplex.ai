@@ -1,5 +1,5 @@
 import { Socials } from "@/app/components/general-components/socials";
-import Titles from "@/app/components/general-components/Titles";
+import { Titles } from "@/app/components/general-components/Titles";
 
 const CopyRight = ({}) => {
   return (

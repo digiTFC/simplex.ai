@@ -1,6 +1,6 @@
 "use client"
 import Button from "@/app/components/general-components/button";
-import Titles from "@/app/components/general-components/Titles";
+import { Titles } from "@/app/components/general-components/Titles";
 import apiClient from "@/app/utils/axios/axiosConfig";
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";

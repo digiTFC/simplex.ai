@@ -1,7 +1,7 @@
 import InfoTile from '@/app/components/contactUsComponents/infoTile'
 import ContactForm from '@/app/components/general-components/contactForm'
 import IconBox from '@/app/components/general-components/iconBox'
-import Titles from '@/app/components/general-components/Titles'
+import { Titles } from '@/app/components/general-components/Titles'
 import { faFacebookF, faLinkedinIn, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faMapMarkerAlt, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

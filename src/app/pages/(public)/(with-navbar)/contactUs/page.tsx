@@ -1,6 +1,6 @@
-import Titles from "@/app/components/general-components/Titles";
 import React from "react";
 import { ContactBox } from "@/app/pages/(public)/(with-navbar)/contactUs/_components/contactBox";
+import { Titles } from "@/app/components/general-components/Titles";
 
 const ContacUS = () => {
   return (

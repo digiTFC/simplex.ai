@@ -1,13 +1,13 @@
 "use client";
 import { Input } from "@/app/components/general-components/input";
 import { TextArea } from "@/app/components/general-components/text-area";
-import Titles from "@/app/components/general-components/Titles";
 import { useFormik } from "formik";
 import React, { useState } from "react";
 import { CreateChatBotSchema } from "./schema/create-chatbot-schema";
 import createChatBot from "./_service/create-chat-bot";
 import Button from "@/app/components/general-components/button";
 import { toast } from "sonner";
+import { Titles } from "@/app/components/general-components/Titles";
 
 const options = [
   { value: "SITE WEB", label: "Site Web" },

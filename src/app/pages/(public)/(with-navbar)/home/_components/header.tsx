@@ -1,5 +1,5 @@
 import Button from "@/app/components/general-components/button";
-import Titles from "@/app/components/general-components/Titles";
+import { Titles } from "@/app/components/general-components/Titles";
 import InsightCard from "@/app/components/homeComponents/insightCard";
 import Link from "next/link";
 

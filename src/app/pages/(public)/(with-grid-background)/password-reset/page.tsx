@@ -1,10 +1,10 @@
 "use client";
 import { Input } from "@/app/components/general-components/input";
-import Titles from "@/app/components/general-components/Titles";
 import React from "react";
 import MotionButton from "../_components/motion-button";
 import { useFormik } from "formik";
 import { passwordResetSchema } from "./_schema/password-test-schema";
+import { Titles } from "@/app/components/general-components/Titles";
 
 const ResetPassword = () => {
   // const [loading,isLoading] = useState()

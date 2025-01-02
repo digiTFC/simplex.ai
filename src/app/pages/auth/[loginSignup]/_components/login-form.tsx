@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import Titles from "../../../../components/general-components/Titles";
 import Button from "../../../../components/general-components/button";
 import { useFormik } from "formik";
 import { toast } from "sonner";
@@ -8,6 +7,7 @@ import { loginSchema } from "../schema/loginSchema";
 import { useRouter } from "next/navigation";
 import { loginUser } from "../_service/login";
 import Link from "next/link";
+import { Titles } from "@/app/components/general-components/Titles";
 
 const LoginForm = () => {
   const router = useRouter();

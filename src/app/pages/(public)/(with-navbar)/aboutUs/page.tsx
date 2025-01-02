@@ -1,9 +1,9 @@
-import Titles from "@/app/components/general-components/Titles";
 import React from "react";
 import { CallToAction } from "@/app/components/general-components/callToAction";
 import { Founders } from "./_components/founders";
 import { Values } from "@/app/pages/(public)/(with-navbar)/aboutUs/_components/values";
 import { Team } from "./_components/team";
+import { Titles } from "@/app/components/general-components/Titles";
 
 const AboutUs = () => {
   return (

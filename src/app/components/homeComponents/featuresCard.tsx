@@ -1,6 +1,6 @@
 import { ReactNode } from "react"
 import IconBox from "../general-components/iconBox"
-import Titles from "../general-components/Titles"
+import { Titles } from "../general-components/Titles"
 interface featureCardProps {
     title : string
     subtitle:string

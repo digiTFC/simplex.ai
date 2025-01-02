@@ -1,8 +1,8 @@
 import React from 'react'
 import { LoopsIllustration } from './loopsIllustration'
-import Titles from './Titles'
 import Button from './button'
 import Link from 'next/link'
+import { Titles } from './Titles'
 
 export const CallToAction = () => {
   return (
