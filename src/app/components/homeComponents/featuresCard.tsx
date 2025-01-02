@@ -2,22 +2,24 @@ import { ReactNode } from "react"
 import IconBox from "../general-components/iconBox"
 import Titles from "../general-components/Titles"
 interface featureCardProps {
+    title : string
+    subtitle:string
     feature : ReactNode
 }
 
 const FeatureCard:React.FC<featureCardProps> = ({
-feature
+feature , title, subtitle
 }) => {
     return <div
-    className="w-[340px] h-[361px]  group cursor-pointer icon-parent bg-klightGrey rounded-3xl flex flex-col items-center justify-between text-center px-[23px] py-[48px]"
+    className="w-[340px] h-[381px]  group cursor-pointer icon-parent bg-klightGrey rounded-3xl flex flex-col items-center justify-between text-center px-[23px] py-[48px]"
   >
     <IconBox feature={feature}></IconBox>
     <Titles
-      title="Fully Customizable"
+      title={title}
       TitleStyle="text-[20px] font-semibold mb-[15px]"
       defaultStyle={false}
-      subtitleStyle="text-[14px] leading-[28px]"
-      subTitle="A good design is not only aesthetically pleasing, but also functional. It should be able to solve the problem "
+      subtitleStyle="text-[14px]  leading-[28px]"
+      subTitle={subtitle}
     ></Titles>
   </div>
     

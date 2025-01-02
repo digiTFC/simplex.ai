@@ -1,14 +1,13 @@
 "use client";
-import React, { useState, MouseEvent, ReactNode } from "react";
+import React, {  ReactNode } from "react";
 import Button from "../general-components/button";
 import PrincingTile from "./princingTile";
-import { motion } from "framer-motion";
 
 interface pricingProps {
   icon: ReactNode;
 
   title: string;
-  features: string[];
+  features: {title : string, isPresent : boolean}[];
   price: string;
   onClick: () => void;
 }
@@ -21,23 +20,17 @@ const PricingCard: React.FC<pricingProps> = ({
 }) => {
   const style =
     "bg-gradient-to-r from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700  w-[139px] h-[44px]  rounded-[5px]  px-[32px]";
-  const [hover, setHover] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  // Update mouse position when hovering
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setMousePosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  };
+
 
   return (
     <div className="text-white relative">
       <div
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-        onMouseMove={handleMouseMove}
+        // onMouseEnter={() => setHover(true)}
+        // onMouseLeave={() => setHover(false)}
+        // onMouseMove={handleMouseMove}
       >
-        <div className=" w-[350px] h-[495px] relative bg-klightGrey flex flex-col justify-between  items-center  text-center  rounded-2xl px-[24px] py-8">
+        <div className=" w-[350px]  relative bg-klightGrey flex flex-col justify-between  items-center  text-center  rounded-2xl px-[24px] py-8">
           <div className=" w-[76px] h-[76px] absolute   -translate-y-[50%] top-0  flex items-center justify-center rounded-full bg-kOnSecondary">
             <div className="translate-x-[8px] translate-y-[8px] scale-75">
               {icon}
@@ -46,12 +39,12 @@ const PricingCard: React.FC<pricingProps> = ({
           <h1 className="text-[20px] font-medium mt-4 ">{title}</h1>
           <hr className=" w-full my-[20px] border-khr" />
           <div className="self-start">
-            {Array.from({ length: 5 }).map((_, idx) => {
+            {features.map((_, idx) => {
               return (
                 <PrincingTile
                   key={idx}
-                  index={idx}
-                  title={features[idx]}
+                  isPresent={features[idx].isPresent}
+                  title={features[idx].title}
                 ></PrincingTile>
               );
             })}
@@ -65,8 +58,8 @@ const PricingCard: React.FC<pricingProps> = ({
               </span>{" "}
             </h1>
             <div
-              onMouseEnter={() => setHover(false)}
-              onMouseLeave={() => setHover(true)}
+              // onMouseEnter={() => setHover(false)}
+              // onMouseLeave={() => setHover(true)}
             >
               <Button
                 label="Purchase"
@@ -78,8 +71,7 @@ const PricingCard: React.FC<pricingProps> = ({
         </div>
       </div>
 
-      {/* Floating Box */}
-      {hover && (
+      {/* {hover && (
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{
@@ -109,7 +101,7 @@ const PricingCard: React.FC<pricingProps> = ({
             Fugiat, tempore.
           </p>
         </motion.div>
-      )}
+      )} */}
     </div>
   );
 };

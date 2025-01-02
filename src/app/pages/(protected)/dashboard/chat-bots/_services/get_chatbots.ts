@@ -3,6 +3,7 @@ import apiClient from "@/app/utils/axios/axiosConfig";
 import { AxiosError } from "axios";
 import { toast } from "sonner";
 import { Chatbot } from "../_dto/chatBot";
+import { loginUser } from "@/app/pages/auth/[loginSignup]/_service/login";
 
 export interface UseChatBotsResult {
   chatbots: Chatbot[];
@@ -21,7 +22,10 @@ export const useChatBots = (): UseChatBotsResult => {
       setLoading(true);
       setError(null); // Reset error state
 
-
+        await loginUser({
+            "email":"tmperseh@gmail.com",
+            "password":"tmperseh@gmail.com"
+        })
       // Retrieve token from localStorage
       const token = localStorage.getItem("access-token");
 
