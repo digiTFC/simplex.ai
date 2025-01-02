@@ -14,7 +14,7 @@ const Titles: React.FC<TitleProps> = ({title,  subTitle, TitleStyle, subtitleSty
   return (
     <div>
         <div className='flex flex-col'>
-            <h2 className={`${TitleStyle} ${defaultStyle ? defaulTitle : ''}text-white `}>{title}</h2>
+            <h2 className={`${TitleStyle} ${defaultStyle ? defaulTitle : ''}`}>{title}</h2>
             <p className={`${subtitleStyle} ${defaultStyle ? defaulSubTitle : ''} text-klight`}>{subTitle}</p>
         </div>
     </div>

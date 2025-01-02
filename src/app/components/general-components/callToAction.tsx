@@ -27,7 +27,7 @@ export const CallToAction = () => {
           </div>
           <div className="pt-6 z-50 ">
             <Link href={'auth/signup'}>
-            <Button label="Join Us" ></Button>
+            <Button label="Get involved" ></Button>
             </Link>
           </div>
         </div>

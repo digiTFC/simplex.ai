@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased bg-black w-[100vw] text-white overflow-x-hidden`}
+        className={`antialiased dark:bg-black w-[100vw] dark:text-white overflow-x-hidden`}
       >
         <Toaster position="top-right" duration={2000}/>
         {children}

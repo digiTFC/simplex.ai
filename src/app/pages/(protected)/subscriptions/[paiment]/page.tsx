@@ -16,8 +16,14 @@ import { pricingData } from "@/app/pages/(public)/data/subcriptions";
 const Paiement = () => {
     const router = useRouter();
     const params = useParams();
-    const index = Number(params!.paiment.toString().substring(1,-1))
-    const duration = params!.paiment.toString().substring(4)
+    let index=0
+    let duration = "monthly"
+    
+    if(params){
+       index = Number(params.paiment.toString().substring(1,-1))
+       duration = params.paiment.toString().substring(4)
+    }
+    
     const data = pricingData[index] 
     const price = duration == "monthly" ? data.monthlyPrice : data.yearlyPrice 
 

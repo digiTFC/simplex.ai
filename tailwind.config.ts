@@ -23,6 +23,7 @@ const config: Config = {
         konPurple: "#6447A5",
         klight: "#9E9E9E",
         kblack: "#000000",
+        kwhiteContainer : "#e1e1e1",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

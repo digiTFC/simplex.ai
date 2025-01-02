@@ -23,7 +23,7 @@ const clientLogo = [
 const Partners = ({}) => {
 
   return (
-    <div className="bg-klightGrey relative">
+    <div className="dark:bg-klightGrey relative">
       <div className=" text-center w-10/12 md:w-9/12 relative  m-auto pt-24 pb-60">
         <Titles
           title={`Companies we Worked With  Since 2015`}
