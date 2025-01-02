@@ -1,13 +1,13 @@
 
 interface tileProsp{
     title : string
-    index : number
+    isPresent : boolean
 }
-const PrincingTile:React.FC<tileProsp> = ({title, index}) => {
+const PrincingTile:React.FC<tileProsp> = ({title,isPresent}) => {
     return <div>
-            <div key={index} className="pb-[26px] flex items-center">
-                <div className="p-3 mr-[16px] flex items-center rounded-lg w-fit bg-kOnSecondary">
-                  <svg
+            <div  className="pb-[26px] flex items-center">
+                <div className=" center h-[30px] w-[30px] mr-[16px]  rounded-lg  bg-kOnSecondary">
+{isPresent ?                  <svg
                     width="9"
                     height="7"
                     viewBox="0 0 9 7"
@@ -32,9 +32,12 @@ const PrincingTile:React.FC<tileProsp> = ({title, index}) => {
                       transform="rotate(135 4.94971 5.07106)"
                       fill="white"
                     />
-                  </svg>
+                  </svg> : <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-3">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+</svg>
+}
                 </div>
-                <span className={index >2 ?  `text-klight` : ''} >{title}</span>
+                <span className={!isPresent ?  `text-klight line-through` : ''} >{title}</span>
               </div>
     </div>
     

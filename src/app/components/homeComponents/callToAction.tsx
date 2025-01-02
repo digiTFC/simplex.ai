@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Button from "../general-components/button";
 import Titles from "../general-components/Titles";
 
@@ -6,8 +7,9 @@ const CallToAction = ({}) => {
             <div className="md:w-[1110px] w-11/12 py-10 px-5 md:p-0 md:h-[425px] bg-gradient-to-b rounded-[30px] flex items-center justify-between absolute from-kpink  to-kpurple ">
             <div className="md:pl-16 text-start w-full">
                 <Titles title="Fell Free to Join our 15 Days Free Trial" subTitle="Love Our Tool ?" subtitleStyle="text-white text-start" TitleStyle="py-3 text-[34px] md:text-[48px] text-start order-last"></Titles>
-                <Button label="Start Now !" className="bg-black text-white hover:text-black px-6 py-3 rounded-lg group relative overflow-hidden"><div className="absolute inset-0  bg-white flex items-center justify-center rounded-lg transition-transform duration-200 transform scale-0 group-hover:scale-100"><span className="opacity-0 group-hover:opacity-100 transition-all ">Start Now !</span>
-                    </div></Button>
+        <Link href={"pages/auth/signup"}>
+        <Button label="Start Now !" className="bg-black text-white hover:text-black px-6 py-3 rounded-lg group relative overflow-hidden"><div className="absolute inset-0  bg-white flex items-center justify-center rounded-lg transition-transform duration-200 transform scale-0 group-hover:scale-100"><span className="opacity-0 group-hover:opacity-100 transition-all ">Start Now !</span>
+                    </div></Button></Link>
             </div>
           <div className="self-end absolute md:relative inset-0 md:opacity-100 opacity-20">
             <svg

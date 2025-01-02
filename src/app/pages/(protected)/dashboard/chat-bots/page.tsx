@@ -43,7 +43,7 @@ const ChatBotMenu = () => {
               className="w-fit text-black bg-white px-3 py-2 rounded-lg"
             ></Button>
           </Link>
-        </div>{" "}
+        </div>
       </div>
     );
 
@@ -73,7 +73,7 @@ const ChatBotMenu = () => {
     );
   return (
     <div className="h-[90%]  text-center">
-      {/* */}
+     
 
       <div className="pt-12">
         <div className="flex justify-between gap-3">

@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Button from "./button"
 import Titles from "./Titles"
 
@@ -16,7 +17,8 @@ const ContactForm:React.FC<contactForm> = ({hideTitle}) => {
     <input type="text" placeholder="name" className={`${inputStyle} `} />
     <input type="text" placeholder="email" className={`${inputStyle} `} />
     <textarea name="description" id="description" className={`${inputStyle} `} placeholder="message"></textarea>
-    <Button label="Get in Touch" className={`${buttonSign}`}></Button>
+    <Link href={"mailto:sanguojoseph17@gmail.com"}>
+    <Button label="Get in Touch" className={`${buttonSign}`}></Button></Link>
  </div></div>
 }
 export default ContactForm

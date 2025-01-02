@@ -5,6 +5,8 @@ import FeatureCard from "@/app/components/homeComponents/featuresCard";
 const Features = ({}) => {
   const featuresIcons = [
     {
+      title:"Secure & Insightful",
+      subtitle:"Safety and growth go hand in hand. Enjoy robust data security features and detailed reports to track and analyze your chatbot’s activities.",
       icon: (
         <svg
           width="45"
@@ -21,6 +23,10 @@ const Features = ({}) => {
       ),
     },
     {
+      
+
+      title:"Personalized Data Integration",
+      subtitle:"Data makes the difference. Personalize your chatbot by feeding it with your own documents, ensuring it provides accurate and relevant responses every time.",
       icon: (
         <svg
           width="44"
@@ -37,6 +43,12 @@ const Features = ({}) => {
       ),
     },
     {
+      
+
+
+
+      title:"User-Friendly Creation",
+      subtitle:"A great tool doesn’t need a steep learning curve. With an intuitive user interface, you can easily create and deploy your chatbot in just a few steps.",
       icon: (
         <svg
           width="44"
@@ -53,6 +65,10 @@ const Features = ({}) => {
       ),
     },
     {
+      
+
+      title:"Role-Based Customization",
+      subtitle:"A chatbot isn’t just a program; it’s a personality. Fully customize its behavior and interactions based on the role it’s designed to play, making it truly one of a kind.",
       icon: (
         <svg
           width="44"
@@ -69,6 +85,9 @@ const Features = ({}) => {
       ),
     },
     {
+      
+      title:"Advanced Analytics",
+      subtitle:"Understanding is key to improvement. Access comprehensive reports and statistics to monitor your chatbot's performance and refine its capabilities for optimal results.",
       icon: (
         <svg
           width="45"
@@ -84,7 +103,10 @@ const Features = ({}) => {
         </svg>
       ),
     },
-    {
+    {      
+    
+      title:"Fully Exportable",
+      subtitle:"A powerful tool should transcend boundaries. Your chatbot can be exported and seamlessly integrated across any platform, ensuring your solutions are always within reach.",
       icon: (
         <svg
           width="44"
@@ -119,7 +141,7 @@ const Features = ({}) => {
             {featuresIcons.map((feature, index) => {
               return (
                 <div key={index}>
-                    <FeatureCard feature={feature.icon}></FeatureCard>
+                    <FeatureCard title={feature.title} subtitle={feature.subtitle} feature={feature.icon} ></FeatureCard>
                 </div>
               );
             })}
