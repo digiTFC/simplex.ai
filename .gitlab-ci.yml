@@ -8,7 +8,7 @@ build:
   before_script:
     - npm install --legacy-peer-deps
   script:
-    - npm run build --verbose
+    - npm run build
   artifacts:
     paths:
       - dist/
