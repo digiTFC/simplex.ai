@@ -19,7 +19,10 @@ const setBackground = (index: number): string => {
 const LoginSignUP = () => {
   const [isLogin, setIsLogin] = useState(false);
   const params = useParams()
-  const state = params?.loginSignup.toString()
+  let state = ""
+  if(params?.loginSignup){
+   state = params?.loginSignup.toString()
+  }
 
  useEffect(()=>{
 
