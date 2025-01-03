@@ -19,7 +19,7 @@ const Paiement = () => {
     let index=0
     let duration = "monthly"
     
-    if(params){
+    if(params?.paiment){
        index = Number(params.paiment.toString().substring(1,-1))
        duration = params.paiment.toString().substring(4)
     }
