@@ -18,7 +18,7 @@ const MotionButton: React.FC<MotionButtonProps> = ({
   return (
     <motion.div
       initial={{ width: "fit-content" }}
-      animate={condition ? { width: "fit-content" } : { width: 375 }}
+      animate={condition ? { width: "fit-content" } : { width: 350 }}
       transition={{
         type: "tween",
         ease: "easeOut",
@@ -27,7 +27,7 @@ const MotionButton: React.FC<MotionButtonProps> = ({
       className={`${
         condition
           ? " w-fit  bg-t text-khr border border-khr"
-          : "text-black bg-white"
+          : "dark:text-black text-white dark:bg-white bg-black"
       }  flex  justify-center   mt-5  h-[44px]  font-semibold rounded-lg`}
     >
       <Button

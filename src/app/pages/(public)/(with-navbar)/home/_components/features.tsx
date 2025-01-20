@@ -128,7 +128,7 @@ const Features = ({}) => {
     <div className="relative bottom-32">
       <div className=" absolute  w-full bg-gradient-to-r from-kpink to-kpurple h-[174px] "></div>
 
-      <div className=" curve-t relative pt-32  flex  items-center justify-center py-12 -left-[6vw] flex-col z-50  bg-white dark:bg-black  w-[112vw] ">
+      <div className=" curve-t relative pt-32  flex  items-center justify-center  -left-[6vw] flex-col z-50  bg-kwhiteBg dark:bg-black  w-[112vw] ">
         <div className="w-screen">
         <div className="w-10/12 m-auto flex flex-col  relative md:left-[3vw] ">
           <Titles

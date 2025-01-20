@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from 'sonner'
 import CursorFollower from "./components/general-components/cursorFollower";
+import DarkModeToggle from "./pages/(public)/(with-navbar)/_components/toggleMode";
 
 export const metadata: Metadata = {
   title: "Chat Book",
@@ -16,11 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased dark:bg-black w-[100vw] dark:text-white overflow-x-hidden`}
+        className={`antialiased dark:bg-black bg-kwhiteBg w-[100vw] dark:text-white overflow-x-hidden`}
       >
         <Toaster position="top-right" duration={2000}/>
         {children}
         <CursorFollower></CursorFollower> 
+        <DarkModeToggle></DarkModeToggle>
       </body>
     </html>
   );

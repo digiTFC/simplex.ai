@@ -33,9 +33,11 @@ export default function Layout({
   return (
     <div className="">
       <SideBar />
-      <div className="ml-[300px] h-[100vh] w flex-1 pt-5 px-12 relative">
+      <div className="ml-[300px] h-screen  w flex-1 pt-20 px-12 relative">
         <DashboardNav ></DashboardNav>
+        <div className="h-full">
         {children}
+        </div>
       </div>
     </div>
   );

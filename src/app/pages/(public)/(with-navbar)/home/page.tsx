@@ -12,9 +12,9 @@ const HomePage = () => {
     <div className=" w-full overflow-x-hidden">
     <div><Header></Header></div>
     <div><Features></Features></div>
-    <div><Purpose></Purpose></div>
+    <div className='dark:bg-black bg-white '><Purpose></Purpose></div>
     <div><Partners></Partners></div>
-    <div><Contact></Contact></div>
+    <div className='dark:bg-black bg-white '><Contact></Contact></div>
   </div>
   )
 }

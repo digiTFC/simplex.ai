@@ -18,12 +18,12 @@ interface cardProps{
 export const MemberCard:React.FC<cardProps> = ({name,position,image,textEnd,link}) => {
   return (
     <ContentBox isBlack={true} height="h-[405px]">
-    <div className="bg-klightGrey w-[325px] h-[350px]  w-fit rounded-xl">
+    <div className="bg-klightGrey text-white w-[325px] h-[355px]  w-fit rounded-xl">
       <Image
         src={
           image
         }
-        className="w-[325px] rounded"
+        className="w-[325px] h-[325px]  rounded"
         alt="ledoux picture"
         width={700}
         height={400}

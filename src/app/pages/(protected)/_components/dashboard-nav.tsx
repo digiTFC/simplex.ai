@@ -3,7 +3,7 @@ import React from "react";
 
 const DashboardNav = () => {
   return (
-    <div className="flex text-white fixed top-0 w-9/12 pt-5 items-center justify-between">
+    <div className="flex  z-50 dark:bg-black bg-kwhiteBg pr-12  fixed top-0 w-9/12 pt-5 items-center justify-between">
       <Titles title="Dahsboard" TitleStyle="!text-[40px]"></Titles>
    
       <div className="flex items-center gap-3">

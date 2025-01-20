@@ -8,7 +8,7 @@ const PartnerBox:React.FC<partnerBoxProps> = ({image,alt}) => {
     return <div>
                       <div
                 
-                className="bg-black flex items-center justify-center rounded-2xl w-[160px] h-[92px]"
+                className="dark:bg-black bg-white flex items-center justify-center rounded-2xl  w-[160px] h-[92px]"
               >
                   <Image src={image}
                    alt={alt}

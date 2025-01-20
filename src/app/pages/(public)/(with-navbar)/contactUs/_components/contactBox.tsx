@@ -15,8 +15,8 @@ export const ContactBox = () => {
             <div>
               <Titles
                 title="Contact Information"
-                TitleStyle="!text-[28px]"
-                subtitleStyle="!text-[18px]"
+                TitleStyle="!text-[30px] text-white"
+                subtitleStyle="!text-[14px]"
                 subTitle="Say something to start a live chat!"
               ></Titles>
             </div>

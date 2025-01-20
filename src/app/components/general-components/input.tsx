@@ -16,7 +16,7 @@ interface inputProps{
 }
 export const Input:React.FC<inputProps> = ({placeholder,name,onChange,value, type,error,useLabel, className}) => {
     const errorStyke = 'text-red-400 text-[12px] absolute -bottom-5'
-    const inputStyle = `${className} text-klight border z-50 border-klightGrey  hover:border-klightGreyHover w-[380px] top-[746px] outline-none py-[12px] px-[28px] bg-klightGrey left-[5292px] rounded-[5px]`
+    const inputStyle = `${className} border border-gray-400  hover:border-gray-600  dark:border-klightGrey dark:text-white  dark:hover:border-klightGreyHover w-[350px] top-[746px] outline-none py-[12px] px-[28px] dark:bg-klightGrey left-[5292px] rounded-[12px]`
 
   return (
     <div className='flex flex-col relative w-full'>

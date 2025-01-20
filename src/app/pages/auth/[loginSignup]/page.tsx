@@ -4,6 +4,7 @@ import RegisterForm from "@/app/pages/auth/[loginSignup]/_components/RegisterFor
 import { useEffect, useState } from "react";
 import LoginForm from "./_components/login-form";
 import { useParams } from "next/navigation";
+import { LoopsIllustration } from "@/app/components/general-components/loopsIllustration";
 
 const setBackground = (index: number): string => {
   switch (index) {
@@ -37,7 +38,7 @@ const LoginSignUP = () => {
         <div className="md:w-1/2 flex  flex-col items-center justify-center">
           {isLogin ? <LoginForm></LoginForm> : <RegisterForm></RegisterForm>}
           <p
-            className="text-klight cursor-pointer transition-all hover:text-white"
+            className="black:text-klight cursor-pointer transition-all black:hover:text-white"
             onClick={() =>{
               
               setIsLogin(!isLogin)

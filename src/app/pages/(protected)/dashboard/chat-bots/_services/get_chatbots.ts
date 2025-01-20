@@ -47,10 +47,10 @@ export const useChatBots = (): UseChatBotsResult => {
     } catch (err) {
       if (err instanceof AxiosError) {
         setError(err.response?.data || "An error occurred while fetching chatbots.");
-        toast.error(err.response?.data || "An error occurred.");
+        // toast.error(err.response?.data || "An error occurred.");
       } else {
         setError((err as Error).message);
-        toast.error((err as Error).message);
+        // toast.error((err as Error).message);
       }
     } finally {
       setLoading(false);

@@ -11,7 +11,7 @@ const FeatureCard:React.FC<featureCardProps> = ({
 feature , title, subtitle
 }) => {
     return <div
-    className="w-[340px] h-[381px]  group cursor-pointer icon-parent dark:bg-klightGrey bg-kwhiteContainer rounded-3xl flex flex-col items-center justify-between text-center px-[23px] py-[48px]"
+    className="w-[340px] h-[381px]  group cursor-pointer icon-parent dark:bg-klightGrey bg-white  rounded-3xl flex flex-col items-center justify-between text-center px-[23px] py-[48px]"
   >
     <IconBox feature={feature}></IconBox>
     <Titles

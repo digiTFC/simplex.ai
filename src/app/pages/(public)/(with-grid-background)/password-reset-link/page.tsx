@@ -25,7 +25,7 @@ const ResetPasswordLink = () => {
   return (
     <>
       <div className="text-center">
-        <h1 className="text-[34px]">
+        <h1 className="text-[34px] text-black">
           {loading == false ? "Reset Link Sent" : "Enter Your Email Adrees"}
         </h1>
         <h1 className="text-khr">
@@ -59,9 +59,9 @@ const ResetPasswordLink = () => {
               isLoading={loading}
               onClick={formik.handleSubmit}
               className={`${
-                formik.errors.email
-                  ? " w-fit px-3 bg-t text-khr border border-khr !cursor-disabled"
-                  : "text-black bg-white"
+                formik.errors.email || formik.values.email.length < 1
+                  ? " w-fit px-3 bg-gray-200 opacity-50 text-khr border border-khr !cursor-disabled"
+                  : "black:text-black text-white black:bg-white bg-black"
               } w-[375px]  duration-3000 transition-all z-50  mt-5  h-[44px]  font-semibold rounded-lg`}
             ></Button>
           </div>

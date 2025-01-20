@@ -8,7 +8,7 @@ import Link from "next/link";
 const Purpose = ({}) => {
 
   return (
-    <div className="w-9/12 m-auto pb-24 justify-between items-center flex-col md:flex-row flex">
+    <div className="w-9/12 m-auto py-24 justify-between items-center flex-col md:flex-row flex">
       <div className="md:w-1/2 md:order-first order-last ">
         <PurposeIllustration></PurposeIllustration>
       </div>

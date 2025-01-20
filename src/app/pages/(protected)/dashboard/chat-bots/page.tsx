@@ -25,13 +25,13 @@ const ChatBotMenu = () => {
   if (loading)
     return (
       <div className="flex items-center h-full w-full justify-center">
-        <div className="w-10 h-10 animate-spin border-2 rounded-full border-white border-t-transparent"></div>
+        <div className="w-10 h-10 animate-spin border-2 rounded-full border-black dark:border-white border-t-transparent"></div>
       </div>
     );
 
   if (chatbots.length == 0)
     return (
-      <div className="text-center center h-full">
+      <div className="text-center center  flex-1 h-full">
         <div className="h-full flex flex-col gap-8 items-center justify-center">
           <Titles
             title="No Chat Bots Found"
@@ -40,7 +40,7 @@ const ChatBotMenu = () => {
           <Link href={"/pages/dashboard/create-chat-bot"}>
             <Button
               label="Create One"
-              className="w-fit text-black bg-white px-3 py-2 rounded-lg"
+              className="w-fit dark:text-black text-white dark:bg-white bg-black px-3 py-2 rounded-lg"
             ></Button>
           </Link>
         </div>

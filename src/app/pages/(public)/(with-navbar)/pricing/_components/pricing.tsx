@@ -12,7 +12,7 @@ const Pricing = () => {
   return (
     <div className="w-10/12 m-auto ">
       <div className="flex justify-between flex-col text-center items-center">
-        <div className="flex items-center bg-red w-full  justify-between">
+        <div className="flex items-center  w-full  justify-between">
           <div
             onClick={() =>
               router.push(
@@ -21,7 +21,7 @@ const Pricing = () => {
                 }`}`
               )
             }
-            className=" border rounded-full py-3 cursor-pointer hover:bg-white hover:text-black transition-all  px-9 border-white text-white"
+            className=" border bg-white dark:bg-black rounded-full py-3 cursor-pointer hover:bg-white hover:text-black transition-all  px-9 border-white"
           >
             Start Free
           </div>

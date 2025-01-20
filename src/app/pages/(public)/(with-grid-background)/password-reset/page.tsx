@@ -19,7 +19,7 @@ const ResetPassword = () => {
   });
 
   return (
-    <div className="">
+    <div className="center flex-col">
       <Titles
         title="Reset Your Password"
         TitleStyle="!text-[34px]"

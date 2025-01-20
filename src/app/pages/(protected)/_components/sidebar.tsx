@@ -3,6 +3,7 @@ import React from "react";
 import userLogout from "../_service/user-logout";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const siderBarSettings = [
   {
@@ -23,6 +24,7 @@ const siderBarSettings = [
       </svg>
     ),
     label: "Dashboard",
+    route:"/pages/dashboard"
   },
   {
     icon: (
@@ -62,6 +64,8 @@ const siderBarSettings = [
       </svg>
     ),
     label: "Platforms",
+    route:"/pages/dashboard"
+
   },
   {
     icon: (
@@ -126,6 +130,7 @@ const siderBarSettings = [
       </svg>
     ),
     label: "Settings",
+    route:"/pages/dashboard"
   },
 ];
 
@@ -159,14 +164,16 @@ const SideBar = () => {
           <div>
             {siderBarSettings.map((_, index) => {
               return (
-                <div
+               <Link key={index} href={siderBarSettings[index].route!}>
+                 <div
                   key={index}
-                  onClick={()=>router.push(siderBarSettings[index].route!)}
+                  
                   className="text-white my-5 gap-5 hover:bg-kpurple hover:bg-opacity-25 transition-all rounded-xl py-3 px-3 flex"
                 >
                   {siderBarSettings[index].icon}
                   <span>{siderBarSettings[index].label}</span>
                 </div>
+               </Link>
               );
             })}
           </div>

@@ -9,7 +9,7 @@ export const Team = () => {
 
   return (
     <div className="bg-klightGrey rounded-3xl py-12 sm:px-12  ">
-    <Titles title="Meet Our Team" TitleStyle="text-center"></Titles>
+    <Titles title="Meet Our Team" TitleStyle="text-center text-white"></Titles>
 
     <div className="flex flex-col md:grid grid-cols-3 place-items-center gap-y-10 w-fit m-auto gap-20  md:flex-row  justify-center items-center md:justify-evenly py-12">
       {members.map((member,index) => {

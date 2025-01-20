@@ -52,7 +52,7 @@ const RegisterForm = () => {
 
   return (
     <div>
-      <div className="w-[359px] top-[569px] left-[5292px] bg-black rounded-[1px]">
+      <div className="w-[359px] top-[569px] left-[5292px]  rounded-[1px]">
         <form onSubmit={formik.handleSubmit}>
           <div>
             <Titles title="Register" TitleStyle="text-[48px]" />

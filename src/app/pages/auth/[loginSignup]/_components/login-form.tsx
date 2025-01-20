@@ -16,7 +16,7 @@ const LoginForm = () => {
   const buttonSign =
     "bg-gradient-to-r text-white from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700 w-[185px] text-white z-50 top-[986px] left-[5292px] mt-3 rounded-[5px] py-[12px] px-[22px]";
   const inputStyle =
-    "text-klight border border-klightGrey   w-[350px] top-[746px] outline-none py-[12px]  px-[28px] bg-klightGrey left-[5292px] rounded-[5px] my-[10px]";
+    "border border-gray-400  hover:border-gray-600  dark:border-klightGrey dark:text-white  dark:hover:border-klightGreyHover w-[350px] top-[746px] outline-none py-[12px] px-[28px] dark:bg-klightGrey left-[5292px] rounded-[5px] my-[10px]";
   const [isLoading, setIsLoading] = useState(false);
 
   const formik = useFormik({
@@ -47,7 +47,7 @@ const LoginForm = () => {
 
   return (
     <div>
-      <div className="w-[359px] top-[569px] left-[5292px] bg-black rounded-[1px]">
+      <div className="w-[359px] top-[569px] left-[5292px]  rounded-[1px]">
         <form onSubmit={formik.handleSubmit}>
           <div>
             <Titles title="Login" TitleStyle="text-[48px]" />
@@ -92,7 +92,7 @@ const LoginForm = () => {
                   <div className={errorStyke}>{formik.errors.password}</div>
                 ) : null}
                 <Link href={"../password-reset-link"} target="_blank">
-                  <span className="hover:text-white transition-all absolute text-[14px] right-3 -bottom-[13px] ">
+                  <span className="black:hover:text-white hover:text-black transition-all absolute text-[14px] right-3 -bottom-[13px] ">
                     Forgot password ?
                   </span>
                 </Link>

@@ -7,7 +7,7 @@ const Contact = ({}) => {
     
 
   return (
-    <div className="w-12/12 md:w-10/12 bottom-16 relative md:bottom-0 md:pb-24 m-auto ">
+    <div className="w-12/12 md:w-10/12 bottom-16  relative md:bottom-0 md:pb-24 m-auto ">
         <div className="pt-[260px] relative  flex items-center justify-between">     
          <div className="opacity-50 md:opacity-100 absolute md:relative"><svg
         width="542"

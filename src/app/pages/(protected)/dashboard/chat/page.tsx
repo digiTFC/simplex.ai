@@ -85,7 +85,7 @@ const ChatPage = () => {
           ""
         )}
 
-        <div className="w-6/12  fixed bg-black bottom-0 pb-8">
+        <div className="w-6/12  fixed dark:bg-black bottom-0 pb-8">
           <div className="bg-klightGrey rounded-2xl w-full  py-1 flex items-center justify-between px-4 pr-6 text-white relative">
             <Link href={"/pages/dashboard/upload-file"}>
               <div className="cursor-pointer ">
@@ -106,7 +106,7 @@ const ChatPage = () => {
               onChange={formik.handleChange}
               name="prompt"
               useLabel={false}
-              className="!rounded-2xl !w-[100%] border-none pl-4"
+              className="!rounded-2xl !w-[100%] !bg-klightGrey border-none pl-4"
             ></Input>
             <div
               className="p-2 rounded-full bg-white text-black cursor-pointer"

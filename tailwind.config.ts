@@ -14,6 +14,7 @@ const config: Config = {
     },
     extend: {
       colors: {
+        kwhiteBg:"#F2F5F8",
         khr: "#404047",
         kOnSecondary: "#222228",
         klightGrey: "#18181C",
