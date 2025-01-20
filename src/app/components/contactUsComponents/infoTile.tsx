@@ -1,15 +1,15 @@
-import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { ReactNode } from "react"
 
 interface infoTileProps{
-    icon : IconDefinition
+    children : ReactNode
     body : string 
 }
-const InfoTile:React.FC<infoTileProps> = ({icon, body}) => {
+const InfoTile:React.FC<infoTileProps> = ({children, body}) => {
   return (
     <div>
     <div className="text-white  py-4">
-    <FontAwesomeIcon icon={icon} />
+    {children}
     <span className="pl-3">{body}</span>
   </div>
     </div>
