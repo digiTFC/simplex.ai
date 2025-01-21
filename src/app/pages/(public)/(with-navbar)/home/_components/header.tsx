@@ -16,13 +16,13 @@ const Header = ({}) => {
           <div className="relative w-10/12 md:w-1/2 m-auto  text-center">
             <Titles
               title="From Idea to Impact – Launch Your Chatbot in Clicks"
-              TitleStyle="text-[39px] md:text-[64px] font-semibold md:leading-[75px] m-auto md:max-w-[840px]"
+              TitleStyle="text-[32px] md:text-[52px] font-semibold md:leading-[75px] m-auto md:max-w-[840px]"
               subtitleStyle="md:text-[18px] text-[14px] mt-[20px] mb-[37px] md:w-8/12 w-10/12  m-auto"
               subTitle={`Tailored for African Innovators, Ready for the World, Turn Your Vision into Reality with Our Easy-to-Use Platform `}
             ></Titles>
 
             <Link href={"/pages/auth/signup"}>
-              <Button label="Signup Now " className={defaultStyle}></Button>
+              <Button label="Get Started" className={defaultStyle}></Button>
             </Link>
             <div className="z-[100]">
               <InsightCard></InsightCard>
