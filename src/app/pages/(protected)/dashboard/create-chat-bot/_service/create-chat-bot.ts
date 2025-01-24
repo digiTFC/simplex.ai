@@ -42,8 +42,9 @@ export default async function createChatBot(
       console.log(error.response?.data);
       return {
         success: false,
-        message: error.response?.data.detail,
+        message: "unexpected error",
       };
+      
     }
 
     return {
