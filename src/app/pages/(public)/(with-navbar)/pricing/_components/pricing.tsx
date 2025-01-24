@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { pricingData } from "@/app/pages/(public)/data/subcriptions";
 import Button from "@/app/components/general-components/button";
-import PricingCard from "@/app/components/pricingComponents/pricingCard";
+import PricingCard from "@/app/components/pricingComponents/princingCard";
 
 const Pricing = () => {
   const [val, setVal] = useState("monthly");
@@ -56,7 +56,7 @@ const Pricing = () => {
               features={plan.features}
               onClick={() => router.push(generateLink(index))}
               price={
-                val === "monthly" ? plan.monthlyPrice : plan.yearlyPrice
+                val === "monthly" ? plan.monthlyPrice.toString() : plan.yearlyPrice.toString()
               }
             />
           </div>
