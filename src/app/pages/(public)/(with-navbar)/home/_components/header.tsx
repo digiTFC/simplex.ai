@@ -2,6 +2,7 @@ import Button from "@/app/components/general-components/button";
 import { Titles } from "@/app/components/general-components/Titles";
 import InsightCard from "@/app/components/homeComponents/insightCard";
 import Link from "next/link";
+import { CiMenuFries } from "react-icons/ci";
 
 const Header = ({}) => {
   const defaultStyle =
@@ -15,6 +16,7 @@ const Header = ({}) => {
         <div className=" curve-b relative  flex pt-16 md:pb-[300px] pb-[200px] -ml-[6vw] flex-col  z-40 bg-kwhiteBg dark:bg-black w-[112vw] ">
           <div className="relative w-10/12 md:w-1/2 m-auto  text-center">
             <Titles
+            
               title="From Idea to Impact – Launch Your Chatbot in Clicks"
               TitleStyle="text-[32px] md:text-[52px] font-semibold md:leading-[75px] m-auto md:max-w-[840px]"
               subtitleStyle="md:text-[18px] text-[14px] mt-[20px] mb-[37px] md:w-8/12 w-10/12  m-auto"
@@ -24,7 +26,7 @@ const Header = ({}) => {
             <Link href={"/pages/auth/signup"}>
               <Button label="Get Started" className={defaultStyle}></Button>
             </Link>
-            <div className="z-[100]">
+            <div className="z-[100] ">
               <InsightCard></InsightCard>
             </div>
           </div>

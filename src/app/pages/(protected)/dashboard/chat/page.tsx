@@ -100,14 +100,19 @@ const ChatPage = () => {
                 </svg>
               </div>
             </Link>
-            <Input
+            <form className="!rounded-2xl !w-[100%] !bg-klightGrey border-none pl-4"
+ action="
+            
+            ">
+                          <Input
               placeholder="Enter Message..."
               value={formik.values.prompt}
               onChange={formik.handleChange}
               name="prompt"
               useLabel={false}
-              className="!rounded-2xl !w-[100%] !bg-klightGrey border-none pl-4"
+               className="!rounded-2xl !w-[100%] !bg-klightGrey border-none pl-4"
             ></Input>
+            </form>
             <div
               className="p-2 rounded-full bg-white text-black cursor-pointer"
               onClick={() => formik.handleSubmit()}

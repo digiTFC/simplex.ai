@@ -7,8 +7,8 @@ interface infoTileProps{
 }
 const InfoTile:React.FC<infoTileProps> = ({children, body}) => {
   return (
-    <div>
-    <div className="text-white  py-4">
+    <div className="">
+    <div className="text-white flex py-4">
     {children}
     <span className="pl-3">{body}</span>
   </div>

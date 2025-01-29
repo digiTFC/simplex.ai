@@ -13,20 +13,17 @@ const Pricing = () => {
     if (newVal !== val) setVal(newVal);
   };
 
-  const generateLink = (index: number) =>
-    `/pages/subscriptions/${(index + 1).toString()} ${val}`;
+  const generateLink = (index: number): string => {
+    return `/pages/subscriptions/${(index + 1).toString()} ${val}`;
+  };
+
+     
 
   return (
     <div className="w-10/12 m-auto">
       <div className="flex justify-between flex-col text-center items-center">
-        <div className="flex items-center w-full justify-between">
-          <div
-            onClick={() => router.push(`/pages/subscriptions/0 ${val}`)}
-            className="border bg-white dark:bg-black rounded-full py-3 cursor-pointer hover:bg-white hover:text-black transition-all px-9 border-white"
-          >
-            Start Free
-          </div>
-          <div className="text-white flex relative rounded-full bg-clip-content my-20 bg-klightGrey w-[277px] h-[50px] text-center">
+        <div className="flex items-center w-full justify-center">
+          <div className="text-white flex relative rounded-full bg-clip-content mb-20 mt-12 bg-klightGrey w-[277px] h-[50px] text-center">
             <Button
               label=""
               className={`${
@@ -47,20 +44,28 @@ const Pricing = () => {
         </div>
       </div>
 
-      <div className="flex place-items-center items-center justify-center flex-wrap md:grid grid-cols-3 w-fit gap-40 gap-20 m-auto">
-        {pricingData.slice(1, 4).map((plan, index) => (
+      <div className="flex place-items-center items-center justify-center flex-wrap md:grid w-full grid-cols-3   gap-4 m-auto">
+        {pricingData.slice(1, 4).map((plan, index) => 
+        (
+          
           <div key={index}>
             <PricingCard
               icon={plan.icon}
               title={plan.name}
               features={plan.features}
-              onClick={() => router.push(generateLink(index))}
+              onClick={generateLink(index)}
               price={
                 val === "monthly" ? plan.monthlyPrice.toString() : plan.yearlyPrice.toString()
               }
             />
           </div>
         ))}
+      </div>
+
+      <div className="flex items-center justify-end gap-2 mt-8">
+        <p>unable to afford ? no problem</p>
+        <p className="p-2 rounded-lg border-2 cursor-pointer hover:border-white transition-all ">START FREE</p>
+        <p className="text-xs dark:text-gray-100">No card needed</p>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import ContactForm from "@/app/components/general-components/contactForm";
+import "../../../../../globals.css"
 
 
 
@@ -7,14 +8,15 @@ const Contact = ({}) => {
     
 
   return (
-    <div className="w-12/12 md:w-10/12 bottom-16  relative md:bottom-0 md:pb-24 m-auto ">
-        <div className="pt-[260px] relative  flex items-center justify-between">     
-         <div className="opacity-50 md:opacity-100 absolute md:relative"><svg
+    <div className="w-12/12 md:w-10/12  relative md:bottom-0 md:pb-24 m-auto ">
+        <div className=" relative globe-wrapper gap-4 flex items-center justify-between">     
+         <div className="  opacity-50  md:opacity-100 absolute md:relative"><svg
         width="542"
         height="542"
         viewBox="0 0 542 542"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        className="globe"
       >
         <path
           d="M250.971 541.373H251.449L254.796 541.612C252.047 541.492 249.179 541.253 246.191 540.895C246.071 540.895 245.832 540.895 245.713 540.895C247.386 541.014 249.179 541.253 250.852 541.373H250.971Z"
@@ -749,7 +751,7 @@ const Contact = ({}) => {
           fill="#3A3A47"
         />
          </svg></div>
-        <div className="md:w-5/12 w-9/12 m-auto md:ml-auto z-50 ">
+        <div className="md:w-4/12 w-9/12 m-auto md:ml-auto z-50 ">
             <ContactForm></ContactForm>
         </div>
       </div>

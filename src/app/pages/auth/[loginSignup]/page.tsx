@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import LoginForm from "./_components/login-form";
 import { useParams } from "next/navigation";
 import { LoopsIllustration } from "@/app/components/general-components/loopsIllustration";
+import { Span } from "next/dist/trace";
 
 const setBackground = (index: number): string => {
   switch (index) {
@@ -45,7 +46,7 @@ const LoginSignUP = () => {
                 
             }}
           >
-            { isLogin ? "No account yet" : "Already have an account ?"}
+            { isLogin ? <span >No account yet ? <span className="underline underline-offset-4">Singup</span ></span> : <span>Already have an account ? <span className="underline underline-offset-4">Login</span></span>}
           </p>
         </div>
         <div className="w-1/2 self-end md:block hidden">

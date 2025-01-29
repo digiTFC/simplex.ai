@@ -125,12 +125,12 @@ const Features = ({}) => {
   ];
 
   return (
-    <div className="relative bottom-32">
+    <div className="relative bottom-36">
       <div className=" absolute  w-full bg-gradient-to-r from-kpink to-kpurple h-[174px] "></div>
 
-      <div className=" curve-t relative pt-32  flex  items-center justify-center  -left-[6vw] flex-col z-50  bg-kwhiteBg dark:bg-black  w-[112vw] ">
+      <div className=" curve-t relative   flex  items-center justify-center  -left-[6vw] flex-col z-50  bg-kwhiteBg dark:bg-black  w-[112vw] ">
         <div className="w-screen">
-        <div className="w-10/12 m-auto flex flex-col  relative md:left-[3vw] ">
+        <div className="w-10/12 m-auto flex flex-col top-40 relative md:left-[3vw] ">
           <Titles
             title="Feature Boxes"
             subtitleStyle="md:w-5/12"
@@ -140,7 +140,7 @@ const Features = ({}) => {
             <div className="grid md:grid-cols-3  md:mr-[6vw] gap-8   mt-12">
             {featuresIcons.map((feature, index) => {
               return (
-                <div key={index}>
+                <div key={index} >
                     <FeatureCard title={feature.title} subtitle={feature.subtitle} feature={feature.icon} ></FeatureCard>
                 </div>
               );

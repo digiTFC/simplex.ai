@@ -12,9 +12,9 @@ import { Titles } from "@/app/components/general-components/Titles";
 const LoginForm = () => {
   const router = useRouter();
   const buttonStyle = "px-4 text-white";
-  const errorStyke = "text-red-400 text-[12px] absolute  -bottom-[12px]";
+  const errorStyke = "text-red-400 text-[12px] absolute  -bottom-[8px]";
   const buttonSign =
-    "bg-gradient-to-r text-white from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700 w-[185px] text-white z-50 top-[986px] left-[5292px] mt-3 rounded-[5px] py-[12px] px-[22px]";
+    "bg-gradient-to-r text-white from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700 w-full text-white z-50 top-[986px] left-[5292px] mt-3 rounded-[5px] py-[12px] px-[22px]";
   const inputStyle =
     "border border-gray-400  hover:border-gray-600  dark:border-klightGrey dark:text-white  dark:hover:border-klightGreyHover w-[350px] top-[746px] outline-none py-[12px] px-[28px] dark:bg-klightGrey left-[5292px] rounded-[5px] my-[10px]";
   const [isLoading, setIsLoading] = useState(false);
@@ -47,13 +47,14 @@ const LoginForm = () => {
 
   return (
     <div>
-      <div className="w-[359px] top-[569px] left-[5292px]  rounded-[1px]">
+      <div className="w-[359px]   rounded-[1px]">
         <form onSubmit={formik.handleSubmit}>
           <div>
             <Titles title="Login" TitleStyle="text-[48px]" />
           </div>
 
-          <div className="relative">
+<div className="space-y-">
+<div className="relative">
             <input
               type="text"
               name="email"
@@ -72,7 +73,9 @@ const LoginForm = () => {
               <div className={errorStyke}>{formik.errors.email}</div>
             ) : null}
 
-            <div className="relative">
+            
+          </div>
+          <div className="relative">
               <input
                 type="password"
                 autoComplete="off"
@@ -98,8 +101,8 @@ const LoginForm = () => {
                 </Link>
               </div>
             </div>
-          </div>
-          <div>
+</div>
+          <div className="w-full">
             <Button
               label="Login"
               className={`${buttonSign} mt-6`}
@@ -107,8 +110,8 @@ const LoginForm = () => {
               onClick={() => formik.submitForm()}
             />
           </div>
-          <div className="grid grid-cols-2 my-[25px] w-[350px] h-[51px] top-[1069px] left-[5292px]">
-            <div className="w-[168px] flex justify-center py-[4px] left-[5292] rounded-[5px] bg-klightGrey hover:bg-klightGreyHover transition-all">
+          <div className="grid grid-cols-2 my-[25px] w-full gap-4 h-[51px] top-[1069px] left-[5292px]">
+            <div className="w-full flex justify-center py-[4px] left-[5292] rounded-[5px] bg-klightGrey hover:bg-klightGreyHover transition-all">
               <div className="border-r px-3 h-8 py-1 my-1">
                 <svg
                   width="23"
@@ -146,7 +149,7 @@ const LoginForm = () => {
                 <Button label="Google" className={`${buttonStyle}`} />
               </div>
             </div>
-            <div className="w-[168px] cursor-pointer flex justify-center py-[4px] left-[5292] rounded-[5px] bg-klightGrey hover:bg-klightGreyHover transition-all">
+            <div className="w-full cursor-pointer flex justify-center py-[4px] left-[5292] rounded-[5px] bg-klightGrey hover:bg-klightGreyHover transition-all">
               <div className="border-r px-3 h-8 py-2 my-1">
                 <svg
                   width="22"

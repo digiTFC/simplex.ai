@@ -15,7 +15,7 @@ const RegisterForm = () => {
   const buttonSign =
     "bg-gradient-to-r text-white from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700 w-[185px] text-white z-50 top-[986px] left-[5292px] mt-3 rounded-[5px] py-[12px] px-[22px]";
   const inputStyle =
-    "text-klight border border-klightGrey   w-[350px] top-[746px] outline-none py-[12px]  px-[28px] bg-klightGrey left-[5292px] rounded-[5px] my-[8px]";
+    "text-klight border border-klightGrey   w-full top-[746px] outline-none py-[12px]  px-[28px] bg-klightGrey left-[5292px] rounded-[5px] my-[8px]";
   const [isLoading, setIsLoading] = useState(false);
 
   const formik = useFormik({
@@ -52,12 +52,13 @@ const RegisterForm = () => {
 
   return (
     <div>
-      <div className="w-[359px] top-[569px] left-[5292px]  rounded-[1px]">
+      <div className="w-[375px]  rounded-[1px]">
         <form onSubmit={formik.handleSubmit}>
           <div>
             <Titles title="Register" TitleStyle="text-[48px]" />
           </div>
           <div className="pt-[12px]">
+            <div className="grid md:grid-cols-2 md:gap-4">
             <div className="relative">
               <input
                 autoComplete="off"
@@ -93,6 +94,7 @@ const RegisterForm = () => {
               {formik.errors.last_name ? (
                 <div className={errorStyke}>{formik.errors.last_name}</div>
               ) : null}
+            </div>
             </div>
             <div className="relative">
               <input
@@ -174,16 +176,16 @@ const RegisterForm = () => {
               ) : null}
             </div>
           </div>
-          <div>
+          <div className="flex justify-center my-4  w-full ">
             <Button
               label="Signup Now"
               isLoading={isLoading}
-              className={`${buttonSign}`}
+              className={`${buttonSign} w-full `}
               onClick={() => formik.submitForm()}
             />
           </div>
-          <div className="grid grid-cols-2 my-[20px] w-[350px] h-[51px] top-[1069px] left-[5292px]">
-            <div className="w-[168px] flex justify-center py-[4px] left-[5292] rounded-[5px] bg-klightGrey hover:bg-klightGreyHover transition-all">
+          <div className="grid grid-cols-2 my-[20px]  gap-4 w-full h-[51px] top-[1069px] left-[5292px]">
+            <div className="w-full flex justify-center py-[4px] left-[5292] rounded-[5px] bg-klightGrey hover:bg-klightGreyHover transition-all">
               <div className="border-r px-3 h-8 py-1 my-1">
                 <svg
                   width="23"
@@ -221,7 +223,7 @@ const RegisterForm = () => {
                 <Button label="Google" className={`${buttonStyle}`} />
               </div>
             </div>
-            <div className="w-[168px] cursor-pointer flex justify-center py-[4px] left-[5292] rounded-[5px] bg-klightGrey hover:bg-klightGreyHover transition-all">
+            <div className="w-full cursor-pointer flex justify-center py-[4px] left-[5292] rounded-[5px] bg-klightGrey hover:bg-klightGreyHover transition-all">
               <div className="border-r px-3 h-8 py-2 my-1">
                 <svg
                   width="22"

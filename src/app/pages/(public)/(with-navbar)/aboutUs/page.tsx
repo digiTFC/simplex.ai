@@ -24,9 +24,9 @@ const AboutUs = () => {
           </div>
 
           {/* Team Section */}
-          <div className="max-w-[1700px] my-16 m-auto">
+          {/* <div className="max-w-[1700px] my-16 m-auto">
             <Team></Team>
-          </div>
+          </div> */}
 
           {/* Values Section */}
           <div className="my-16">

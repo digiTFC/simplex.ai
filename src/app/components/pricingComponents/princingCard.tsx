@@ -2,6 +2,7 @@
 import React, {  ReactNode } from "react";
 import Button from "../general-components/button";
 import PrincingTile from "./princingTile";
+import Link from "next/link";
 
 interface pricingProps {
   icon: ReactNode;
@@ -9,7 +10,7 @@ interface pricingProps {
   title: string;
   features: {title : string, isPresent : boolean}[];
   price: string;
-  onClick: () => void;
+  onClick: string;
 }
 const PricingCard: React.FC<pricingProps> = ({
   icon,
@@ -30,13 +31,13 @@ const PricingCard: React.FC<pricingProps> = ({
         // onMouseLeave={() => setHover(false)}
         // onMouseMove={handleMouseMove}
       >
-        <div className=" w-[350px]  relative bg-klightGrey flex flex-col justify-between  items-center  text-center  rounded-2xl px-[24px] py-8">
+        <div className=" w-[400px]  relative dark:bg-klightGrey bg-white flex flex-col justify-between  items-center  text-center  rounded-3xl px-[24px] py-8">
           <div className=" w-[76px] h-[76px] absolute   -translate-y-[50%] top-0  flex items-center justify-center rounded-full bg-kOnSecondary">
             <div className="translate-x-[8px] translate-y-[8px] scale-75">
               {icon}
             </div>
           </div>
-          <h1 className="text-[20px] font-medium mt-4 ">{title}</h1>
+          <h1 className="text-[20px] font-medium mt-4 text-black dark:text-white ">{title}</h1>
           <hr className=" w-full my-[20px] border-khr" />
           <div className="self-start">
             {features.map((_, idx) => {
@@ -61,11 +62,14 @@ const PricingCard: React.FC<pricingProps> = ({
               // onMouseEnter={() => setHover(false)}
               // onMouseLeave={() => setHover(true)}
             >
-              <Button
+                <Link
+                href={onClick}>
+                <Button
                 label="Purchase"
-                onClick={onClick}
+                
                 className={style}
               ></Button>
+                </Link>
             </div>
           </div>
         </div>

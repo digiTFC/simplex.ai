@@ -56,7 +56,7 @@ export function ChatbotsStats({ stats }: ChatbotsStatsProps) {
   };
 
   return (
-    <div className="m-auto mt-4 scale-[0.85]">
+    <div className="m-auto bg-white dark:bg-klightGrey mt-4 scale-[0.85]">
         <Line data={lineData} />
     </div>
   );
