@@ -18,7 +18,7 @@ export default async function userLogout(): Promise<{
   console.log(`Bearer ${token}`);
   try {
     const response = await apiClient.get(
-      "http://13.91.1.165:8005/api/manage_users/logout/",
+      "manage_users/logout/",
       {
         headers: {
           Authorization: `Bearer ${token}`,

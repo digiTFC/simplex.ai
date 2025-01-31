@@ -1,9 +1,8 @@
 import React from 'react'
 import ContentBox from './contentBox'
 import Image from 'next/image'
-import {
-  faLinkedinIn,
-} from "@fortawesome/free-brands-svg-icons";
+import { FaLinkedinIn } from "react-icons/fa";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Titles } from './Titles';
 
@@ -28,7 +27,7 @@ export const MemberCard:React.FC<cardProps> = ({name,position,image,textEnd,link
         width={700}
         height={400}
       ></Image>
-      <div  className={`cursor-pointer px-3 py-4 flex   ${textEnd ? 'justify-end ' : ''}`}
+      <div  className={`cursor-pointer px-3 py-4 flex  items-center w-full  ${textEnd ? 'md:justify-end justify-between' : 'justify-between'}`}
       >
         <Titles 
           title={name}
@@ -36,7 +35,9 @@ export const MemberCard:React.FC<cardProps> = ({name,position,image,textEnd,link
           TitleStyle="!text-[20px] "
           subtitleStyle="!text-[14px] "
         ></Titles>
-        <a href={link} target='_blank'><FontAwesomeIcon icon={faLinkedinIn} color='black' className='scale-75 bg-white p-[6px] px-[7px] mt- ml-2 rounded'></FontAwesomeIcon></a>
+        <a href={link} target='_blank'>
+        <FaLinkedinIn className=' cursor-pointer mt-1 bg-black w-8 h-8 p-1 rounded ml-2 rounded' />
+          </a>
       </div>
     </div>
   </ContentBox>

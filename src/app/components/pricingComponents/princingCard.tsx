@@ -52,10 +52,10 @@ const PricingCard: React.FC<pricingProps> = ({
           </div>
           <hr className="w-full py-2 border-khr " />
           <div className=" w-full flex items-center justify-between">
-            <h1 className="text-[40px] font-medium transition-all">
+            <h1 className="text-[40px] text-klightGrey font-medium transition-all">
               ${price}
               <span className="text-[14px] font-normal text-klight">
-                /mo
+                 /mo
               </span>{" "}
             </h1>
             <div

@@ -22,7 +22,7 @@ export const TableRow: React.FC<Chatbot> = ({
     }, 1000);
   };
 
-  const statusColr = status == ChatBotStatus.ACTIF ?'bg-green-900 bg-opacity-50  border-green-900  text-green-400' : 'bg-khr bg-opacity-50  border-gray-500 '
+  const statusColr = status == ChatBotStatus.ACTIF ?'bg-green-900 bg-opacity-50  border-green-900  text-green-400' : 'dark:bg-khr bg-opacity-50  border-gray-500 '
   return (
     <tr className={"border-b border-khr"}>
       <Td>{chatbot_name}</Td>
@@ -46,18 +46,18 @@ export const TableRow: React.FC<Chatbot> = ({
         </div>
       </Td>
       <Td className="w-10">
-        <div className="center relative border border-khr rounded-lg p-2 py-[5px] bg-khr bg-opacity-50  gap-3">
+        <div className="center relative border border-khr rounded-lg p-2 py-[5px] dark:bg-khr bg-opacity-50  gap-3">
           {url}
           <motion.div 
           initial={{opacity:0,y:5}}
           animate={copied ? {opacity:1 , y:-15}:{}}
-          className="absolute px-3 py-2 -top-8 border border-khr bg-klightGrey  rounded-md">Copied !</motion.div>
+          className="absolute px-3 py-2 -top-8 border border-khr text-white bg-klightGrey  rounded-md">Copied !</motion.div>
           <div className="cursor-pointer relative w-[30px] h-[30px] overflow-hidden rounded-md overf=ow-hidden border border-khr flex justify-center items-center">
             <div
               onClick={() => {
                 copyLink(url);
               }}
-              className="  inset-0 flex items-center justify-center absolute bg-black "
+              className="  inset-0 flex items-center justify-center absolute text-white bg-black "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ export const TableRow: React.FC<Chatbot> = ({
       <Td className="">
 <div className="center">
 <div className={` w-9/12 px-2  center border   gap-2  py-[7px] rounded-md ${statusColr}`}>
-          <div className={`w-[10px] h-[10px] ${status == ChatBotStatus.ACTIF ? 'bg-green-400 ' :'bg-gray-50 bg-opacity-50'} rounded-xl`}></div>
+          <div className={`w-[10px] h-[10px] ${status == ChatBotStatus.ACTIF ? 'bg-green-400 ' :'dark:bg-gray-50 bg-gray-400 bg-opacity-50'} rounded-xl`}></div>
           {status}
         </div>
 </div>

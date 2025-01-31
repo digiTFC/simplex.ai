@@ -8,11 +8,10 @@ export default async function createChatBot(
 ): Promise<{ success: boolean; message: string }> {
   try {
 
-        await loginUser({
-            "email":"tmperseh@gmail.com",
-            "password":"tmperseh@gmail.com"
-        })
-
+    await loginUser({
+      "email":"ldxspoti001@gmail.com",
+      "password":"ldxspoti001@gmail.com"
+  })
 
     const token = localStorage.getItem("access-token");
 
@@ -24,7 +23,7 @@ export default async function createChatBot(
     }
 
     await apiClient.post(
-      "http://13.91.1.165:8005/api/manage_chatbot/create-chatbot/",
+      "manage_chatbot/create-chatbot/",
       data,
       {
         headers: {

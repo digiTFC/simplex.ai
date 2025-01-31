@@ -170,9 +170,9 @@ td {
     transform:  rotate(0deg);
   }
   to{
-    
+
       transform:  rotate(360deg);
-    
+
   }
 }
 
@@ -181,6 +181,19 @@ td {
   transform-style: preserve-3d;
 }
 
-.opacity-10{
-  
+.fade-up{
+  z-index: 1000;
+  transform: translateY(64%);
+  animation: fade-in-up 400ms ease forwards!important;
+}
+
+@keyframes fade-in-up{
+ 0%{
+  transform: translateY(80%);
+  opacity: 0;
+ }
+ /* 100%{
+  transform: translateY(64%)!important;
+  opacity: 1;
+ } */
 }

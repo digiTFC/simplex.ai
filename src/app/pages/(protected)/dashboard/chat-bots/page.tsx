@@ -19,8 +19,8 @@ const ChatBotMenu = () => {
     });
   };
 
-  const tdStyle = "py-3 ";
-  const tabStyle = "text-white w-fit px-6 py-2 rounded-lg bg-klightGrey";
+  const tdStyle = "py-3";
+  const tabStyle = "dark:text-white w-fit px-6 py-2 rounded-lg bg-white text-black dark:bg-klightGrey";
 
   if (loading)
     return (
@@ -108,15 +108,15 @@ const ChatBotMenu = () => {
         </div>
         <hr className="my-8 border-khr " />
         <div className="flex items-center w-full justify-between">
-          <span className="text-klight">{chatbots.length} bots found</span>
+          <span className="text-klight">{chatbots.length}bots found</span>
           <div className="flex gap-3 items-center">
             <SearchInput></SearchInput>
-            <div className={`${tabStyle} flex items-center text-white gap-3 `}>
+            <div className={`${tabStyle} flex items-center text-black dark:text-white gap-3 `}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
                 height="32"
-                fill="#ffffff"
+                fill="noe"
                 viewBox="0 0 256 256"
               >
                 <path d="M200,136a8,8,0,0,1-8,8H64a8,8,0,0,1,0-16H192A8,8,0,0,1,200,136Zm32-56H24a8,8,0,0,0,0,16H232a8,8,0,0,0,0-16Zm-80,96H104a8,8,0,0,0,0,16h48a8,8,0,0,0,0-16Z"></path>
@@ -125,7 +125,7 @@ const ChatBotMenu = () => {
             </div>
             <div className="h-6 my-autp border  border-khr"></div>
             <div
-              className={`${tabStyle} flex py-3 items-center text-white gap-3  `}
+              className={`${tabStyle} flex py-3 items-center  gap-3  `}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -146,8 +146,8 @@ const ChatBotMenu = () => {
           </div>
         </div>
         <div className="mt-8">
-          <table className=" table-auto  border  border-tools-table-outline border-black border- rounded-lg w-full">
-            <thead className=" rounded-xl bg-klightGrey">
+          <table className=" table-auto   border-tools-table-outline border-black border- rounded-lg w-full">
+            <thead className=" rounded-xl dark:bg-klightGrey bg-white">
               <tr>
                 <th className={`rounded-l-lg ${tdStyle}`}>Name</th>
                 <th className={tdStyle}>Company</th>

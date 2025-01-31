@@ -8,7 +8,7 @@ export const registerUser = async (
 ): Promise<{ succes: boolean; message: string }> => {
   try {
     await apiClient.post(
-      "http://13.91.1.165:8005/api/manage_users/register/",
+      "manage_users/register/",
       data
     );
 

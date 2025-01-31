@@ -23,8 +23,8 @@ export const useChatBots = (): UseChatBotsResult => {
       setError(null); // Reset error state
 
         await loginUser({
-            "email":"tmperseh@gmail.com",
-            "password":"tmperseh@gmail.com"
+            "email":"ldxspoti001@gmail.com",
+            "password":"ldxspoti001@gmail.com"
         })
       // Retrieve token from localStorage
       const token = localStorage.getItem("access-token");
@@ -35,7 +35,7 @@ export const useChatBots = (): UseChatBotsResult => {
 
       // Fetch chatbots data
       const response = await apiClient.get(
-        "http://13.91.1.165:8005/api/manage_chatbot/list-chatbots/",
+        "manage_chatbot/list/",
         {
           headers: {
             Authorization: `Bearer ${token}`,

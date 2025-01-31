@@ -44,7 +44,7 @@ const Pricing = () => {
         </div>
       </div>
 
-      <div className="flex place-items-center items-center justify-center flex-wrap md:grid w-full grid-cols-3   gap-4 m-auto">
+      <div className="place-items-center flex justify-center flex-col md:grid w-full md:grid-cols-3  gap-20 md:gap-4 m-auto">
         {pricingData.slice(1, 4).map((plan, index) => 
         (
           
@@ -62,10 +62,10 @@ const Pricing = () => {
         ))}
       </div>
 
-      <div className="flex items-center justify-end gap-2 mt-8">
+      <div className="flex items-center flex-col justify-end gap-2 mt-8">
         <p>unable to afford ? no problem</p>
         <p className="p-2 rounded-lg border-2 cursor-pointer hover:border-white transition-all ">START FREE</p>
-        <p className="text-xs dark:text-gray-100">No card needed</p>
+        <p className="text-xs text-klight dark:text-gray-100">No card needed</p>
       </div>
     </div>
   );

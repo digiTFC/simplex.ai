@@ -44,7 +44,7 @@ const VerifyAccount = () => {
           subTitle="We have sent a verifaction code to your adress"
         ></Titles>
 
-<div className="w-fit pt-6">        <Input
+<div className="w-[350px] pt-6">        <Input
           name="code"
           type="number"
           placeholder="verfication code"

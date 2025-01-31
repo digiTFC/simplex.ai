@@ -36,6 +36,7 @@ export const Values = () => {
     <div className="text-center">
       <div className="md:w-2/4 m-auto">
         <Titles
+        bigTitle={true}
           title="Our Core Values"
           subTitle="At Simplex, we believe amazing products come from amazing people. Our team celebrates diversity, creativity, and the values that keep us inspired to help businesses like yours thrive."
         />

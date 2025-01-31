@@ -16,7 +16,7 @@ feature , title, subtitle
     <IconBox feature={feature}></IconBox>
     <Titles
       title={title}
-      TitleStyle="text-[20px] font-semibold mb-[15px]"
+      TitleStyle="md:text-[20px] text-[18px] font-semibold mb-[15px]"
       defaultStyle={false}
       subtitleStyle="text-[14px]  leading-[28px]"
       subTitle={subtitle}

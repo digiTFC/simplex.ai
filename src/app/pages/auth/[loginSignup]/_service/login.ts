@@ -8,7 +8,7 @@ export async function loginUser(
     try {
   
       const response = await apiClient.post(
-        "http://13.91.1.165:8005/api/manage_users/login/",
+        "manage_users/login/",
          data
       );
   

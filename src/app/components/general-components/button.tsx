@@ -35,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({
     >
       <div className='flex items-center justify-center'>
       {children}
-       <div className={`${isLoading ?`transition-all  transition-all  border-t-transparent border   mr-3 w left-0 border-2 w-[20px] h-[20px] rounded-full animate-spin`:'absolute' } ${ loadindIsWhite ? 'border-white' : 'border-black' } `}></div> 
+       <div className={`${isLoading ?`transition-all  transition-all  border-t-transparent border border-white    mr-3 w left-0 border-2 w-[20px] h-[20px] rounded-full animate-spin`:'absolute' } ${ loadindIsWhite ? 'border-white' : 'border-black' } `}></div> 
 
       {label}
       </div>

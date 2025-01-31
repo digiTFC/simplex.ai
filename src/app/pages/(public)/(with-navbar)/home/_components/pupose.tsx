@@ -6,11 +6,11 @@ import Link from "next/link";
 const Purpose = ({}) => {
 
   return (
-    <div className="w-9/12 m-auto py-24 justify-between items-center flex-col md:flex-row flex">
+    <div className="w-9/12 m-auto py-12 justify-between items-center flex-col md:flex-row flex">
       <div className="md:w-5/12 scale-[.8] md:order-first order-last">
         <PurposeIllustration />
       </div>
-      <div className="md:w-5/12">
+      <div className="md:w-5/12 text-center md:text-start">
         <Titles
           title="Empowering Your Success, Every Step of the Way"
           

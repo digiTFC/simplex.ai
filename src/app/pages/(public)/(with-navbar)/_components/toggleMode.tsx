@@ -10,17 +10,17 @@ const DarkModeToggle: React.FC = () => {
     root.classList.toggle('dark');
     const isDark = root.classList.contains('dark');
     setIsDarkMode(isDark);
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    // localStorage.setItem('theme', isDark ? 'dark' : 'light');
   };
 
   // Load theme from localStorage on mount
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-      setIsDarkMode(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   // const savedTheme = localStorage.getItem('theme');
+  //   if (savedTheme === 'dark') {
+  //     document.documentElement.classList.add('dark');
+  //     setIsDarkMode(true);
+  //   }
+  // }, []);
 
   return (
     <button

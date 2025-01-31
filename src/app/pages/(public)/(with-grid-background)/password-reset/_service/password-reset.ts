@@ -4,7 +4,7 @@ import { AxiosError } from "axios";
 
 export default async function passwordReset(data : passwwordResetInput){
     try {
-        const response = await apiClient.post("http://13.91.1.165:8005/api/manage_users/subscription-choice/17/",data)
+        const response = await apiClient.post("/manage_users/subscription-choice/17/",data)
 
 return response.status
     } catch (error) {

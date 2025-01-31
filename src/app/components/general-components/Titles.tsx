@@ -10,8 +10,8 @@ interface TitleProps{
 }
 
 export const Titles: React.FC<TitleProps> = ({title, bigTitle,  subTitle, TitleStyle, subtitleStyle, defaultStyle = true}) => {
-  const defaulTitle = `text-[39px] ${bigTitle?' md:text-[48px]': 'md:text-[35px]'  } font-semibold `
-  const defaulSubTitle = "text-[14px] md:text-[17px]"
+  const defaulTitle = `${bigTitle?' md:text-[48px] text-[30px]': 'md:text-[38px] text-[21px]'  } font-semibold `
+  const defaulSubTitle = "text-[16px] md:text-[18px]"
   return (
     <div>
         <div className='flex flex-col'>

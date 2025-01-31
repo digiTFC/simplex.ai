@@ -2,7 +2,7 @@ import React from 'react'
 
 const SearchInput = () => {
   return (
-    <div className="flex gap-3 w-fit py-3 px-5 h-fit bg-klightGrey  text-white  rounded-xl">
+    <div className="flex gap-3 w-fit py-3 px-5 h-fit dark:bg-klightGrey bg-white  dark:text-white  rounded-xl">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"

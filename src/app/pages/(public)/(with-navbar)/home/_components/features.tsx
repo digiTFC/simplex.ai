@@ -130,7 +130,7 @@ const Features = ({}) => {
 
       <div className=" curve-t relative   flex  items-center justify-center  -left-[6vw] flex-col z-50  bg-kwhiteBg dark:bg-black  w-[112vw] ">
         <div className="w-screen">
-        <div className="w-10/12 m-auto flex flex-col top-40 relative md:left-[3vw] ">
+        <div className="w-10/12 m-auto flex flex-col top-20 relative md:left-[3vw] ">
           <Titles
             title="Feature Boxes"
             subtitleStyle="md:w-5/12"

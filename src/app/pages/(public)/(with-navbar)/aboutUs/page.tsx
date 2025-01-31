@@ -12,6 +12,7 @@ const AboutUs = () => {
         <div className="w-10/12 m-auto overflow-hidden">
           <div className="md:w-2/4 3xl:w-4/6 py-16 text-center m-auto">
             <Titles
+            bigTitle={true}
               title="Our vision is to make innovation effortless and impactful"
               subTitle="Simplex is more than just a platform—it's your partner in revolutionizing how businesses and developers interact with technology. We aim to make chatbot creation seamless, fun, and inclusive for Africa and beyond."
               subtitleStyle="pt-6"

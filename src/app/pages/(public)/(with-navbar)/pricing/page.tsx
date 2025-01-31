@@ -11,7 +11,7 @@ const PricingPage = () => {
           <Titles
             title="Purchase A Subscription"
             subTitle="Choose the plan that works for you"
-            TitleStyle="text-[48px]"
+            bigTitle={true}
           />
         </div>
         <Pricing />

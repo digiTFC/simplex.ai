@@ -38,7 +38,6 @@ const RegisterForm = () => {
         password: values.password,
         password_confirm: values.password_confirm,
       });
-
       if (response.succes) {
         toast.success("SignUp Sucessfull ✅");
         router.replace("../verifyAccount");
@@ -186,7 +185,8 @@ const RegisterForm = () => {
           </div>
           <div className="grid grid-cols-2 my-[20px]  gap-4 w-full h-[51px] top-[1069px] left-[5292px]">
             <div className="w-full flex justify-center py-[4px] left-[5292] rounded-[5px] bg-klightGrey hover:bg-klightGreyHover transition-all">
-              <div className="border-r px-3 h-8 py-1 my-1">
+              <div className="border-r px-3 h-8 py-1 my-1"
+              >
                 <svg
                   width="23"
                   height="23"

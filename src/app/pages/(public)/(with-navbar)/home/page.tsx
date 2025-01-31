@@ -14,7 +14,7 @@ const HomePage = () => {
     <div><Features></Features></div>
     <div className='dark:bg-black bg-white '><Purpose></Purpose></div>
     {/* <div><Partners></Partners></div> */}
-    <div className='dark:bg-black bg-white '><Contact></Contact></div>
+    <div className='dark:bg-black bg-kwhiteBg'><Contact></Contact></div>
   </div>
   )
 }
