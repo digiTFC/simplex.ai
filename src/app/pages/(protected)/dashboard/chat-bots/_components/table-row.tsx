@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import { Td } from "./td";
 import { Chatbot } from "../_dto/chatBot";
@@ -16,10 +17,27 @@ export const TableRow: React.FC<Chatbot> = ({
   
   const copyLink = (link: string) => {
     setIsCopied(true);
-    navigator.clipboard.writeText(link);
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard
+        .writeText(link)
+        .then(() => {
+        })
+        .catch((err) => {
+          console.error("Failed to copy link: ", err);
+        });
+      }else {
+        // Fallback for unsupported browsers
+        const tempInput = document.createElement("input");
+        tempInput.value = link;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+      }
+    
     setTimeout(() => {
       setIsCopied(false);
-    }, 1000);
+    }, 500);
   };
 
   const statusColr = status == ChatBotStatus.ACTIF ?'bg-green-900 bg-opacity-50  border-green-900  text-green-400' : 'dark:bg-khr bg-opacity-50  border-gray-500 '
@@ -45,14 +63,15 @@ export const TableRow: React.FC<Chatbot> = ({
           </div>
         </div>
       </Td>
-      <Td className="w-10">
-        <div className="center relative border border-khr rounded-lg p-2 py-[5px] dark:bg-khr bg-opacity-50  gap-3">
-          {url}
+      <Td className="w-fit">
+        <div className="relative border border-khr rounded-lg p-0 py-[5px] dark:bg-khr bg-opacity-50 flex justify-between text-center px-2 pl-4 items-center">
+          <span className="inline-bloxk w-full text-center">{chatbot_name} link</span>
           <motion.div 
           initial={{opacity:0,y:5}}
           animate={copied ? {opacity:1 , y:-15}:{}}
-          className="absolute px-3 py-2 -top-8 border border-khr text-white bg-klightGrey  rounded-md">Copied !</motion.div>
-          <div className="cursor-pointer relative w-[30px] h-[30px] overflow-hidden rounded-md overf=ow-hidden border border-khr flex justify-center items-center">
+          className="absolute px-3 py-2 -top-8 border border-khr text-white bg-klightGrey w-[100px]  rounded-md">Copied !</motion.div>
+
+          <div className="self-end cursor-pointer relative w-[36px] h-[32px]  overflow-hidden rounded-md overf=ow-hidden border border-khr flex justify-between items-center">
             <div
               onClick={() => {
                 copyLink(url);

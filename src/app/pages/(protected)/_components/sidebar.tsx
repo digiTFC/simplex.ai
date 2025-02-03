@@ -144,7 +144,7 @@ const SideBar = () => {
 
     if(response.success){
       toast.info("Loging Out")
-      setTimeout(()=> router.push(`../auth/${"login"}`),200)
+      router.push(`../auth/${"login"}`)
     } 
   }
   return (

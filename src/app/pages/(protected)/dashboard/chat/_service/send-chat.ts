@@ -7,24 +7,12 @@ export default async function sendChat(prompt : string) : Promise<{
     error? : string,
 
 }> {
-
-        await loginUser({
-            "email":"ldxspoti001@gmail.com",
-            "password":"ldxspoti001@gmail.com"
-        })
         
     const token = localStorage.getItem("access-token")
 
     try {
         const reponse = await apiClient.post("manage_chatbot/chat/",{"prompt" : prompt},
-            {
-                headers : {
-                    Authorization : `Bearer ${token}`
-                }
-            }
-
             
-
         )
         
         

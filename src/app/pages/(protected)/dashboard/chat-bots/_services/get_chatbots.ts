@@ -6,26 +6,25 @@ import { Chatbot } from "../_dto/chatBot";
 import { loginUser } from "@/app/pages/auth/[loginSignup]/_service/login";
 
 export interface UseChatBotsResult {
-  chatbots: Chatbot[];
+  chatbots: Chatbot[] | null;
   loading: boolean;
   error: string | null;
   refetch: () => void;
 }
 
 export const useChatBots = (): UseChatBotsResult => {
-  const [chatbots, setChatbots] = useState<Chatbot[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [chatbots, setChatbots] = useState<Chatbot[] | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   const fetchChatBots = async () => {
+    if(loading){
+      return
+    }
     try {
       setLoading(true);
       setError(null); // Reset error state
 
-        await loginUser({
-            "email":"ldxspoti001@gmail.com",
-            "password":"ldxspoti001@gmail.com"
-        })
       // Retrieve token from localStorage
       const token = localStorage.getItem("access-token");
 
@@ -36,21 +35,19 @@ export const useChatBots = (): UseChatBotsResult => {
       // Fetch chatbots data
       const response = await apiClient.get(
         "manage_chatbot/list/",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
       );
 
       setChatbots(response.data);
     } catch (err) {
       if (err instanceof AxiosError) {
-        setError(err.response?.data || "An error occurred while fetching chatbots.");
-        // toast.error(err.response?.data || "An error occurred.");
-      } else {
-        setError((err as Error).message);
-        // toast.error((err as Error).message);
+        if (err.response?.status === 403) {
+          setTimeout(() => {
+            fetchChatBots(); // Retry fetching after token refresh
+          }, 500);
+          
+        } else {
+          setError(err.message || "An unexpected error occurred.");
+        }
       }
     } finally {
       setLoading(false);
@@ -58,7 +55,9 @@ export const useChatBots = (): UseChatBotsResult => {
   };
 
   useEffect(() => {
-    fetchChatBots(); // Fetch data on component mount
+   
+      fetchChatBots();
+     // Fetch data on component mount
   }, []);
 
   return { chatbots, loading, error, refetch: fetchChatBots };

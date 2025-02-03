@@ -36,8 +36,9 @@ const CreateChatBot = () => {
             performance_meting : values.performance_meting,
             status : values.status,
         })
-        setLoading(false)
-
+        if(!response.retrying){
+          setLoading(false)
+        }
         if(response.success){ toast.success(response.message)} else { toast.error(response.message)}
       
     },

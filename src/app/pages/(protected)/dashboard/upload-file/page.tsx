@@ -36,7 +36,7 @@ const UploadFile = () => {
 
     try {
       // Replace the URL with your actual API endpoint.
-      await apiClient.post("http://13.91.1.165:8005/api/manage_chatbot/upload_docs/", formData);
+      await apiClient.post("manage_chatbot/upload_docs/", formData);
       toast.success("File Uploaded Successfully!");
     } catch (error) {
       console.error("Error uploading the file:", error);

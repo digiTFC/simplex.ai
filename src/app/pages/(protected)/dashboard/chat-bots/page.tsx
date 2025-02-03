@@ -29,7 +29,7 @@ const ChatBotMenu = () => {
       </div>
     );
 
-  if (chatbots.length == 0)
+  if (chatbots && chatbots.length == 0)
     return (
       <div className="text-center center  flex-1 h-full">
         <div className="h-full flex flex-col gap-8 items-center justify-center">
@@ -71,7 +71,8 @@ const ChatBotMenu = () => {
         ></Titles>
       </div>
     );
-  return (
+    if(chatbots){
+        return (
     <div className="h-[90%]  text-center">
      
 
@@ -178,6 +179,8 @@ const ChatBotMenu = () => {
       </div>
     </div>
   );
+    }
+
 };
 
 export default ChatBotMenu;
