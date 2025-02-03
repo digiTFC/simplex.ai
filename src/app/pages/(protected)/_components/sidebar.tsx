@@ -144,7 +144,7 @@ const SideBar = () => {
 
     if(response.success){
       toast.info("Loging Out")
-      router.push(`../auth/${"login"}`)
+      router.push(`/pagesn/auth/${"login"}`)
     } 
   }
   return (

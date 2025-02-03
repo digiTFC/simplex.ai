@@ -8,6 +8,7 @@ import Nav from "@/app/components/general-components/nav";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
+import { AnimatePresence } from "framer-motion";
 
 const NavBar = ({}) => {
   const router = useRouter();
@@ -32,7 +33,9 @@ const NavBar = ({}) => {
               : "hidden md:block translate-x-[4%] flex-1 "
           }`}
         >
+          <AnimatePresence>
           <Nav column={isOpen} onClick={() => setIsOpen(false)}></Nav>
+          </AnimatePresence>
           <div className=" items-center gap-4 md:hidden flex ">
           <Link href={`/pages/auth/${"login"}`}>
             <Button

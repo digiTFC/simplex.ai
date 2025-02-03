@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import { Td } from "./td";
 import { Chatbot } from "../_dto/chatBot";
@@ -13,65 +13,78 @@ export const TableRow: React.FC<Chatbot> = ({
   status,
   url,
 }) => {
-    const [copied, setIsCopied]= useState(false)
-  
+  const [copied, setIsCopied] = useState(false);
+
   const copyLink = (link: string) => {
     setIsCopied(true);
     if (typeof navigator !== "undefined" && navigator.clipboard) {
       navigator.clipboard
         .writeText(link)
-        .then(() => {
-        })
+        .then(() => {})
         .catch((err) => {
           console.error("Failed to copy link: ", err);
         });
-      }else {
-        // Fallback for unsupported browsers
-        const tempInput = document.createElement("input");
-        tempInput.value = link;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand("copy");
-        document.body.removeChild(tempInput);
-      }
-    
+    } else {
+      // Fallback for unsupported browsers
+      const tempInput = document.createElement("input");
+      tempInput.value = link;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+    }
+
     setTimeout(() => {
       setIsCopied(false);
-    }, 500);
+    }, 800);
   };
 
-  const statusColr = status == ChatBotStatus.ACTIF ?'bg-green-900 bg-opacity-50  border-green-900  text-green-400' : 'dark:bg-khr bg-opacity-50  border-gray-500 '
+  const statusColr =
+    status == ChatBotStatus.ACTIF
+      ? "bg-green-900 bg-opacity-50  border-green-900  text-green-400"
+      : "dark:bg-khr bg-opacity-50  border-gray-500 ";
   return (
     <tr className={"border-b border-khr"}>
-      <Td>{chatbot_name}</Td>
+      <Td className="pl-8">{chatbot_name}</Td>
+
       <Td>{company}</Td>
       <Td>{date_time}</Td>
-      <Td>
-        <div className="w-full center">
-          <div className="center gap-2 w-fit px-2  rounded-lg bg-blue-500 bg-opacity-25  py-[6px] border border-blue-500 ">
-            <svg
-              className=""
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="25"
-              fill="#6da9f8"
-              viewBox="0 0 256 256"
-            >
-              <path d="M128,26A102,102,0,1,0,230,128,102.12,102.12,0,0,0,128,26Zm89.8,96H173.89c-1.54-40.77-18.48-68.23-30.43-82.67A90.19,90.19,0,0,1,217.8,122ZM128,215.83a110,110,0,0,1-15.19-19.45A128.37,128.37,0,0,1,94.13,134h67.74a128.37,128.37,0,0,1-18.68,62.38A110,110,0,0,1,128,215.83ZM94.13,122a128.37,128.37,0,0,1,18.68-62.38A110,110,0,0,1,128,40.17a110,110,0,0,1,15.19,19.45A128.37,128.37,0,0,1,161.87,122Zm18.41-82.67c-12,14.44-28.89,41.9-30.43,82.67H38.2A90.19,90.19,0,0,1,112.54,39.33ZM38.2,134H82.11c1.54,40.77,18.48,68.23,30.43,82.67A90.19,90.19,0,0,1,38.2,134Zm105.26,82.67c11.95-14.44,28.89-41.9,30.43-82.67H217.8A90.19,90.19,0,0,1,143.46,216.67Z"></path>
-            </svg>
-            {platforms}
-          </div>
-        </div>
-      </Td>
-      <Td className="w-fit">
-        <div className="relative border border-khr rounded-lg p-0 py-[5px] dark:bg-khr bg-opacity-50 flex justify-between text-center px-2 pl-4 items-center">
-          <span className="inline-bloxk w-full text-center">{chatbot_name} link</span>
-          <motion.div 
-          initial={{opacity:0,y:5}}
-          animate={copied ? {opacity:1 , y:-15}:{}}
-          className="absolute px-3 py-2 -top-8 border border-khr text-white bg-klightGrey w-[100px]  rounded-md">Copied !</motion.div>
 
-          <div className="self-end cursor-pointer relative w-[36px] h-[32px]  overflow-hidden rounded-md overf=ow-hidden border border-khr flex justify-between items-center">
+      <Td className="">
+        
+          <div className={` w-[100px] center gap-2  px-4 bg-opacity-25  h-[35px] rounded-3xl  border ${platforms.toLowerCase() == "site web" ? "border-blue-500 bg-blue-500 " : 'border-green-500 bg-green-500'} `}>
+
+            {platforms.toLowerCase()}
+          </div>
+        
+      </Td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <Td className="">
+        <div className="relative border border-khr w-[200px] rounded-3xl  p-0 h-[35px]  dark:bg-khr bg-opacity-50 flex justify-between text-center  items-center">
+          <span className=" w-full text-center">
+            {chatbot_name} link
+          </span>
+          <motion.div
+            initial={{ opacity: 0, y: 5, x:"50%" }}
+            animate={copied ? { opacity: 1, y: -15, x:"50%" } : {}}
+            className="absolute text-xs rounded-3xl py-2 translate-x-[50%] -top-8 border border-khr text-white bg-klightGrey w-[100px] "
+          >
+            Copied !
+          </motion.div>
+
+          <div className=" cursor-pointer relative w-[36px] h-[34px] rounded-r-3xl overflow-hidden  flex justify-between items-center ">
             <div
               onClick={() => {
                 copyLink(url);
@@ -97,13 +110,29 @@ export const TableRow: React.FC<Chatbot> = ({
         </div>
       </Td>
 
+
+
+
+
+
+
+
+
+
+
       <Td className="">
-<div className="center">
-<div className={` w-9/12 px-2  center border   gap-2  py-[7px] rounded-md ${statusColr}`}>
-          <div className={`w-[10px] h-[10px] ${status == ChatBotStatus.ACTIF ? 'bg-green-400 ' :'dark:bg-gray-50 bg-gray-400 bg-opacity-50'} rounded-xl`}></div>
+        <div
+          className={`px-2  text-sm h-[35px] w-[100px] flex items-center justify-around  border   gap-2 rounded-3xl ${statusColr}`}
+        >
+          <div
+            className={`w-[10px] h-[10px] ${
+              status == ChatBotStatus.ACTIF
+                ? "bg-green-400 "
+                : "dark:bg-gray-50 bg-gray-400 bg-opacity-50"
+            } rounded-xl `}
+          ></div>
           {status}
         </div>
-</div>
       </Td>
     </tr>
   );

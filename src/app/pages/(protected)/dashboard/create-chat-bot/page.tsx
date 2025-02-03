@@ -2,12 +2,14 @@
 import { Input } from "@/app/components/general-components/input";
 import { TextArea } from "@/app/components/general-components/text-area";
 import { useFormik } from "formik";
-import React, { useState } from "react";
+import React, { useState, } from "react";
 import { CreateChatBotSchema } from "./schema/create-chatbot-schema";
 import createChatBot from "./_service/create-chat-bot";
 import Button from "@/app/components/general-components/button";
 import { toast } from "sonner";
 import { Titles } from "@/app/components/general-components/Titles";
+import { useRouter } from "next/navigation";
+import UploadFile from "../upload-file/[bot_name]/page";
 
 const options = [
   { value: "SITE WEB", label: "Site Web" },
@@ -15,7 +17,8 @@ const options = [
 ];
 
 const CreateChatBot = () => {
-  const [loading,setLoading]= useState(false)
+  const router = useRouter()
+  const [loading, setLoading] = useState(false);
   const formik = useFormik({
     initialValues: {
       chatbot_name: "",
@@ -27,20 +30,25 @@ const CreateChatBot = () => {
     },
     validationSchema: CreateChatBotSchema,
     onSubmit: async (values) => {
-      setLoading(true)
-        const response = await createChatBot({
-            chatbot_name : values.chatbot_name,
-            company : values.company,
-            objective : values.objective,
-            platforms : values.platforms,
-            performance_meting : values.performance_meting,
-            status : values.status,
-        })
-        if(!response.retrying){
-          setLoading(false)
-        }
-        if(response.success){ toast.success(response.message)} else { toast.error(response.message)}
-      
+
+      setLoading(true);
+      const response = await createChatBot({
+        chatbot_name: values.chatbot_name,
+        company: values.company,
+        objective: values.objective,
+        platforms: values.platforms,
+        performance_meting: values.performance_meting,
+        status: values.status,
+      });
+      if (!response.retrying) {
+        setLoading(false);
+      }
+      if (response.success) {
+        toast.success(response.message);
+        router.push(`upload-file/${values.chatbot_name}`)
+      } else {
+        toast.error(response.message);
+      }
     },
   });
   return (
@@ -106,15 +114,13 @@ const CreateChatBot = () => {
             placeholder="Performance Meting"
             useLabel={false}
             error={formik.errors.performance_meting}
-
           />
-
-
-
         </form>
-        <Button 
-
-isLoading={loading} label="Create" onClick={formik.handleSubmit}></Button>
+        <Button
+          isLoading={loading}
+          label="Create"
+          onClick={formik.handleSubmit}
+        ></Button>
       </div>
     </div>
   );
