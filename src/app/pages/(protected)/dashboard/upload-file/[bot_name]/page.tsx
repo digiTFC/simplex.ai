@@ -45,7 +45,7 @@ const UploadFile = () => {
 
     try {
       
-      await apiClient.post(`manage_chatbot/upload-docs/${botName}/`, formData);
+      await apiClient.post(`manage_chatbot/upload-docs/${botName}/`, formData,{timeout: 300000, });
       toast.success("File Uploaded Successfully!");
     } catch (error) {
       console.error("Error uploading the file:", error);
