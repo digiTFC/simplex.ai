@@ -2,7 +2,7 @@ import axios from "axios";
 const apiClient = axios.create({
     timeout : 7000,
     withCredentials:true,
-    baseURL:"http://172.172.68.74:80/api/",
+    baseURL:"https://devxs.xyz/api/",
     // headers : {
     //     "Content-Type" : "application/json"
     // }
@@ -33,7 +33,7 @@ interface FailedRequest {
 
 export const refreshToken = async () => {
     try {
-      const response = await axios.post('http://172.172.68.74:8005/api/manage_users/refresh-token/', {
+      const response = await axios.post('https://devxs.xyz/api/manage_users/refresh-token/', {
         // Include any required data for refreshing the token, e.g., refresh token
         refresh: localStorage.getItem('refresh-token'),
       });
@@ -56,6 +56,13 @@ export const refreshToken = async () => {
     // Pass successful responses through
     async (error) => {
       const originalRequest = error.config;
+
+      
+
+      // Check if the request URL is the login route
+      if (originalRequest.url.includes('/login') || originalRequest.url.includes('/register') || originalRequest.url.includes('/verify-email') ) {
+        return Promise.reject(error);
+      }
         
       // Check if the error is a 401 Unauthorized and the request hasn't been retried
       if (error.response?.status == 403 && !originalRequest._retry) {
