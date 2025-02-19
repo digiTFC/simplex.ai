@@ -29,7 +29,7 @@ const VerifyAccount = () => {
       setTimeout(async () => {
         setLoading(false);
         if (response.sucess == true) {
-          router.replace(`auth/${"login"}`);
+          router.replace(`/pages/dashboard`);
         }
       }, 2000);
     },

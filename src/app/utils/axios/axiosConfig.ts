@@ -60,7 +60,7 @@ export const refreshToken = async () => {
       
 
       // Check if the request URL is the login route
-      if (originalRequest.url.includes('/login') || originalRequest.url.includes('/register') || originalRequest.url.includes('/verify-email') ) {
+      if (originalRequest.url.includes('/login') || originalRequest.url.includes('/login') ) {
         return Promise.reject(error);
       }
         

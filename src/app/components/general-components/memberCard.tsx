@@ -23,7 +23,7 @@ export const MemberCard:React.FC<cardProps> = ({name,position,image,textEnd,link
           image
         }
         className="w-[325px] h-[325px]  rounded"
-        alt="ledoux picture"
+        alt={name}
         width={700}
         height={400}
       ></Image>

@@ -8,7 +8,7 @@ export default async function resetPassword(email : string) : Promise<{success :
         }
     }catch(error){
         return {
-            success : error ? true : false
+            success : false
         }
     }
 }

@@ -8,6 +8,10 @@ import { useRouter } from "next/navigation";
 import { loginUser } from "../_service/login";
 import Link from "next/link";
 import { Titles } from "@/app/components/general-components/Titles";
+import { VscEye } from "react-icons/vsc";
+import { VscEyeClosed } from "react-icons/vsc";
+import { Pinput } from "@/app/components/general-components/pinput";
+import { Input } from "@/app/components/general-components/input";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -16,8 +20,9 @@ const LoginForm = () => {
   const buttonSign =
     "bg-gradient-to-r text-white from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700 w-full text-white z-50 top-[986px] left-[5292px] mt-3 rounded-[5px] py-[12px] px-[22px]";
   const inputStyle =
-    "border border-gray-400  hover:border-gray-600  dark:border-klightGrey dark:text-white  dark:hover:border-klightGreyHover w-[350px] top-[746px] outline-none py-[12px] px-[28px] dark:bg-klightGrey left-[5292px] rounded-[5px] my-[10px]";
+    "border border-gray-400  hover:border-gray-600  dark:border-klightGrey dark:text-white  dark:hover:border-klightGreyHover w-[350px]  outline-none py-[12px] px-[28px] dark:bg-klightGrey rounded-[5px] my-[10px]";
   const [isLoading, setIsLoading] = useState(false);
+  const [hidePass, setHidePass] = useState(true);
 
   const formik = useFormik({
     initialValues: {
@@ -35,13 +40,18 @@ const LoginForm = () => {
 
       if (response.succes == false) {
         toast.error(`${response.message}`);
+        if (response.message.includes("verified")) {
+          setTimeout(() => {
+            router.replace("/pages/verifyAccount");
+          }, 1300);
+        }
         return;
       }
 
       toast.success("Login Succesful 🥳");
       setTimeout(() => {
         router.replace("../dashboard");
-      }, 2000);
+      }, 1000);
     },
   });
 
@@ -50,50 +60,32 @@ const LoginForm = () => {
       <div className="w-[359px]   rounded-[1px]">
         <form onSubmit={formik.handleSubmit}>
           <div>
-            <Titles title="Login" TitleStyle="text-[48px]" />
+            <Titles title="Login" TitleStyle="text-[48px] mb-4" />
           </div>
 
-<div className="space-y-">
-<div className="relative">
-            <input
-              type="text"
-              name="email"
-              autoComplete="off"
-              placeholder="Your Email"
-              className={`${inputStyle} ${
-                formik.errors.email == null
-                  ? "hover:border-klightGreyHover "
-                  : "border-red-400"
-              }`}
-              onChange={formik.handleChange}
-              value={formik.values.email}
-              required
-            />
-            {formik.errors.email ? (
-              <div className={errorStyke}>{formik.errors.email}</div>
-            ) : null}
-
-            
-          </div>
-          <div className="relative">
-              <input
-                type="password"
-                autoComplete="off"
-                name="password"
-                placeholder="Password"
+          <div className="space-y-3">
+            <div className="relative">
+              <Input
+              error={formik.errors.email}
+                type="text"
+                name="email"
+                useLabel={false}
+                placeholder="Your Email"
                 onChange={formik.handleChange}
-                value={formik.values.password}
-                className={`${inputStyle}  ${
-                  formik.errors.password == null
-                    ? "hover:border-klightGreyHover "
-                    : "border-red-400"
-                }`}
-                required
+                value={formik.values.email}
+               
               />
+            </div>
+            <div className="relative space-y-2">
+              <Pinput
+              placeholder="password"
+              name="password"
+              onChange={formik.handleChange}
+              error={formik.errors.password}
+              value={formik.values.password}
+              ></Pinput>
+
               <div className="flex text-klight">
-                {formik.errors.password ? (
-                  <div className={errorStyke}>{formik.errors.password}</div>
-                ) : null}
                 <Link href={"../password-reset-link"} target="_blank">
                   <span className="black:hover:text-white hover:text-black transition-all absolute text-[14px] right-3 -bottom-[13px] ">
                     Forgot password ?
@@ -101,12 +93,13 @@ const LoginForm = () => {
                 </Link>
               </div>
             </div>
-</div>
+          </div>
           <div className="w-full">
             <Button
               label="Login"
               className={`${buttonSign} mt-6`}
               isLoading={isLoading}
+              isDisabled={isLoading}
               onClick={() => formik.submitForm()}
             />
           </div>

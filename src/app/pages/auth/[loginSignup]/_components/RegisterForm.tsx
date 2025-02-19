@@ -7,6 +7,7 @@ import { registerSchema } from "@/app/pages/auth/[loginSignup]/schema/registerSc
 import { registerUser } from "../_service/register";
 import { useRouter } from "next/navigation";
 import { Titles } from "@/app/components/general-components/Titles";
+import { Pinput } from "@/app/components/general-components/pinput";
 
 const RegisterForm = () => {
   const router = useRouter();
@@ -135,23 +136,14 @@ const RegisterForm = () => {
               ) : null}
             </div>
             <div className="relative">
-              <input
-                autoComplete="off"
+              <Pinput
                 type="password"
                 name="password"
                 placeholder="Password"
                 onChange={formik.handleChange}
                 value={formik.values.password}
-                className={`${inputStyle} ${
-                  formik.errors.password == null
-                    ? "hover:border-klightGreyHover "
-                    : "border-red-400"
-                }`}
-                required
+                error={formik.errors.password}
               />
-              {formik.errors.password ? (
-                <div className={errorStyke}>{formik.errors.password}</div>
-              ) : null}
             </div>
             <div className="relative">
               <input

@@ -4,8 +4,7 @@ import RegisterForm from "@/app/pages/auth/[loginSignup]/_components/RegisterFor
 import { useEffect, useState } from "react";
 import LoginForm from "./_components/login-form";
 import { useParams } from "next/navigation";
-import { LoopsIllustration } from "@/app/components/general-components/loopsIllustration";
-import { Span } from "next/dist/trace";
+import Link from "next/link";
 
 const setBackground = (index: number): string => {
   switch (index) {
@@ -36,6 +35,13 @@ const LoginSignUP = () => {
   return (
     <div>
       <div className="flex items-center justify-center h-screen overflow-hidden">
+   <Link href={"/pages/home"}>
+   <div className=" cursor-pointer fixed top-5 left-10">
+          <span className="text-[30px] font-bold tracking-widest">
+          SIMPLEX
+          <span className="inline-block h-2 w-2 dark:bg-kpurple bg-kpink rounded-full"></span>
+        </span>
+        </div></Link>
         <div className="md:w-1/2 flex  flex-col items-center justify-center">
           {isLogin ? <LoginForm></LoginForm> : <RegisterForm></RegisterForm>}
           <p

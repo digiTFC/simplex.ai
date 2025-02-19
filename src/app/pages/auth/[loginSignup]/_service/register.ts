@@ -1,6 +1,8 @@
 import apiClient from "@/app/utils/axios/axiosConfig";
 import { registerInput } from "../schema/registerSchema";
 import { AxiosError } from "axios";
+import { loginUser } from "./login";
+import { loginInput } from "../schema/loginSchema";
 
 
 export const registerUser = async (
@@ -11,6 +13,9 @@ export const registerUser = async (
       "manage_users/register/",
       data
     );
+
+    localStorage.setItem("email" , data.email)
+    localStorage.setItem("pass" , data.password)
 
     return {
       succes: true,

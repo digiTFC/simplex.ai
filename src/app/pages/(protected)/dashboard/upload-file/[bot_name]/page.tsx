@@ -3,6 +3,7 @@ import Button from "@/app/components/general-components/button";
 import { Titles } from "@/app/components/general-components/Titles";
 import apiClient from "@/app/utils/axios/axiosConfig";
 import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { toast } from "sonner";
@@ -10,6 +11,7 @@ import { toast } from "sonner";
 const UploadFile = () => {
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
+  const router = useRouter()
   const params = useParams();
   let botName: string;
   if (params && params.bot_name) {
@@ -47,6 +49,7 @@ const UploadFile = () => {
       
       await apiClient.post(`manage_chatbot/upload-docs/${botName}/`, formData,{timeout: 300000, });
       toast.success("File Uploaded Successfully!");
+      router.replace("/pages/dashboard/chat-bots")
     } catch (error) {
       console.error("Error uploading the file:", error);
       toast.error("Error uploading the file.");

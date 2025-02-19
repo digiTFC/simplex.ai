@@ -18,21 +18,22 @@ export const useChatBots = (): UseChatBotsResult => {
   const [error, setError] = useState<string | null>(null);
 
   const fetchChatBots = async () => {
+
     if(loading){
       return
     }
+
     try {
       setLoading(true);
-      setError(null); // Reset error state
+      setError(null); 
 
-      // Retrieve token from localStorage
       const token = localStorage.getItem("access-token");
 
       if (!token) {
         throw new Error("No access token found.");
       }
 
-      // Fetch chatbots data
+      
       const response = await apiClient.get(
         "manage_chatbot/list/",
       );
@@ -40,11 +41,7 @@ export const useChatBots = (): UseChatBotsResult => {
       setChatbots(response.data);
     } catch (err) {
       if (err instanceof AxiosError) {
-        if (err.response?.status === 403) {
-          setTimeout(() => {
-            fetchChatBots(); // Retry fetching after token refresh
-          }, 500);
-          
+        if (err.response?.status === 403) {      
         } else {
           setError(err.message || "An unexpected error occurred.");
         }
@@ -57,7 +54,7 @@ export const useChatBots = (): UseChatBotsResult => {
   useEffect(() => {
    
       fetchChatBots();
-     // Fetch data on component mount
+     
   }, []);
 
   return { chatbots, loading, error, refetch: fetchChatBots };

@@ -157,6 +157,7 @@ const ChatBotMenu = () => {
                 <th className={tdStyle}>Platforms</th>
                 <th className={tdStyle}>Url</th>
                 <th className={`rounded-r-lg ${tdStyle}`}>Status</th>
+                <th className={`rounded-r-lg ${tdStyle}`}></th>
               </tr>
             </thead>
             <tbody>

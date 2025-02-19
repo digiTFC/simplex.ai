@@ -1,25 +1,30 @@
 import type { NextConfig } from "next";
-import path from 'path';
+import path from "path";
+import { defaultLocale } from "yup";
 
 const nextConfig: NextConfig = {
-  output: 'standalone',
+  i18n: {
+    locales: ["en", "fr"],
+    defaultLocale: "en",
+  },
+  output: "standalone",
   reactStrictMode: true,
   images: {
-    domains: ['res.cloudinary.com'],
+    domains: ["res.cloudinary.com"],
   },
 
   async redirects() {
     return [
       {
-        source: '/',
-        destination: '/pages/home',
-        permanent: false
+        source: "/",
+        destination: "/pages/home",
+        permanent: false,
       },
     ];
   },
 
   webpack: (config) => {
-    config.resolve.alias['@'] = path.resolve(__dirname, 'src');
+    config.resolve.alias["@"] = path.resolve(__dirname, "src");
     return config;
   },
   /* config options here */

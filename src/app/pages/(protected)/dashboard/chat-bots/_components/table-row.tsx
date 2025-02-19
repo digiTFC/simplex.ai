@@ -4,6 +4,12 @@ import { Td } from "./td";
 import { Chatbot } from "../_dto/chatBot";
 import { motion } from "framer-motion";
 import { ChatBotStatus } from "@/app/utils/Enums/status";
+import { HiOutlineTrash } from "react-icons/hi2";
+import { CiEdit } from "react-icons/ci";
+import { BsChat } from "react-icons/bs";
+import Link from "next/link";
+import { deleteBot } from "../_services/delete_chatbot";
+import { toast } from "sonner";
 
 export const TableRow: React.FC<Chatbot> = ({
   chatbot_name,
@@ -14,6 +20,7 @@ export const TableRow: React.FC<Chatbot> = ({
   url,
 }) => {
   const [copied, setIsCopied] = useState(false);
+  const [loading, setisLoding] = useState(false);
 
   const copyLink = (link: string) => {
     setIsCopied(true);
@@ -39,6 +46,17 @@ export const TableRow: React.FC<Chatbot> = ({
     }, 800);
   };
 
+  const deleteChatbot =() => {
+   const response = deleteBot(chatbot_name)
+
+    if(response != null){
+      toast.success("Chatbot Deleted")
+    }else{
+      toast.error(response)
+    }
+
+  } 
+
   const statusColr =
     status == ChatBotStatus.ACTIF
       ? "bg-green-900 bg-opacity-50  border-green-900  text-green-400"
@@ -51,34 +69,23 @@ export const TableRow: React.FC<Chatbot> = ({
       <Td>{date_time}</Td>
 
       <Td className="">
-        
-          <div className={` w-[100px] center gap-2  px-4 bg-opacity-25  h-[35px] rounded-3xl  border ${platforms.toLowerCase() == "site web" ? "border-blue-500 bg-blue-500 " : 'border-green-500 bg-green-500'} `}>
-
-            {platforms.toLowerCase()}
-          </div>
-        
+        <div
+          className={` w-[100px] center gap-2  px-4 bg-opacity-25  h-[35px] rounded-3xl  border ${
+            platforms.toLowerCase() == "site web"
+              ? "border-blue-500 bg-blue-500 "
+              : "border-green-500 bg-green-500"
+          } `}
+        >
+          {platforms.toLowerCase()}
+        </div>
       </Td>
-
-
-
-
-
-
-
-
-
-
-
-
 
       <Td className="">
         <div className="relative border border-khr w-[200px] rounded-3xl  p-0 h-[35px]  dark:bg-khr bg-opacity-50 flex justify-between text-center  items-center">
-          <span className=" w-full text-center">
-            {chatbot_name} link
-          </span>
+          <span className=" w-full text-center">{chatbot_name} link</span>
           <motion.div
-            initial={{ opacity: 0, y: 5, x:"50%" }}
-            animate={copied ? { opacity: 1, y: -15, x:"50%" } : {}}
+            initial={{ opacity: 0, y: 5, x: "50%" }}
+            animate={copied ? { opacity: 1, y: -15, x: "50%" } : {}}
             className="absolute text-xs rounded-3xl py-2 translate-x-[50%] -top-8 border border-khr text-white bg-klightGrey w-[100px] "
           >
             Copied !
@@ -110,16 +117,6 @@ export const TableRow: React.FC<Chatbot> = ({
         </div>
       </Td>
 
-
-
-
-
-
-
-
-
-
-
       <Td className="">
         <div
           className={`px-2  text-sm h-[35px] w-[100px] flex items-center justify-around  border   gap-2 rounded-3xl ${statusColr}`}
@@ -132,6 +129,27 @@ export const TableRow: React.FC<Chatbot> = ({
             } rounded-xl `}
           ></div>
           {status}
+        </div>
+      </Td>
+
+      <Td className="flex gap-2">
+        <Link href={`/pages/dashboard/chat/${chatbot_name}`}>
+          <div
+            className={` cursor-pointer  text-sm h-[35px] w-[40px] center  border border-black    gap-2 rounded-xl`}
+          >
+            <BsChat />
+          </div>
+        </Link>
+        <div
+          className={` cursor-pointer  text-sm h-[35px] w-[40px] center  border border-black    gap-2 rounded-xl`}
+        >
+          <CiEdit size={20} />
+        </div>
+        <div 
+          onClick={()=>deleteBot(chatbot_name)}
+          className={`px-2  cursor-pointer text-sm h-[35px] w-[40px] bg-red-400 text-white flex items-center justify-around  border   gap-2 rounded-xl`}
+        >
+          <HiOutlineTrash size={20} />
         </div>
       </Td>
     </tr>

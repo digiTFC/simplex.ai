@@ -2,22 +2,29 @@
 import { Input } from "@/app/components/general-components/input";
 import React, { useState } from "react";
 import { useFormik } from "formik";
-import sendChat from "./_service/send-chat";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Titles } from "@/app/components/general-components/Titles";
+import sendChat from "../_service/send-chat";
+import { useParams } from "next/navigation";
 
 const ChatPage = () => {
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<{ user: string; assistant: string }[]>();
   const [errors, setErrors] = useState<string>();
+  const params = useParams()
+  let name = ""
+  if(params && params.name ){
+    name = params.name.toString()
+  }
+
   const formik = useFormik({
     initialValues: {
       prompt: "",
     },
     onSubmit: async (values) => {
       setLoading(true);
-      const response = await sendChat(values.prompt);
+      const response = await sendChat(values.prompt,name);
       values.prompt = "";
       setMessages(response.data);
       setErrors(response.error)

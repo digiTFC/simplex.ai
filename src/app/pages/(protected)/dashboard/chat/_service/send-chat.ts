@@ -2,16 +2,15 @@ import { loginUser } from "@/app/pages/auth/[loginSignup]/_service/login";
 import apiClient from "@/app/utils/axios/axiosConfig";
 import { AxiosError } from "axios";
 
-export default async function sendChat(prompt : string) : Promise<{
+export default async function sendChat(prompt : string, name:string) : Promise<{
     data? : {user:string, assistant:string}[],
     error? : string,
 
 }> {
         
-    const token = localStorage.getItem("access-token")
 
     try {
-        const reponse = await apiClient.post("manage_chatbot/chat/",{"prompt" : prompt},
+        const reponse = await apiClient.post(`manage_chatbot/chat/${name}`,{"prompt" : prompt},
             
         )
         

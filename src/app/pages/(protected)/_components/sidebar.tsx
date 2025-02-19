@@ -140,11 +140,13 @@ const SideBar = () => {
   const router = useRouter()
   
   const logout = async ()=>{
+    toast.info("Loging Out")
+    
     const response = await userLogout()
 
     if(response.success){
-      toast.info("Loging Out")
-      router.push(`/pagesn/auth/${"login"}`)
+      
+      router.push(`/pages/auth/${"login"}`)
     } 
   }
   return (
