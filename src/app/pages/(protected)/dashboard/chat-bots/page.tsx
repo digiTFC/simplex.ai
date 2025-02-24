@@ -152,7 +152,7 @@ const ChatBotMenu = () => {
             <thead className=" rounded-xl dark:bg-klightGrey bg-white">
               <tr>
                 <th className={`rounded-l-lg pl-8 ${tdStyle}`}>Name</th>
-                <th className={tdStyle}>Company</th>
+                {/* <th className={tdStyle}>Company</th> */}
                 <th className={tdStyle}>Created At</th>
                 <th className={tdStyle}>Platforms</th>
                 <th className={tdStyle}>Url</th>
@@ -166,11 +166,12 @@ const ChatBotMenu = () => {
                 return (
                   <TableRow
                     chatbot_name={bot.chatbot_name}
-                    company={bot.company}
+                    // company={bot.UUID}
                     date_time={date}
                     platforms={bot.platforms}
                     status={bot.status}
                     url={bot.url}
+                    UUID={bot.UUID}
                     key={index}
                   ></TableRow>
                 );

@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   isLoading,
   loadindIsWhite = true,
-  isDisabled,
+  isDisabled
 }) => {
   const defaultStyle =
     "  bg-gradient-to-r from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700  w-fit h-[44px]  rounded-[5px]  px-[32px]";

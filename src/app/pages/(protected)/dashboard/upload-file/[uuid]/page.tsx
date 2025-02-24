@@ -13,9 +13,9 @@ const UploadFile = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter()
   const params = useParams();
-  let botName: string;
-  if (params && params.bot_name) {
-    botName = params.bot_name.toString();
+  let uuid: string;
+  if (params && params.uuid) {
+    uuid = params.uuid.toString();
   }
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,7 +47,7 @@ const UploadFile = () => {
 
     try {
       
-      await apiClient.post(`manage_chatbot/upload-docs/${botName}/`, formData,{timeout: 300000, });
+      await apiClient.post(`manage_chatbot/upload-docs/${uuid}/`, formData,{timeout: 300000, });
       toast.success("File Uploaded Successfully!");
       router.replace("/pages/dashboard/chat-bots")
     } catch (error) {

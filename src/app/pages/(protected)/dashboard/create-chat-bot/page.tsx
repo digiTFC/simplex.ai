@@ -9,7 +9,7 @@ import Button from "@/app/components/general-components/button";
 import { toast } from "sonner";
 import { Titles } from "@/app/components/general-components/Titles";
 import { useRouter } from "next/navigation";
-import UploadFile from "../upload-file/[bot_name]/page";
+import UploadFile from "../upload-file/[uuid]/page";
 
 const options = [
   { value: "SITE WEB", label: "Site Web" },
@@ -29,18 +29,21 @@ const CreateChatBot = () => {
   const formik = useFormik({
     initialValues: {
       chatbot_name: "",
-      company: "",
+      // company: "",
       objective: "",
       platforms: "",
       performance_meting: "",
-      status: "INACTIF",
+      status: "ACTIF",
     },
     validationSchema: CreateChatBotSchema,
+    validateOnMount:false,
+    validateOnBlur:true,
+    validateOnChange:false,
     onSubmit: async (values) => {
       setLoading(true);
       const response = await createChatBot({
         chatbot_name: values.chatbot_name,
-        company: values.company,
+        // company: values.company,
         objective: values.objective,
         platforms: values.platforms,
         performance_meting: values.performance_meting,
@@ -51,9 +54,10 @@ const CreateChatBot = () => {
       }
       if (response.success) {
         toast.success(response.message);
-        router.push(`upload-file/${values.chatbot_name}`);
+        router.push(`upload-file/`);
       } else {
         toast.error(response.message);
+        setLoading(false);
       }
     },
   });
@@ -119,6 +123,7 @@ const CreateChatBot = () => {
               error={formik.errors.performance_meting}
             />
           </div>
+          <input type="submite" className="hidden" />
         </form>
         <Button
           isLoading={loading}

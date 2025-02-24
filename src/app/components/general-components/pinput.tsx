@@ -18,23 +18,23 @@ interface inputProps{
 
 }
 export const Pinput:React.FC<inputProps> = ({placeholder,name,onChange,value, type,error,useLabel, className,label}) => {
-    const errorStyke = 'text-red-400 text-[12px]  -bottom-5 left-1' 
-    const inputStyle = `${className}  border border-gray-400  hover:border-gray-600  dark:border-klightGrey dark:text-white  dark:hover:border-klightGreyHover w-full  outline-none py-[12px] pl-[12px] dark:bg-klightGrey   z-40  rounded-[12px]`
+    const errorStyke = 'text-red-400 text-[10px] relative  absolute  -bottom-[2px] left-1' 
+    const inputStyle = `${className}  border border-gray-400  hover:border-gray-600  dark:border-klightGrey dark:text-white  dark:hover:border-klightGreyHover w-full  outline-none py-[12px] pl-[12px]  dark:bg-klightGrey   z-40  rounded-[12px]`
   const [hidePass, setHidePass] = useState(true);
 
   return (
     <div className="relative">
     <div className={` relative !p-0  ${inputStyle}  ${
-          error == undefined
-            ? "hover:border-klightGreyHover "
-            : "border-red-400"
+          error
+            ?"border-red-400" 
+            : "hover:border-klightGreyHover "
         }`}>
       <input
-        className="h-full w-full outline-none rounded-xl py-[12px] px-[28px]"
+        className="h-full w-full outline-none rounded-xl py-[12px] pl-[12px] pr-[28px]"
         type={ hidePass ? "password" : "text"}
         autoComplete="off"
-        name="password"
-        placeholder="Password"
+        name={name}
+        placeholder={placeholder}
         onChange={onChange}
         value={value}
 
@@ -44,12 +44,12 @@ export const Pinput:React.FC<inputProps> = ({placeholder,name,onChange,value, ty
       <VscEyeClosed onClick={()=> setHidePass(!hidePass)} className={`${hidePass ? "hidden" : ""} cursor-pointer  absolute right-4 top-[50%] -translate-y-[50%]`} />
       <VscEye onClick={()=> setHidePass(!hidePass)} className={`${!hidePass ? "hidden" : ""} cursor-pointer absolute right-4 top-[50%] -translate-y-[50%]`}/>
     </div>
-    <div className="flex text-klight">
-      {error == null ? (
+    
+      {error  ? (
         <div className={errorStyke}>{error}</div>
       ) : null}
 
-    </div>
+    
   </div>
   )
 }

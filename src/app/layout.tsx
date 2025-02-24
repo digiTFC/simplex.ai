@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import "./globals.css";
+
 import { Toaster } from 'sonner'
+import "./globals.css"
 import CursorFollower from "./components/general-components/cursorFollower";
 import DarkModeToggle from "./pages/(public)/(with-navbar)/_components/toggleMode";
+
+
 
 export const metadata: Metadata = {
   title: "Simplex",
@@ -10,19 +13,24 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  children, 
 }: Readonly<{
   children: React.ReactNode;
+
 }>) {
   return (
-    <html lang="en">
+    <html >
       <body
         className={`antialiased dark:bg-black bg-kwhiteBg w-[100vw] dark:text-white overflow-x-hidden`}
       >
         <Toaster position="top-right" duration={2000}/>
-        {children}
+        {/* <I18Providers locale={params.locale}> */}
+          {children}
+        {/* </I18Providers> */}
+        
         <CursorFollower></CursorFollower> 
         <DarkModeToggle></DarkModeToggle>
+        
       </body>
     </html>
   );

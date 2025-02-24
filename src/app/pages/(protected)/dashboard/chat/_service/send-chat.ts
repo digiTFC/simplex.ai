@@ -2,7 +2,7 @@ import { loginUser } from "@/app/pages/auth/[loginSignup]/_service/login";
 import apiClient from "@/app/utils/axios/axiosConfig";
 import { AxiosError } from "axios";
 
-export default async function sendChat(prompt : string, name:string) : Promise<{
+export default async function sendChat(prompt : string, uuid:string) : Promise<{
     data? : {user:string, assistant:string}[],
     error? : string,
 
@@ -10,7 +10,7 @@ export default async function sendChat(prompt : string, name:string) : Promise<{
         
 
     try {
-        const reponse = await apiClient.post(`manage_chatbot/chat/${name}`,{"prompt" : prompt},
+        const reponse = await apiClient.post(`manage_chatbot/chat/${uuid}/`,{"prompt" : prompt},
             
         )
         

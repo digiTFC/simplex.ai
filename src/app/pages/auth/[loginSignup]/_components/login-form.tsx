@@ -30,6 +30,9 @@ const LoginForm = () => {
       password: "",
     },
     validationSchema: loginSchema,
+    validateOnMount:false,
+    validateOnChange:false,
+    validateOnBlur:true,
     onSubmit: async (values) => {
       setIsLoading(true);
       const response = await loginUser({
@@ -63,7 +66,7 @@ const LoginForm = () => {
             <Titles title="Login" TitleStyle="text-[48px] mb-4" />
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             <div className="relative">
               <Input
               error={formik.errors.email}
@@ -73,7 +76,6 @@ const LoginForm = () => {
                 placeholder="Your Email"
                 onChange={formik.handleChange}
                 value={formik.values.email}
-               
               />
             </div>
             <div className="relative space-y-2">

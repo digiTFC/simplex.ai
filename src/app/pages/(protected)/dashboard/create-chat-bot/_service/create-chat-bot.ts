@@ -32,20 +32,12 @@ export default async function createChatBot(
 
     
     if (error instanceof AxiosError) {
-      console.log(error.response?.data);
-
-      if(error.status === 403){
-        return {
-          success: false,
-          message: "unexpected error",
-          retrying:true,
-        };
-      }
+      console.log(error.response?.data.error);
 
       return {
         success: false,
-        message: "unexpected error",
-      retrying:false,
+        message: error.response?.data.error,
+        retrying:false,
 
       };
       

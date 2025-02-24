@@ -1,10 +1,12 @@
 import React from "react";
 import HomePage from "./pages/(public)/(with-navbar)/home/page";
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="">
-      <HomePage></HomePage>
+      <HomePage></HomePage> 
+      Ledoux
     </div>
   );
 }
+export default Home

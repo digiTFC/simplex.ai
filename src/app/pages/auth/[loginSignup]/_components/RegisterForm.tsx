@@ -8,6 +8,7 @@ import { registerUser } from "../_service/register";
 import { useRouter } from "next/navigation";
 import { Titles } from "@/app/components/general-components/Titles";
 import { Pinput } from "@/app/components/general-components/pinput";
+import { Input } from "@/app/components/general-components/input";
 
 const RegisterForm = () => {
   const router = useRouter();
@@ -29,6 +30,9 @@ const RegisterForm = () => {
       password_confirm: "",
     },
     validationSchema: registerSchema,
+    validateOnMount:false,
+    validateOnBlur:true,   // Validate on blur
+    validateOnChange:false, //
     onSubmit: async (values) => {
       setIsLoading(true);
       const response = await registerUser({
@@ -57,85 +61,48 @@ const RegisterForm = () => {
           <div>
             <Titles title="Register" TitleStyle="text-[48px]" />
           </div>
-          <div className="pt-[12px]">
-            <div className="grid md:grid-cols-2 md:gap-4">
-            <div className="relative">
-              <input
-                autoComplete="off"
+          <div className="pt-[12px] space-y-4">
+            <div className="grid md:grid-cols-2 gap-4">
+              <Input
                 type="text"
                 name="first_name"
                 placeholder="First Name"
-                className={`${inputStyle} ${
-                  formik.errors.first_name == null
-                    ? "hover:border-klightGreyHover "
-                    : "border-red-400"
-                }`}
+                useLabel={false}
+                error={formik.errors.first_name}
                 onChange={formik.handleChange}
                 value={formik.values.first_name}
+                
               />
-              {formik.errors.first_name ? (
-                <div className={errorStyke}>{formik.errors.first_name}</div>
-              ) : null}
-            </div>
-            <div className="relative">
-              <input
-                autoComplete="off"
+              <Input
                 type="text"
                 name="last_name"
                 placeholder="Last Name"
-                className={`${inputStyle} ${
-                  formik.errors.last_name == null
-                    ? "hover:border-klightGreyHover "
-                    : "border-red-400"
-                }`}
+                useLabel={false}
+                error={formik.errors.last_name}
                 onChange={formik.handleChange}
                 value={formik.values.last_name}
               />
-              {formik.errors.last_name ? (
-                <div className={errorStyke}>{formik.errors.last_name}</div>
-              ) : null}
+
             </div>
-            </div>
-            <div className="relative">
-              <input
-                autoComplete="off"
+              <Input
                 type="text"
                 name="email"
                 placeholder="Your Email"
-                className={`${inputStyle} ${
-                  formik.errors.email == null
-                    ? "hover:border-klightGreyHover "
-                    : "border-red-400"
-                }`}
+                useLabel={false}
+                error={formik.errors.email}
                 onChange={formik.handleChange}
                 value={formik.values.email}
-                required
               />
-              {formik.errors.email ? (
-                <div className={errorStyke}>{formik.errors.email}</div>
-              ) : null}
-            </div>{" "}
-            <div className="relative">
-              <input
+
+              <Input
                 type="text"
-                autoComplete="off"
+                useLabel={false}
+                error={formik.errors.organization_name}
                 name="organization_name"
                 placeholder="Organization Name"
-                className={`${inputStyle} ${
-                  formik.errors.organization_name == null
-                    ? "hover:border-klightGreyHover "
-                    : "border-red-400"
-                }`}
                 onChange={formik.handleChange}
                 value={formik.values.organization_name}
               />
-              {formik.errors.organization_name ? (
-                <div className={errorStyke}>
-                  {formik.errors.organization_name}
-                </div>
-              ) : null}
-            </div>
-            <div className="relative">
               <Pinput
                 type="password"
                 name="password"
@@ -144,28 +111,15 @@ const RegisterForm = () => {
                 value={formik.values.password}
                 error={formik.errors.password}
               />
-            </div>
-            <div className="relative">
-              <input
-                autoComplete="off"
+              <Pinput
                 type="password"
                 name="password_confirm"
                 placeholder="Repeat Password"
                 onChange={formik.handleChange}
                 value={formik.values.password_confirm}
-                className={`${inputStyle} ${
-                  formik.errors.password_confirm == null
-                    ? "hover:border-klightGreyHover "
-                    : "border-red-400"
-                } `}
-                required
+                error={formik.errors.password_confirm}
               />
-              {formik.errors.password_confirm ? (
-                <div className={errorStyke}>
-                  {formik.errors.password_confirm}
-                </div>
-              ) : null}
-            </div>
+
           </div>
           <div className="flex justify-center my-4  w-full ">
             <Button

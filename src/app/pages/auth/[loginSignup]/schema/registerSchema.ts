@@ -2,9 +2,9 @@ import * as Yup from 'yup';
 // import * as crypto from 'crypto';
 
 export const registerSchema = Yup.object({
-  first_name: Yup.string().required('FirstName is required'),
-  last_name: Yup.string().required('LastName is required'),
-  organization_name : Yup.string().required('Organization Name is required'),
+  first_name: Yup.string().required('FirstName is required').trim(),
+  last_name: Yup.string().required('LastName is required').trim(),
+  organization_name : Yup.string().required('Organization Name is required').trim(),
   email: Yup.string().email('Invalid email format').required('Email is required'),
   password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
   password_confirm: Yup.string()

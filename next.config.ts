@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 import path from "path";
-import { defaultLocale } from "yup";
+
+const withInternational = require('next-international').default;
 
 const nextConfig: NextConfig = {
   i18n: {
