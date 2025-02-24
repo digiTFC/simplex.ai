@@ -4,10 +4,10 @@ import path from "path";
 const withInternational = require('next-international').default;
 
 const nextConfig: NextConfig = {
-  i18n: {
-    locales: ["en", "fr"],
-    defaultLocale: "en",
-  },
+  // i18n: {
+  //   locales: ["en", "fr"],
+  //   defaultLocale: "en",
+  // },
   output: "standalone",
   reactStrictMode: true,
   images: {

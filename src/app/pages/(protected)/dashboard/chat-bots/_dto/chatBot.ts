@@ -6,7 +6,7 @@ export interface Chatbot {
     performance_meting?: string;
     status: string;
     date_time: string;
-    url:string;
+    url?:string;
     UUID:string
     docs?:[]
   }

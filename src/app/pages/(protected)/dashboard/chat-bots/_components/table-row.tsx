@@ -13,6 +13,7 @@ import { toast } from "sonner";
 import getChatbotDocs from "../_services/get-chatbot-docs";
 import { useFormik } from "formik";
 import { CreateChatBotSchema } from "../../create-chat-bot/schema/create-chatbot-schema";
+import { updateChatbot } from "../_services/update-chatbot";
 
 export const TableRow: React.FC<Chatbot> = ({
   chatbot_name,
@@ -29,6 +30,7 @@ export const TableRow: React.FC<Chatbot> = ({
   const [copied, setIsCopied] = useState(false);
   const [showDoc, setShowDoc] = useState(false);
   const [loading, setisLoding] = useState(false);
+  const [editable, setEditable] = useState(false);
 
   const copyLink = (link: string) => {
     setIsCopied(true);
@@ -54,41 +56,41 @@ export const TableRow: React.FC<Chatbot> = ({
     }, 800);
   };
 
-  // const formik = useFormik({
-  //   initialValues: {
-  //     chatbot_name: {chatbot_name},
-  //     // company: "",
-  //     objective: {},
-  //     platforms: {platforms},
-  //     performance_meting: "",
-  //     status: "ACTIF",
-  //   },
-  //   validationSchema: CreateChatBotSchema,
-  //   validateOnMount:false,
-  //   validateOnBlur:true,
-  //   validateOnChange:false,
-  //   onSubmit: async (values) => {
-  //     setLoading(true);
-  //     const response = await createChatBot({
-  //       chatbot_name: values.chatbot_name,
-  //       // company: values.company,
-  //       objective: values.objective,
-  //       platforms: values.platforms,
-  //       performance_meting: values.performance_meting,
-  //       status: values.status,
-  //     });
-  //     if (!response.retrying) {
-  //       setLoading(false);
-  //     }
-  //     if (response.success) {
-  //       toast.success(response.message);
-  //       router.push(`upload-file/`);
-  //     } else {
-  //       toast.error(response.message);
-  //       setLoading(false);
-  //     }
-  //   },
-  // });
+  const formik = useFormik({
+    initialValues: {
+      chatbot_name: chatbot_name,
+      // company: "",
+      objective: objective,
+      platforms: platforms,
+      performance_meting: performance_meting,
+      status: "ACTIF",
+      date_time:date_time,
+    },
+    validationSchema: CreateChatBotSchema,
+    validateOnMount:false,
+    validateOnBlur:true,
+    validateOnChange:false,
+    onSubmit: async (values) => {
+      setisLoding(true);
+      const botInfo :Chatbot = {
+                  chatbot_name: values.chatbot_name,
+                  date_time: values.date_time,
+                  UUID:UUID,
+        // company: values.company,
+        objective: values.objective,
+        platforms: values.platforms,
+        performance_meting: values.performance_meting,
+        status: values.status,
+      }
+      const response = await updateChatbot(botInfo);
+      if (response.success) {
+        toast.success(response.message);
+      } else {
+        toast.error(response.message);
+        setisLoding(false);
+      }
+    },
+  });
     
   
 
@@ -119,7 +121,7 @@ export const TableRow: React.FC<Chatbot> = ({
     <>
       <tr className={"border-b border-khr"} onClick={showDocs}>
         <Td className="pl-8">
-          <input type="text" value={chatbot_name}  className="bg-transparent outline-none w-fit" disabled={false}/>
+          <input type="text" value={chatbot_name} onChange={formik.handleChange} name="chatbot_name"  className={`${editable ? 'p-2 bg-gray-100 border rounded-lg' : 'bg-transparent outline-none w-fit' }`}  disabled={!editable}/>
         </Td>
 
         {/* <Td>{company}</Td> */}
@@ -151,7 +153,7 @@ export const TableRow: React.FC<Chatbot> = ({
             <div className=" cursor-pointer relative w-[36px] h-[34px] rounded-r-3xl overflow-hidden  flex justify-between items-center ">
               <div
                 onClick={() => {
-                  copyLink(url);
+                  copyLink(url!);
                 }}
                 className="  inset-0 flex items-center justify-center absolute text-white bg-black "
               >
@@ -191,23 +193,24 @@ export const TableRow: React.FC<Chatbot> = ({
 
         <Td className="flex gap-2">
           <Link href={`/pages/dashboard/chat/${UUID}`}>
-            <div
+            <button
               className={` cursor-pointer  text-sm h-[35px] w-[40px] center  border border-black    gap-2 rounded-xl`}
             >
               <BsChat />
-            </div>
+            </button>
           </Link>
-          <div
+          <button
+            onClick={()=>setEditable(!editable)}
             className={` cursor-pointer  text-sm h-[35px] w-[40px] center  border border-black    gap-2 rounded-xl`}
           >
-            <CiEdit size={20} />
-          </div>
-          <div
+           { editable ? <CiEdit size={20}/> : ''}
+          </button>
+          <button
             onClick={() => deleteBot(UUID + "/")}
             className={`px-2  cursor-pointer text-sm h-[35px] w-[40px] bg-red-400 text-white flex items-center justify-around  border   gap-2 rounded-xl`}
           >
             <HiOutlineTrash size={20} />
-          </div>
+          </button>
         </Td>
       </tr>
       <table>

@@ -7,6 +7,8 @@ import Link from "next/link";
 import { Titles } from "@/app/components/general-components/Titles";
 import sendChat from "../_service/send-chat";
 import { useParams } from "next/navigation";
+import { TbInnerShadowBottomRight } from "react-icons/tb";
+
 
 const ChatPage = () => {
   const [loading, setLoading] = useState(false);
@@ -71,18 +73,24 @@ const ChatPage = () => {
           ""
         )}
         {messages ? (
-          <div className="w-8/12 m-auto py-12 pb-32 flex flex-col">
+          <div className="w-9/12 m-auto py-12 pb-32 flex flex-col">
             {messages.map((message, index) => {
               return (
                 <div key={index} className="">
                   {message.user ? (
-                    <div className="bg-klightGrey px-6 py-3 rounded-lg float-right">
+                    <div className="bg-klightGrey text-white px-6 py-3 rounded-lg float-right">
                       {message.user}
                     </div>
                   ) : (
-                    <div className="bg-klightGrey px-6 py-3 rounded-lg float-left my-8">
+                     <div className="flex items-start w-11/12 h-fit my-8 gap-x-2">
+                      
+                      <div className="h-24 w-fit"><TbInnerShadowBottomRight size={30}  /></div>
+                      
+                     
+                                          <div className="bg-klightGrey text-white px-6 py-3 rounded-lg float-left">
                       {message.assistant}
                     </div>
+                     </div>
                   )}
                 </div>
               );
@@ -92,7 +100,7 @@ const ChatPage = () => {
           ""
         )}
 
-        <div className="w-6/12  fixed dark:bg-black bottom-0 pb-8">
+        <div className="w-6/12  fixed dark:bg-black bg-white bottom-0 pb-8">
           <div className="bg-klightGrey rounded-2xl w-full  py-1 flex items-center justify-between px-4 pr-6 text-white relative">
             <Link href={"/pages/dashboard/upload-file"}>
               <div className="cursor-pointer ">
@@ -107,11 +115,8 @@ const ChatPage = () => {
                 </svg>
               </div>
             </Link>
-            <form className="!rounded-2xl !w-[100%] !bg-klightGrey border-none pl-4"
- action="
-            
-            ">
-                          <Input
+            <form className="!rounded-2xl !w-[100%] !bg-klightGrey border-none pl-4" onSubmit={formik.handleSubmit}>
+            <Input
               placeholder="Enter Message..."
               value={formik.values.prompt}
               onChange={formik.handleChange}
@@ -119,6 +124,7 @@ const ChatPage = () => {
               useLabel={false}
                className="!rounded-2xl !w-[100%] !bg-klightGrey border-none pl-4"
             ></Input>
+            <input type="submit" className="hidden"/>
             </form>
             <div
               className="p-2 rounded-full bg-white text-black cursor-pointer"
