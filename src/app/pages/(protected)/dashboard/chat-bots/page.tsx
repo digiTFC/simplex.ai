@@ -6,6 +6,9 @@ import "../../../../globals.css";
 import { TableRow } from "./_components/table-row";
 import { useChatBots } from "./_services/get_chatbots";
 import { Titles } from "@/app/components/general-components/Titles";
+import { BsPlusLg } from "react-icons/bs";
+
+
 
 const ChatBotMenu = () => {
   const { chatbots, loading, error } = useChatBots();
@@ -86,22 +89,9 @@ const ChatBotMenu = () => {
           <Link href={"/pages/dashboard/create-chat-bot"}>
             <div>
               <div
-                className={` flex  gap-2  !px-4 ${tabStyle}`}
+                className={` flex  gap-2 items-center  !px-4 ${tabStyle}`}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 4.5v15m7.5-7.5h-15"
-                  />
-                </svg>
+              <BsPlusLg  size={20}/>
                 New ChatBot
               </div>
             </div>
@@ -163,9 +153,12 @@ const ChatBotMenu = () => {
             <tbody>
               {chatbots.map((bot, index) => {
                 const date = formatDate(bot.date_time);
+                const botInfo = {}
                 return (
                   <TableRow
                     chatbot_name={bot.chatbot_name}
+                    objective={bot.objective}
+                    performance_meting={bot.performance_meting}
                     // company={bot.UUID}
                     date_time={date}
                     platforms={bot.platforms}

@@ -12,6 +12,7 @@ import { VscEye } from "react-icons/vsc";
 import { VscEyeClosed } from "react-icons/vsc";
 import { Pinput } from "@/app/components/general-components/pinput";
 import { Input } from "@/app/components/general-components/input";
+import { getUser } from "../_service/user-info";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -34,11 +35,14 @@ const LoginForm = () => {
     validateOnChange:false,
     validateOnBlur:true,
     onSubmit: async (values) => {
+      
       setIsLoading(true);
       const response = await loginUser({
         email: values.email,
         password: values.password,
       });
+
+      await getUser(response.uidb64!)
       setIsLoading(false);
 
       if (response.succes == false) {

@@ -5,7 +5,7 @@ import { headers } from "next/headers";
 
 export async function loginUser(
   data: loginInput
-): Promise<{ succes: boolean; message: string }> {
+): Promise<{ succes: boolean; message: string, uidb64? : string }> {
   try {
     const response = await apiClient.post("manage_users/login/", data, {});
 
@@ -15,6 +15,7 @@ export async function loginUser(
     return {
       succes: true,
       message: "Login Succesfull",
+      uidb64: response.data.uidb64
     };
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -27,6 +28,7 @@ export async function loginUser(
         return {
           succes: false,
           message: `Login failed : ${severErrorMessage.detail}`,
+
         };
       }
     }

@@ -6,15 +6,22 @@ import { motion } from "framer-motion";
 import { ChatBotStatus } from "@/app/utils/Enums/status";
 import { HiOutlineTrash } from "react-icons/hi2";
 import { CiEdit } from "react-icons/ci";
-import { BsChat } from "react-icons/bs";
+import { BsChat, BsPlusLg } from "react-icons/bs";
 import Link from "next/link";
 import { deleteBot } from "../_services/delete_chatbot";
+import { IoCloseOutline, IoDocumentTextOutline } from "react-icons/io5";
 import { toast } from "sonner";
 import getChatbotDocs from "../_services/get-chatbot-docs";
 import { useFormik } from "formik";
 import { CreateChatBotSchema } from "../../create-chat-bot/schema/create-chatbot-schema";
 import { updateChatbot } from "../_services/update-chatbot";
+import { FaCheck } from "react-icons/fa6";
+import Button from "@/app/components/general-components/button";
 
+type FileData = {
+  pk: number;
+  file: string;
+};
 export const TableRow: React.FC<Chatbot> = ({
   chatbot_name,
   company,
@@ -25,13 +32,13 @@ export const TableRow: React.FC<Chatbot> = ({
   performance_meting,
   url,
   UUID,
-  docs,
 }) => {
   const [copied, setIsCopied] = useState(false);
   const [showDoc, setShowDoc] = useState(false);
   const [loading, setisLoding] = useState(false);
   const [editable, setEditable] = useState(false);
 
+  const [fileData, setFileData] = useState<FileData[] | null>(null);
   const copyLink = (link: string) => {
     setIsCopied(true);
     if (typeof navigator !== "undefined" && navigator.clipboard) {
@@ -62,56 +69,60 @@ export const TableRow: React.FC<Chatbot> = ({
       // company: "",
       objective: objective,
       platforms: platforms,
-      performance_meting: performance_meting,
+      performance_meting: "www",
       status: "ACTIF",
-      date_time:date_time,
+      date_time: date_time,
     },
     validationSchema: CreateChatBotSchema,
-    validateOnMount:false,
-    validateOnBlur:true,
-    validateOnChange:false,
-    onSubmit: async (values) => {
-      setisLoding(true);
-      const botInfo :Chatbot = {
-                  chatbot_name: values.chatbot_name,
-                  date_time: values.date_time,
-                  UUID:UUID,
-        // company: values.company,
-        objective: values.objective,
-        platforms: values.platforms,
-        performance_meting: values.performance_meting,
-        status: values.status,
-      }
-      const response = await updateChatbot(botInfo);
-      if (response.success) {
-        toast.success(response.message);
-      } else {
-        toast.error(response.message);
-        setisLoding(false);
-      }
-    },
+    validateOnMount: false,
+    validateOnBlur: true,
+    validateOnChange: false,
+    onSubmit: async (values) => {},
   });
-    
-  
 
-  const deleteChatbot = () => {
-    const response = deleteBot(chatbot_name);
+  async function updateBot() {
+    setisLoding(true);
+    const botInfo: Chatbot = {
+      chatbot_name: formik.values.chatbot_name,
+      date_time: date_time,
+      UUID: UUID,
+      // company: values.company,
+      objective: objective,
+      platforms: platforms,
+      performance_meting: performance_meting,
+      status: status,
+    };
+    console.log(botInfo);
+    const response = await updateChatbot(botInfo, UUID);
+    if (response.success) {
+      toast.success("Update Sucefful");
+      setEditable(false);
+    } else {
+      toast.error(response.message);
+      setisLoding(false);
+    }
+  }
 
-    if (response != null) {
+  async function deleteChatbot() {
+    const response = await deleteBot(UUID + "/");
+
+    if (response.success) {
       toast.success("Chatbot Deleted");
     } else {
-      toast.error(response);
+      toast.error(response.message);
     }
-  };
+  }
 
-  const showDocs = () => {
+  async function showDocs() {
     setShowDoc(true);
     setisLoding(true);
 
-    const response = getChatbotDocs(UUID);
-
+    const response = await getChatbotDocs(UUID);
+    console.log(response.data);
+    const data: FileData[] = response.data;
+    setFileData(data);
     console.log(response);
-  };
+  }
 
   const statusColr =
     status == ChatBotStatus.ACTIF
@@ -119,9 +130,24 @@ export const TableRow: React.FC<Chatbot> = ({
       : "dark:bg-khr bg-opacity-50  border-gray-500 ";
   return (
     <>
-      <tr className={"border-b border-khr"} onClick={showDocs}>
+      <tr className="border-b border-gray-300">
         <Td className="pl-8">
-          <input type="text" value={chatbot_name} onChange={formik.handleChange} name="chatbot_name"  className={`${editable ? 'p-2 bg-gray-100 border rounded-lg' : 'bg-transparent outline-none w-fit' }`}  disabled={!editable}/>
+          {editable ? (
+            <input
+              type="text"
+              value={formik.values.chatbot_name}
+              name="chatbot_name"
+              onChange={formik.handleChange}
+              className={`${
+                editable
+                  ? "p-2 bg-gray-100 border rounded-lg"
+                  : "bg-transparent outline-none w-fit"
+              }`}
+              disabled={!editable}
+            />
+          ) : (
+            chatbot_name
+          )}
         </Td>
 
         {/* <Td>{company}</Td> */}
@@ -200,25 +226,83 @@ export const TableRow: React.FC<Chatbot> = ({
             </button>
           </Link>
           <button
-            onClick={()=>setEditable(!editable)}
+            onClick={() => {
+              showDoc ? setShowDoc(false) : showDocs();
+            }}
             className={` cursor-pointer  text-sm h-[35px] w-[40px] center  border border-black    gap-2 rounded-xl`}
           >
-           { editable ? <CiEdit size={20}/> : ''}
+            <IoDocumentTextOutline />
           </button>
           <button
-            onClick={() => deleteBot(UUID + "/")}
+            onClick={() => {
+              editable ? updateBot() : setEditable(true);
+            }}
+            className={` cursor-pointer  text-sm h-[35px] w-[40px] center  border border-black    gap-2 rounded-xl`}
+          >
+            {!editable ? <CiEdit size={20} /> : <FaCheck />}
+          </button>
+          <button
+            onClick={() => deleteChatbot()}
             className={`px-2  cursor-pointer text-sm h-[35px] w-[40px] bg-red-400 text-white flex items-center justify-around  border   gap-2 rounded-xl`}
           >
             <HiOutlineTrash size={20} />
           </button>
         </Td>
       </tr>
-      <table>
-        <thead>
-          <th>document</th>
-        </thead>
-        <tbody></tbody>
-      </table>
+
+      <div
+        className={`${
+          showDoc ? "" : "hidden pointer-events-none"
+        }bg-black/50 absolute z-20 inset-0`}
+      >
+        <div
+          className={`${
+            showDoc ? "" : "hidden"
+          } px-4 py-2 border shadow  absolute translate-center z-50 bg-white rounded-lg`}
+        >
+          <div className="flex justify-between items-center mb-3 w-full">
+            <span className="font-bold text-lg">{chatbot_name}</span>
+            <span className="font-thin text-gray-500 text-xs">{fileData?.length} Documents</span>
+            <div className="space-x-3 ">
+              <Link href={`/pages/dashboard/upload-file/${UUID}`}>
+                <Button
+                  label=""
+                  className="h-8 w-8 dark:text-black  dark:bg-white border border-black  rounded-xl"
+                >
+                  <BsPlusLg size={22} />
+                </Button>
+              </Link>
+              <Button
+                label=""
+                onClick={()=>setShowDoc(false)}
+                className="h-8 w-8 dark:text-black text-white bg-black rounded-xl"
+              >
+                <IoCloseOutline size={23} />
+              </Button>
+            </div>
+          </div>
+          <tr>
+            <th className="text-start">Documents</th>
+            <th className="text-end">Actions</th>
+          </tr>
+          {fileData?.map((file, index) => {
+            console.log(file.file);
+            return (
+              <tr key={index}>
+                <Td className="mr-6">{file.file}</Td>
+                <Td className="ml-12 center">
+                  <button
+                    onClick={() => deleteChatbot()}
+                    className={`px-2  cursor-pointer text-sm h-[35px] w-[40px] bg-red-400 text-white flex items-center justify-around  border   gap-2 rounded-xl`}
+                  >
+                    <HiOutlineTrash size={20} />
+                  </button>
+                </Td>
+              </tr>
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 };

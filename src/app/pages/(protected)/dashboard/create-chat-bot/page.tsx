@@ -9,7 +9,6 @@ import Button from "@/app/components/general-components/button";
 import { toast } from "sonner";
 import { Titles } from "@/app/components/general-components/Titles";
 import { useRouter } from "next/navigation";
-import UploadFile from "../upload-file/[uuid]/page";
 
 const options = [
   { value: "SITE WEB", label: "Site Web" },
@@ -52,9 +51,9 @@ const CreateChatBot = () => {
       if (!response.retrying) {
         setLoading(false);
       }
-      if (response.success) {
+      if (response.success && response.uuid) {
         toast.success(response.message);
-        router.push(`upload-file/`);
+        router.push(`upload-file/${response.uuid}`);
       } else {
         toast.error(response.message);
         setLoading(false);

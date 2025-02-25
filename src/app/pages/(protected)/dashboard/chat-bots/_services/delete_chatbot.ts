@@ -1,24 +1,30 @@
 import apiClient from "@/app/utils/axios/axiosConfig";
 import { AxiosError } from "axios";
+import { root } from "postcss";
 
 export async function deleteBot(uid : string) : Promise<{message :string ,success : boolean | null}> {
    
     try{
-        await apiClient.delete(`manage_chatbot/chatbot/${uid}`)
+        const reponse = await apiClient.delete(`manage_chatbot/chatbot/${uid}`)
+        console.log(reponse)
         return {
                   message:"Deletion Succeful",
                   success:true
                   
                 }
-    }catch(e){
-        if(e instanceof AxiosError)
+    }catch(error){
+        console.log(error)
+        if(error instanceof AxiosError){
+        console.log(error.response?.data.detail)
         return {
-            message:e.response?.data.detail,
+            message:error.message,
             success:false
           }
-    }
-    finally{
+        }
+
         return{message:"Unexpected Error", success:false}
+
+
     }
 
 

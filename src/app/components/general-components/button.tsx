@@ -30,7 +30,7 @@ const Button: React.FC<ButtonProps> = ({
     <button
       type={type}
       onClick={onClick}
-      className={`${className ?? defaultStyle} transition-all ${
+      className={`${className ?? defaultStyle} transition-all  cursor-pointer! ${
         isLoading != null ? "overflow-hidden " : ""
       }  z-50 `}
       disabled={isLoading || isDisabled}
