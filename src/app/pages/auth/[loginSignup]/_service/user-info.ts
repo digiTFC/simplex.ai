@@ -11,5 +11,6 @@ export async function getUser(uidb64:string) {
 
   try {
     const response = await apiClient.get(`manage_users/user/${user_id}`, {});
+    localStorage.setItem("user-name" , response.data.first_name + ' ' + 'response.data.first_name')
   } catch (error) {}
 }

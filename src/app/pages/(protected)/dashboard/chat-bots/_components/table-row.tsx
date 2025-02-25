@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Td } from "./td";
-import { Chatbot } from "../_dto/chatBot";
+import { Chatbot, UpadateChatbot } from "../_dto/chatBot";
 import { motion } from "framer-motion";
 import { ChatBotStatus } from "@/app/utils/Enums/status";
 import { HiOutlineTrash } from "react-icons/hi2";
@@ -17,6 +17,7 @@ import { CreateChatBotSchema } from "../../create-chat-bot/schema/create-chatbot
 import { updateChatbot } from "../_services/update-chatbot";
 import { FaCheck } from "react-icons/fa6";
 import Button from "@/app/components/general-components/button";
+import { deleteDoc } from "../_services/delete-doc";
 
 type FileData = {
   pk: number;
@@ -66,7 +67,7 @@ export const TableRow: React.FC<Chatbot> = ({
   const formik = useFormik({
     initialValues: {
       chatbot_name: chatbot_name,
-      // company: "",
+      company: "",
       objective: objective,
       platforms: platforms,
       performance_meting: "www",
@@ -82,18 +83,19 @@ export const TableRow: React.FC<Chatbot> = ({
 
   async function updateBot() {
     setisLoding(true);
-    const botInfo: Chatbot = {
+
+
+    const botInfo: UpadateChatbot = {
       chatbot_name: formik.values.chatbot_name,
-      date_time: date_time,
-      UUID: UUID,
-      // company: values.company,
+      company: formik.values.company,
       objective: objective,
       platforms: platforms,
-      performance_meting: performance_meting,
       status: status,
     };
+
     console.log(botInfo);
-    const response = await updateChatbot(botInfo, UUID);
+    
+    const response = await updateChatbot(botInfo, UUID!);
     if (response.success) {
       toast.success("Update Sucefful");
       setEditable(false);
@@ -118,10 +120,26 @@ export const TableRow: React.FC<Chatbot> = ({
     setisLoding(true);
 
     const response = await getChatbotDocs(UUID);
-    console.log(response.data);
-    const data: FileData[] = response.data;
-    setFileData(data);
-    console.log(response);
+    if(response.success){
+      const data: FileData[] = response.data;
+     setFileData(data);
+    }else{
+      setFileData([])
+    }
+    
+    
+  }
+
+  async function deleteChatbotDocs(pk : number){
+    const response = await deleteDoc(UUID, pk)
+
+    if(response.success){
+      toast.success("Document Deleted Sucessfully")
+    }else{
+      toast.error(response.message)
+
+    }
+  
   }
 
   const statusColr =
@@ -258,11 +276,13 @@ export const TableRow: React.FC<Chatbot> = ({
         <div
           className={`${
             showDoc ? "" : "hidden"
-          } px-4 py-2 border shadow  absolute translate-center z-50 bg-white rounded-lg`}
+          } px-4 py-4 border shadow min-w-[300px]  absolute translate-center z-50 bg-white rounded-xl`}
         >
-          <div className="flex justify-between items-center mb-3 w-full">
+          <div className={`flex ${fileData?.length == 0 ? '' : ''} justify-between items-center w-full`}>
             <span className="font-bold text-lg">{chatbot_name}</span>
-            <span className="font-thin text-gray-500 text-xs">{fileData?.length} Documents</span>
+            <span className="font-thin text-gray-500 text-xs">
+              {fileData?.length} Documents
+            </span>
             <div className="space-x-3 ">
               <Link href={`/pages/dashboard/upload-file/${UUID}`}>
                 <Button
@@ -274,25 +294,22 @@ export const TableRow: React.FC<Chatbot> = ({
               </Link>
               <Button
                 label=""
-                onClick={()=>setShowDoc(false)}
+                onClick={() => setShowDoc(false)}
                 className="h-8 w-8 dark:text-black text-white bg-black rounded-xl"
               >
                 <IoCloseOutline size={23} />
               </Button>
             </div>
           </div>
-          <tr>
-            <th className="text-start">Documents</th>
-            <th className="text-end">Actions</th>
-          </tr>
+
           {fileData?.map((file, index) => {
             console.log(file.file);
             return (
-              <tr key={index}>
-                <Td className="mr-6">{file.file}</Td>
+              <tr key={index} >
+                <Td className="">{file.file}</Td>
                 <Td className="ml-12 center">
                   <button
-                    onClick={() => deleteChatbot()}
+                    onClick={() => deleteChatbotDocs(file.pk)}
                     className={`px-2  cursor-pointer text-sm h-[35px] w-[40px] bg-red-400 text-white flex items-center justify-around  border   gap-2 rounded-xl`}
                   >
                     <HiOutlineTrash size={20} />

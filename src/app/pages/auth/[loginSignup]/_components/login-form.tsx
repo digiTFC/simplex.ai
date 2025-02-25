@@ -35,14 +35,12 @@ const LoginForm = () => {
     validateOnChange:false,
     validateOnBlur:true,
     onSubmit: async (values) => {
-      
       setIsLoading(true);
       const response = await loginUser({
         email: values.email,
         password: values.password,
       });
 
-      await getUser(response.uidb64!)
       setIsLoading(false);
 
       if (response.succes == false) {
@@ -56,6 +54,7 @@ const LoginForm = () => {
       }
 
       toast.success("Login Succesful 🥳");
+      await getUser(response.uidb64!)
       setTimeout(() => {
         router.replace("../dashboard");
       }, 1000);
