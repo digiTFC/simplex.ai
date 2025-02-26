@@ -96,7 +96,7 @@ const UploadFile = () => {
         <div className="center gap-16">
           <label
             htmlFor="file"
-            className="border border-gray-600 w-[110px] py-2 rounded-lg cursor-pointer block"
+            className="border border-gray-600 min-w-[110px] w-fit py-2 rounded-lg cursor-pointer block"
           >
             Pick A File
           </label>

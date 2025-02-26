@@ -29,7 +29,7 @@ export default async function createChatBot(
 
       return {
         success: false,
-        message: error.response?.data.chatbot_name,
+        message: error.response?.data.chatbot_name ?? error.response?.data.detail,
         retrying:false,
 
       };
