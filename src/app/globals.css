@@ -37,8 +37,8 @@ body {
   bottom: -5px;
   left: 50%; /* Start from the center */
   transform: translateX(-50%);
-  height: 2px;
-  transition: 0.2s;
+  height: 1px;
+  transition: 0.2s ease-out;
 }
 
 .text-hover:hover::after {

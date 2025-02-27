@@ -1,6 +1,6 @@
 import Button from "@/app/components/general-components/button";
 import { Titles } from "@/app/components/general-components/Titles";
-import InsightCard from "@/app/components/homeComponents/insightCard";
+import InsightCard from "@/app/pages/(public)/(with-navbar)/home/_components/insightCard";
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
 
@@ -12,7 +12,7 @@ const Header = ({}) => {
     <>
       {/* <GridPattern className="z-50 opacity-75"></GridPattern> */}
 
-      <div className="w-full mt-12 ">
+      <div className="w-full  ">
         <div className=" curve-b relative  flex md:pt-16 md:pb-[300px] md:pb-[200px] pb-12 -ml-[6vw] flex-col  z-30 bg-kwhiteBg dark:bg-black w-[112vw] ">
           <div className="md:relative w-10/12 md:w-1/2 m-auto  text-center">
             <Titles

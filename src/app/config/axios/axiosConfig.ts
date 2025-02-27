@@ -54,8 +54,8 @@ apiClient.interceptors.response.use(
 
     // Check if the request URL is the login route or refresh token route
     if (
-      originalRequest.url.includes("/login") ||
-      originalRequest.url.includes("/refresh-token")
+      originalRequest.url.includes("login") ||
+      originalRequest.url.includes("refresh-token")
     ) {
       return Promise.reject(error);
     }

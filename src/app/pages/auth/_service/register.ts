@@ -1,4 +1,4 @@
-import apiClient from "@/app/utils/axios/axiosConfig";
+import apiClient from "@/app/config/axios/axiosConfig";
 import { registerInput } from "../schema/registerSchema";
 import { AxiosError } from "axios";
 import { loginUser } from "./login";

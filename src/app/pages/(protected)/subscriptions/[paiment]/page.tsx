@@ -1,5 +1,5 @@
 'use client'
-import { PaiementForm } from "@/app/components/pricingComponents/paiementForm";
+import { PaiementForm } from "@/app/pages/(public)/(with-navbar)/pricing/_components/paiementForm";
 import React from "react";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -1,4 +1,4 @@
-import apiClient from "@/app/utils/axios/axiosConfig";
+import apiClient from "@/app/config/axios/axiosConfig";
 import { passwwordResetInput } from "../_schema/password-test-schema";
 import { AxiosError } from "axios";
 

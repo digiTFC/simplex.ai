@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Td } from "./td";
 import { Chatbot, UpadateChatbot } from "../_dto/chatBot";
 import { motion } from "framer-motion";
-import { ChatBotStatus } from "@/app/utils/Enums/status";
+import { ChatBotStatus } from "@/app/config/Enums/status";
 import { HiOutlineTrash } from "react-icons/hi2";
 import { CiEdit } from "react-icons/ci";
 import { BsChat, BsPlusLg } from "react-icons/bs";

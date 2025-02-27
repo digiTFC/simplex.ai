@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import apiClient from "@/app/utils/axios/axiosConfig";
+import apiClient from "@/app/config/axios/axiosConfig";
 import { AxiosError } from "axios";
 import { toast } from "sonner";
 import { Chatbot } from "../_dto/chatBot";
-import { loginUser } from "@/app/pages/auth/[loginSignup]/_service/login";
+import { loginUser } from "@/app/pages/auth/_service/login";
 
 export interface UseChatBotsResult {
   chatbots: Chatbot[] | null;

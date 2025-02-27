@@ -1,6 +1,6 @@
 import Button from "@/app/components/general-components/button";
 import { Titles } from "@/app/components/general-components/Titles";
-import PurposeIllustration from "@/app/components/homeComponents/purposeIllustarion";
+import PurposeIllustration from "@/app/pages/(public)/(with-navbar)/home/_components/purposeIllustarion";
 import Link from "next/link";
 
 const Purpose = ({}) => {

@@ -23,7 +23,7 @@ const Nav: React.FC<navPros> = ({ column, style, footer, onClick }) => {
     return `${
       footer
         ? "hover:text-white hover:underline underline-offset-8 text-start"
-        : "text-[17px] text-center hover:scale-110 after:dark:bg-white after:bg-black dark:hover:text-white hover:text-black"
+        : "text-[17px] text-center  after:dark:bg-white after:bg-black dark:hover:text-white hover:text-black"
     } text-hover transition-all duration-200 border-kOnSecondary py-4 ${
       column ? "md:py-2 text-start" : "text-center md:py-0"
     }`;

@@ -1,4 +1,4 @@
-import { ValuesCard } from '@/app/components/aboutUsComponents/valuesCard';
+import { ValuesCard } from '@/app/pages/(public)/(with-navbar)/aboutUs/_components/valuesCard';
 import { Titles } from '@/app/components/general-components/Titles';
 import React from 'react'
 

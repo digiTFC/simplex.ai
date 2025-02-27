@@ -1,4 +1,4 @@
-import apiClient from "@/app/utils/axios/axiosConfig";
+import apiClient from "@/app/config/axios/axiosConfig";
 import { Base64 } from "js-base64";
 export async function getUser(uidb64:string) {
   

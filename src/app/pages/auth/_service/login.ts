@@ -1,4 +1,4 @@
-import apiClient, { refreshToken } from "@/app/utils/axios/axiosConfig";
+import apiClient, { refreshToken } from "@/app/config/axios/axiosConfig";
 import { loginInput } from "../schema/loginSchema";
 import { AxiosError } from "axios";
 import { headers } from "next/headers";

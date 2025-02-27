@@ -1,6 +1,6 @@
 import { Titles } from "@/app/components/general-components/Titles";
-import CallToAction from "@/app/components/homeComponents/callToAction";
-import PartnerBox from "@/app/components/homeComponents/partnerBox";
+import CallToAction from "@/app/pages/(public)/(with-navbar)/home/_components/callToAction";
+import PartnerBox from "@/app/pages/(public)/(with-navbar)/home/_components/partnerBox";
 
 const clientLogo = [
   {

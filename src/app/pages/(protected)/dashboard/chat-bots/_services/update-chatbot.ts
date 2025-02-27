@@ -1,4 +1,4 @@
-import apiClient from "@/app/utils/axios/axiosConfig";
+import apiClient from "@/app/config/axios/axiosConfig";
 import { Chatbot, UpadateChatbot } from "../_dto/chatBot";
 
 export async function updateChatbot(data : UpadateChatbot, uuid : string) : Promise<{message :string ,success : boolean | null}>{

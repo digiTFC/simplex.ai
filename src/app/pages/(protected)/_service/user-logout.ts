@@ -1,4 +1,4 @@
-import apiClient from "@/app/utils/axios/axiosConfig";
+import apiClient from "@/app/config/axios/axiosConfig";
 import { AxiosError } from "axios";
 
 export default async function userLogout(): Promise<{

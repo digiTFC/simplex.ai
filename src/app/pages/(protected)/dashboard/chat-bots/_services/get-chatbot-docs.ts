@@ -1,4 +1,4 @@
-import apiClient from "@/app/utils/axios/axiosConfig";
+import apiClient from "@/app/config/axios/axiosConfig";
 
 export default async function getChatbotDocs  (uuid:string) : Promise<{success:boolean , message : string, data : any}> {
 

@@ -1,7 +1,7 @@
 "use client";
 import Button from "@/app/components/general-components/button";
 import { Titles } from "@/app/components/general-components/Titles";
-import apiClient from "@/app/utils/axios/axiosConfig";
+import apiClient from "@/app/config/axios/axiosConfig";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Input } from "../general-components/input";
-import Button from "../general-components/button";
+import { Input } from "../../../../../components/general-components/input";
+import Button from "../../../../../components/general-components/button";
 import { useFormik } from "formik";
 import { paymentScheme } from "@/app/pages/(protected)/subscriptions/[paiment]/scheme/paymentScheme";
 import { toast } from "sonner";
 import subscriptionChoice from "@/app/pages/(protected)/subscriptions/_service/subscription-choice";
-import { Titles } from "../general-components/Titles";
+import { Titles } from "../../../../../components/general-components/Titles";
 
 interface paiementFormProprs {
   price: number;

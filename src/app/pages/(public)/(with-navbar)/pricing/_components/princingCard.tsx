@@ -1,6 +1,6 @@
 "use client";
 import React, {  ReactNode } from "react";
-import Button from "../general-components/button";
+import Button from "../../../../../components/general-components/button";
 import PrincingTile from "./princingTile";
 import Link from "next/link";
 

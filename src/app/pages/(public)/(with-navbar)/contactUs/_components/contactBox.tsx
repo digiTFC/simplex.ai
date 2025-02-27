@@ -1,4 +1,4 @@
-import InfoTile from "@/app/components/contactUsComponents/infoTile";
+import InfoTile from "@/app/pages/(public)/(with-navbar)/contactUs/_components/infoTile";
 import ContactForm from "@/app/components/general-components/contactForm";
 import IconBox from "@/app/components/general-components/iconBox";
 import { Titles } from "@/app/components/general-components/Titles";

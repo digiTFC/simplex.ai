@@ -7,14 +7,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div>
-    <NavBar></NavBar>
-    <div className="">
-    {children}
+  return (
+    <div>
+      <NavBar></NavBar>
+      <div className="pt-12">{children}</div>
+      <div className="">
+        <Footer></Footer>
+      </div>
     </div>
-    <div className=''>
-            <Footer></Footer>
-        </div>
-    
-    </div>;
+  );
 }

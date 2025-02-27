@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { pricingData } from "@/app/pages/(public)/data/subcriptions";
 import Button from "@/app/components/general-components/button";
-import PricingCard from "@/app/components/pricingComponents/princingCard";
+import PricingCard from "@/app/pages/(public)/(with-navbar)/pricing/_components/princingCard";
 
 const Pricing = () => {
   const [val, setVal] = useState("monthly");

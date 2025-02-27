@@ -1,6 +1,6 @@
-import { loginUser } from "@/app/pages/auth/[loginSignup]/_service/login";
-import { loginInput } from "@/app/pages/auth/[loginSignup]/schema/loginSchema";
-import apiClient from "@/app/utils/axios/axiosConfig";
+import { loginUser } from "@/app/pages/auth/_service/login";
+import { loginInput } from "@/app/pages/auth/schema/loginSchema";
+import apiClient from "@/app/config/axios/axiosConfig";
 import { AxiosError } from "axios";
 
 export default async function verifyEmail(

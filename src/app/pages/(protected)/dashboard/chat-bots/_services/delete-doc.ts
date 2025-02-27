@@ -1,4 +1,4 @@
-import apiClient from "@/app/utils/axios/axiosConfig";
+import apiClient from "@/app/config/axios/axiosConfig";
 
 export async function deleteDoc(uuid:string, pk : number) : Promise<{success : boolean, message : string}>{
     try {

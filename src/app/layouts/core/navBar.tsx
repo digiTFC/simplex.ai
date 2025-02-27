@@ -82,7 +82,7 @@ const NavBar = ({}) => {
           </div>
 
           <div className=" items-center gap-4 hidden md:flex ">
-            <Link href={`/pages/auth/${"login"}`}>
+            <Link href={`/pages/auth/login`}>
               <Button
                 label="Login"
                 className="bg-black text-white hover:!bg-zinc-950 px-8 h-[44px] rounded-md group relative overflow-hidden border border-white "

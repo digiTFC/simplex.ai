@@ -22,7 +22,7 @@ export const Founders = () => {
           <MemberCard
             name="Pamel Fichieu"
             position="Founder"
-            image="https://res.cloudinary.com/ddqkpyo5u/image/upload/v1732025369/de2efce3-65d4-45fd-a761-73e9f17b2940.png"
+            image="https://res.cloudinary.com/ddqkpyo5u/image/upload/v1740657724/WhatsApp_Image_2025-02-03_at_17.28.49_pzqiwn.jpg"
             link="https://www.linkedin.com/in/pamel-fichieu-3778542b4/"
           ></MemberCard>
         </div>
