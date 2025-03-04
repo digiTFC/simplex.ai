@@ -9,7 +9,7 @@ export function getTokenData (token:string){
     try{
         return jwtDecode<TokenData>(token)
     }catch{
-        console.log("invalid token")
+        
         return null
     }
 }

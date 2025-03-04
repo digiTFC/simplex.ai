@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  timeout: 7000,
+  timeout: 10000,
   withCredentials: true,
   baseURL: "https://devxs.xyz/api/",
 });

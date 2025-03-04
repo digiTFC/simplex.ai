@@ -6,13 +6,10 @@ export default async function userLogout(): Promise<{
   message: string;
 }> {
   try {
-    const response = await apiClient.get(
-      "manage_users/logout/",
-    );
+    const response = await apiClient.get("manage_users/logout/");
     localStorage.removeItem("access-token");
     localStorage.removeItem("refresh-token");
-    console.log("good");
-    console.log(response.status);
+
 
     return {
       success: true,
@@ -20,7 +17,7 @@ export default async function userLogout(): Promise<{
     };
   } catch (error) {
     if (error instanceof AxiosError) {
-      console.log(error.response);
+      return { success: false, message: error.response?.data.detail };
     }
 
     return {

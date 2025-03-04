@@ -1,13 +1,26 @@
 "use client";
 import { Input } from "@/app/components/general-components/input";
-import React, { useState } from "react";
-import MotionButton from "../_components/motion-button";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
-import { passwordResetSchema } from "./_schema/password-test-schema";
 import { Titles } from "@/app/components/general-components/Titles";
+import { passwordResetSchema } from "../../_schema/password-test-schema";
+import MotionButton from "../../../_components/motion-button";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { passwordReset } from "../../_service/password-reset";
+import { Pinput } from "@/app/components/general-components/pinput";
 
-const ResetPassword = () => {
+export interface PasswordResetPageParams {
+  token: string;
+  uuid: string;
+}
+
+export default function PasswordResetPage({ params }: { params: Promise<PasswordResetPageParams> }) {
+  const router = useRouter()
   const [loading, setLoading] = useState<boolean>(false);
+  
+  const { token, uuid } = React.use(params);
+
 
   const formik = useFormik({
     initialValues: {
@@ -15,13 +28,17 @@ const ResetPassword = () => {
       confirm_password: "",
     },
     validationSchema: passwordResetSchema,
-    onSubmit: async () => {
+    onSubmit: async (values) => {
+          const data = {password:values.password, confirm_password:values.confirm_password}
+          const params = {uuid:uuid, token:token}
       setLoading(true);
-      // Simulate a password reset process
-      setTimeout(() => {
+        const response = await passwordReset(data,params)
+        toast.info(response.message)
+        
+     
         setLoading(false);
         // Perform the actual password reset logic here
-      }, 2000); // You can replace this with your actual reset logic
+     // You can replace this with your actual reset logic
     },
   });
 
@@ -35,7 +52,7 @@ const ResetPassword = () => {
       ></Titles>
 
       <div className="flex flex-col gap-4 mt-8">
-        <Input
+        <Pinput
           name="password"
           type="password"
           placeholder="Password"
@@ -43,11 +60,10 @@ const ResetPassword = () => {
           onChange={formik.handleChange}
           value={formik.values.password}
         />
-        {formik.errors.password && formik.touched.password && (
-          <span className="text-red-500">{formik.errors.password}</span>
-        )}
 
-        <Input
+
+        <Pinput
+        className="min-w-[320px]"
           name="confirm_password"
           type="password"
           placeholder="Confirm Password"
@@ -55,12 +71,9 @@ const ResetPassword = () => {
           onChange={formik.handleChange}
           value={formik.values.confirm_password}
         />
-        {formik.errors.confirm_password && formik.touched.confirm_password && (
-          <span className="text-red-500">{formik.errors.confirm_password}</span>
-        )}
       </div>
 
-      <div className="w-[375px] flex justify-center relative">
+      <div className="w-[320px] flex justify-center relative">
         <MotionButton
           label="Verify"
           isLoading={loading}
@@ -75,4 +88,4 @@ const ResetPassword = () => {
   );
 };
 
-export default ResetPassword;
+

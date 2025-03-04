@@ -2,6 +2,7 @@ import apiClient, { refreshToken } from "@/app/config/axios/axiosConfig";
 import { loginInput } from "../schema/loginSchema";
 import { AxiosError } from "axios";
 import { headers } from "next/headers";
+import { ServerResponse } from "http";
 
 export async function loginUser(
   data: loginInput
@@ -19,18 +20,14 @@ export async function loginUser(
     };
   } catch (error) {
     if (error instanceof AxiosError) {
-      const severErrorMessage = error.response?.data;
-
-
-
-      if (severErrorMessage) {
+        
 
         return {
           succes: false,
-          message: `Login failed : ${severErrorMessage.detail}`,
+          message: `${error.response?.data.detail}`,
 
         };
-      }
+      
     }
   }
 

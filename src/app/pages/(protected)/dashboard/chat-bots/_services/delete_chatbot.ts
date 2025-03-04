@@ -6,18 +6,15 @@ export async function deleteBot(uid : string) : Promise<{message :string ,succes
    
     try{
         const reponse = await apiClient.delete(`manage_chatbot/chatbot/${uid}`)
-        console.log(reponse)
         return {
                   message:"Deletion Succeful",
                   success:true
                   
                 }
     }catch(error){
-        console.log(error)
         if(error instanceof AxiosError){
-        console.log(error.response?.data.detail)
         return {
-            message:error.message,
+            message:error.response?.data.detail,
             success:false
           }
         }
