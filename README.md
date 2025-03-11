@@ -36,7 +36,7 @@ if you have to develop a task title  **create the user session retention**  for 
 
 Pour lancer le projet suivre les etapes suivantes
 
-- Clone the reository saasdi-frontend
+- Clone the repository saasdi-frontend
 ```bash
    git clone https://gitlab.com/saasdi/saasdi-frontend.git
 ```
