@@ -1,6 +1,6 @@
 import React from 'react'
-import { FaqBox } from '../components/general-components/faqBox';
-import { Titles } from '../components/general-components/Titles';
+import { FaqBox } from '../components/faqBox';
+import { Titles } from '../components/Titles';
 
 const Faq = () => {
   return (

@@ -10,8 +10,8 @@ import {
   Legend,
 } from "chart.js";
 import Head from "next/head";
-import ContentBox from "@/app/components/general-components/contentBox";
-import Loader from "@/app/components/general-components/loader";
+import ContentBox from "@/app/components/contentBox";
+import Loader from "@/app/components/loader";
 
 ChartJS.register(
   CategoryScale,

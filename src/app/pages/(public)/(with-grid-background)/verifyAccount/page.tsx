@@ -1,5 +1,5 @@
 "use client";
-import { Input } from "@/app/components/general-components/input";
+import { Input } from "@/app/components/input";
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import { verificationScheme } from "./_schema/verfiaction-schema";
@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import MotionButton from "../_components/motion-button";
 import verifyEmail from "./_service/verify-email";
-import { Titles } from "@/app/components/general-components/Titles";
+import { Titles } from "@/app/components/Titles";
 
 const VerifyAccount = () => {
   const [loading, setLoading] = useState(false);

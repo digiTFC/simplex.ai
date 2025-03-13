@@ -4,8 +4,8 @@ import React from "react";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useParams, useRouter } from "next/navigation";
-import GradientCircle from "@/app/components/general-components/gradientCircle";
-import { LoopsIllustration } from "@/app/components/general-components/loopsIllustration";
+import GradientCircle from "@/app/components/gradientCircle";
+import { LoopsIllustration } from "@/app/components/loopsIllustration";
 import { pricingData } from "@/app/pages/(public)/data/subcriptions";
 
 // interface paimentProps {

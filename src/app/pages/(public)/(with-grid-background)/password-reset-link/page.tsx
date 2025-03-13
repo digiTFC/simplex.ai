@@ -1,6 +1,6 @@
 "use client";
-import Button from "@/app/components/general-components/button";
-import { Input } from "@/app/components/general-components/input";
+import Button from "@/app/components/button";
+import { Input } from "@/app/components/input";
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import { resetPasswordScheme } from "./_schema/reset-password-schema";

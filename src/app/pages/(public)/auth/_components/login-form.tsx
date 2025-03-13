@@ -1,17 +1,17 @@
 "use client";
 import React, { useState } from "react";
-import Button from "../../../components/general-components/button";
+import Button from "../../../../components/button";
 import { useFormik } from "formik";
 import { toast } from "sonner";
 import { loginSchema } from "../schema/loginSchema";
 import { useRouter } from "next/navigation";
 import { loginUser } from "../_service/login";
 import Link from "next/link";
-import { Titles } from "@/app/components/general-components/Titles";
+import { Titles } from "@/app/components/Titles";
 import { VscEye } from "react-icons/vsc";
 import { VscEyeClosed } from "react-icons/vsc";
-import { Pinput } from "@/app/components/general-components/pinput";
-import { Input } from "@/app/components/general-components/input";
+import { Pinput } from "@/app/components/pinput";
+import { Input } from "@/app/components/input";
 import { getUser } from "../_service/user-info";
 import SocialAuths from "./socials-auth";
 
@@ -62,10 +62,10 @@ const LoginForm = () => {
 
   return (
     <div>
-      <div className="w-[359px]   rounded-[1px]">
+      <div className="w-[359px] max-w-[90vw]   rounded-[1px]">
         <form onSubmit={formik.handleSubmit}>
           <div>
-            <Titles title="Login" TitleStyle="text-[48px] mb-4" />
+            <Titles title="Login" TitleStyle="md:text-[48px] text-[38px] mb-4" />
           </div>
 
           <div className="space-y-4">

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { pricingData } from "@/app/pages/(public)/data/subcriptions";
-import Button from "@/app/components/general-components/button";
+import Button from "@/app/components/button";
 import PricingCard from "@/app/pages/(public)/(with-navbar)/pricing/_components/princingCard";
 
 const Pricing = () => {
@@ -23,7 +23,7 @@ const Pricing = () => {
     <div className="w-10/12 m-auto">
       <div className="flex justify-between flex-col text-center items-center">
         <div className="flex items-center w-full justify-center">
-          <div className="text-white flex relative rounded-full bg-clip-content mb-20 mt-12 bg-klightGrey w-[277px] h-[50px] text-center">
+          <div className="text-white flex relative rounded-full bg-clip-content my-12 bg-klightGrey w-[277px] h-[50px] text-center">
             <Button
               label=""
               className={`${
@@ -42,6 +42,12 @@ const Pricing = () => {
             />
           </div>
         </div>
+      </div>
+      
+      <div className="flex items-center flex-col justify-end gap-2 mb-20">
+        <p>unable to afford ? no problem</p>
+        <p className="p-2 rounded-lg border-2 cursor-pointer hover:border-white transition-all ">START FREE</p>
+        <p className="text-xs text-klight dark:text-gray-100">No card needed</p>
       </div>
 
       <div className="place-items-center flex justify-center flex-col md:grid w-full md:grid-cols-3  gap-20 md:gap-4 m-auto">
@@ -62,11 +68,6 @@ const Pricing = () => {
         ))}
       </div>
 
-      <div className="flex items-center flex-col justify-end gap-2 mt-8">
-        <p>unable to afford ? no problem</p>
-        <p className="p-2 rounded-lg border-2 cursor-pointer hover:border-white transition-all ">START FREE</p>
-        <p className="text-xs text-klight dark:text-gray-100">No card needed</p>
-      </div>
     </div>
   );
 };

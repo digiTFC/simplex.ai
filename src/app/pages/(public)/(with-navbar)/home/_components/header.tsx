@@ -1,5 +1,5 @@
-import Button from "@/app/components/general-components/button";
-import { Titles } from "@/app/components/general-components/Titles";
+import Button from "@/app/components/button";
+import { Titles } from "@/app/components/Titles";
 import InsightCard from "@/app/pages/(public)/(with-navbar)/home/_components/insightCard";
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";

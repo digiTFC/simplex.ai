@@ -5,7 +5,7 @@ import {
   faTwitter,
   faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
-import IconBox from "@/app/components/general-components/iconBox";
+import IconBox from "@/app/components/iconBox";
 
 export const Socials = () => {
   return (

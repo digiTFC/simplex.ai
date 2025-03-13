@@ -1,14 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import Button from "../../../components/general-components/button";
+import Button from "../../../../components/button";
 import { useFormik } from "formik";
 import { toast } from "sonner";
-import { registerSchema } from "@/app/pages/auth/schema/registerSchema";
+import { registerSchema } from "@/app/pages/(public)/auth/schema/registerSchema";
 import { registerUser } from "../_service/register";
 import { useRouter } from "next/navigation";
-import { Titles } from "@/app/components/general-components/Titles";
-import { Pinput } from "@/app/components/general-components/pinput";
-import { Input } from "@/app/components/general-components/input";
+import { Titles } from "@/app/components/Titles";
+import { Pinput } from "@/app/components/pinput";
+import { Input } from "@/app/components/input";
 import { FcGoogle } from "react-icons/fc";
 import SocialAuths from "./socials-auth";
 
@@ -54,13 +54,13 @@ const RegisterForm = () => {
 
   return (
     <div>
-      <div className="w-[375px]  rounded-[1px]">
+      <div className="w-[375px] max-w-[95vw]  rounded-[1px]">
         <form onSubmit={formik.handleSubmit}>
           <div>
-            <Titles title="Register" TitleStyle="text-[48px]" />
+            <Titles title="Register" TitleStyle="md:text-[48px] text-[38px]" />
           </div>
           <div className="pt-[12px] space-y-4">
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4">
               <Input
                 type="text"
                 name="first_name"

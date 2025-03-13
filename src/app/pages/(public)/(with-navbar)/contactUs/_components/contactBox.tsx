@@ -1,7 +1,7 @@
 import InfoTile from "@/app/pages/(public)/(with-navbar)/contactUs/_components/infoTile";
-import ContactForm from "@/app/components/general-components/contactForm";
-import IconBox from "@/app/components/general-components/iconBox";
-import { Titles } from "@/app/components/general-components/Titles";
+import ContactForm from "@/app/components/contactForm";
+import IconBox from "@/app/components/iconBox";
+import { Titles } from "@/app/components/Titles";
 import {
   faFacebookF,
   faLinkedinIn,
@@ -17,8 +17,8 @@ import Image from "next/image";
 export const ContactBox = () => {
   return (
     <main className="md:w-8/12 max-w-[1000px] w-10/12 text-center md:text-start m-auto relative">
-      <div className="border border-khr overflow-hidden rounded-2xl flex md:flex-row flex-col ">
-        <div className="md:w-5/12 bg-klightGrey md:p-12 py-12 flex flex-col justify-between items-center">
+      <div className="md:border border-khr overflow-hidden rounded-2xl flex md:flex-row flex-col ">
+        <div className="md:w-5/12 bg-klightGrey md:p-12 py-6 flex flex-col justify-between items-center">
           <div>
             <Titles
               title="Contact Information"
@@ -28,7 +28,7 @@ export const ContactBox = () => {
             ></Titles>
           </div>
 
-          <div className="py-10   flex items-start justify-start flex-col ">
+          <div className="md:py-10 py-5   flex items-start justify-start flex-col ">
             <InfoTile body="+237 690379063">
               <BsTelephoneFill className="size-6"/>
             </InfoTile>
@@ -81,8 +81,8 @@ export const ContactBox = () => {
             </div>
           </div>
         </div>
-        <div className="md:w-5/12 w-full py-10 m-auto relative pb-12">
-          <div className="absolute md:scale-125 md:-bottom-28 -bottom-24 md:right-14 left-12">
+        <div className="md:w-5/12 w-full md:py-10 py-6 m-auto relative pb-12">
+          <div className="absolute md:scale-125 md:-bottom-28 -bottom-10 md:right-14 left-12">
             <Image src={"https://res.cloudinary.com/ddqkpyo5u/image/upload/v1738326168/6c971f61-eab4-4b3e-98f1-f3cda21fa235.png"} alt="Mail Send Illustration" width={400} height={300}>
 
             </Image>

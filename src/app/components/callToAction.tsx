@@ -7,7 +7,7 @@ import { Titles } from './Titles'
 export const CallToAction = () => {
   return (
     
-    <div className="mb-24 text-center border  dark:bg-klightGrey bg-white relative overflow-hidden  rounded-2xl py-16">
+    <div className="mb-24 text-center border  dark:bg-klightGrey bg-white relative overflow-hidden  rounded-2xl md:py-16 py-7">
 
 
           <div className="md:w-5/12 px-6 md:px-12 m-auto z-50 ">

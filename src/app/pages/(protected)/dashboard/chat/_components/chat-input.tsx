@@ -1,5 +1,5 @@
 "use client";
-import { Input } from "@/app/components/general-components/input";
+import { Input } from "@/app/components/input";
 import { useFormik } from "formik";
 import React from "react";
 import sendChat from "../_service/send-chat";

@@ -1,7 +1,7 @@
 import apiClient from "@/app/config/axios/axiosConfig";
 import { getTokenData } from "../../_service/get-token-data";
 import { toast } from "sonner";
-import { loginUser } from "@/app/pages/auth/_service/login";
+import { loginUser } from "@/app/pages/(public)/auth/_service/login";
 
 export default async function subscriptionChoice(
   subscriptionId?: number,

@@ -1,13 +1,14 @@
 "use client";
-import { Input } from "@/app/components/general-components/input";
+import { Input } from "@/app/components/input";
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Titles } from "@/app/components/general-components/Titles";
+import { Titles } from "@/app/components/Titles";
 import sendChat from "../_service/send-chat";
 import { useParams } from "next/navigation";
 import { TbInnerShadowBottomRight } from "react-icons/tb";
+import { GoPaperclip } from "react-icons/go";
 
 
 const ChatPage = () => {
@@ -36,7 +37,7 @@ const ChatPage = () => {
 
   return (
     <div className="relative  overflow-y-scroll no-scrollbar ">
-      <div className="h-full  flex-col  gap-10 center w-11/12 m-auto ">
+      <div className="h-full  flex-col  gap-10 center md:w-11/12 m-auto ">
 
         {errors ? (
           <div className="text-center h-[70vh] center">
@@ -73,21 +74,21 @@ const ChatPage = () => {
           ""
         )}
         {messages ? (
-          <div className="w-9/12 m-auto py-12 pb-32 flex flex-col">
+          <div className="md:w-9/12 w-11/12 m-auto py-12 pb-32 flex flex-col">
             {messages.map((message, index) => {
               return (
                 <div key={index} className="">
                   {message.user ? (
-                    <div className="bg-klightGrey text-white px-6 py-3 rounded-lg float-right">
+                    <div className="bg-klightGrey text-white px-6 py-2 rounded-xl float-right">
                       {message.user}
                     </div>
                   ) : (
-                     <div className="flex items-start w-11/12 h-fit my-8 gap-x-2">
+                     <div className="flex items-start w-11/12 h-fit my-6 gap-x-2">
                       
                       <div className="h-24 w-fit"><TbInnerShadowBottomRight size={30}  /></div>
                       
                      
-                                          <div className="bg-klightGrey text-white px-6 py-3 rounded-lg float-left">
+                                          <div className="bg-klightGrey text-white px-6 py-2 rounded-xl float-left">
                       {message.assistant}
                     </div>
                      </div>
@@ -100,29 +101,21 @@ const ChatPage = () => {
           ""
         )}
 
-        <div className="w-6/12  fixed dark:bg-black bg-white bottom-0 pb-8">
-          <div className="bg-klightGrey rounded-2xl w-full  py-1 flex items-center justify-between px-4 pr-6 text-white relative">
+        <div className="w-full fixed dark:bg-black bg-kwhiteBg bottom-0 pb-8">
+          <div className="bg-klightGrey rounded-2xl  md:w-6/12 w-10/12 m-auto   py-1 flex items-center justify-between px-4 pr-6 text-white relative">
             <Link href={"/pages/dashboard/upload-file"}>
               <div className="cursor-pointer ">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  fill="#ffffff"
-                  viewBox="0 0 256 256"
-                >
-                  <path d="M208.25,123.76a6,6,0,0,1,0,8.49l-82.06,82a54,54,0,0,1-76.36-76.39L149.1,37.14a38,38,0,1,1,53.77,53.72L103.59,191.54a22,22,0,1,1-31.15-31.09l83.28-84.67a6,6,0,0,1,8.56,8.42L81,168.91a10,10,0,1,0,14.11,14.18L194.35,82.4a26,26,0,1,0-36.74-36.8L58.33,146.28a42,42,0,1,0,59.37,59.44l82.06-82A6,6,0,0,1,208.25,123.76Z"></path>
-                </svg>
+              <GoPaperclip size={20} />
               </div>
             </Link>
-            <form className="!rounded-2xl !w-[100%] !bg-klightGrey border-none pl-4" onSubmit={formik.handleSubmit}>
+            <form className="!rounded-2xl !w-[100%] !bg-klightGrey outline-none pl-4" onSubmit={formik.handleSubmit}>
             <Input
               placeholder="Enter Message..."
               value={formik.values.prompt}
               onChange={formik.handleChange}
               name="prompt"
               useLabel={false}
-               className="!rounded-2xl !w-[100%] !bg-klightGrey border-none pl-4"
+               className="!rounded-2xl !w-[100%] text-white !bg-klightGrey border-none pl-4"
             ></Input>
             <input type="submit" className="hidden"/>
             </form>

@@ -1,4 +1,4 @@
-import Button from "@/app/components/general-components/button";
+import Button from "@/app/components/button";
 import { motion } from "framer-motion";
 import React from "react";
 

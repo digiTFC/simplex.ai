@@ -1,14 +1,14 @@
 "use client";
-import { Input } from "@/app/components/general-components/input";
+import { Input } from "@/app/components/input";
 import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
-import { Titles } from "@/app/components/general-components/Titles";
+import { Titles } from "@/app/components/Titles";
 import { passwordResetSchema } from "../../_schema/password-test-schema";
 import MotionButton from "../../../_components/motion-button";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { passwordReset } from "../../_service/password-reset";
-import { Pinput } from "@/app/components/general-components/pinput";
+import { Pinput } from "@/app/components/pinput";
 
 export interface PasswordResetPageParams {
   token: string;

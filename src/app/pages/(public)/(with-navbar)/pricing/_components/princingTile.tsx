@@ -5,7 +5,7 @@ interface tileProsp {
 const PrincingTile: React.FC<tileProsp> = ({ title, isPresent }) => {
   return (
     <div>
-      <div className="pb-[26px] flex items-center">
+      <div className="pb-[26px] flex items-center text-start">
         <div className=" center h-[30px] w-[30px] mr-[16px]  rounded-lg  bg-kOnSecondary">
           {isPresent ? (
             <svg

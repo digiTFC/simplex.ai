@@ -16,7 +16,7 @@ import { useFormik } from "formik";
 import { CreateChatBotSchema } from "../../create-chat-bot/schema/create-chatbot-schema";
 import { updateChatbot } from "../_services/update-chatbot";
 import { FaCheck } from "react-icons/fa6";
-import Button from "@/app/components/general-components/button";
+import Button from "@/app/components/button";
 import { deleteDoc } from "../_services/delete-doc";
 
 type FileData = {
@@ -267,6 +267,8 @@ export const TableRow: React.FC<Chatbot> = ({
           </button>
         </Td>
       </tr>
+
+
 
       <div
         className={`${

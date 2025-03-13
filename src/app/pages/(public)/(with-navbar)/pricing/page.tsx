@@ -1,7 +1,7 @@
-import { CallToAction } from "@/app/components/general-components/callToAction";
+import { CallToAction } from "@/app/components/callToAction";
 import React from "react";
 import Pricing from "./_components/pricing";
-import { Titles } from "@/app/components/general-components/Titles";
+import { Titles } from "@/app/components/Titles";
 
 const PricingPage = () => {
   return (

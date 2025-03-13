@@ -1,4 +1,4 @@
-import GradientCircle from "../../../../../components/general-components/gradientCircle";
+import GradientCircle from "../../../../../components/gradientCircle";
 
 const PurposeIllustration = ({}) => {
   const _boxStyle =

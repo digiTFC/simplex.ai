@@ -150,8 +150,8 @@ const SideBar = () => {
     } 
   }
   return (
-    <div className=" w-full h-full">
-      <div className="w-[300px] px-5 bg-klightGrey -100 h-[100vh] flex flex-col fixed">
+    <div className="  h-full">
+      <div className="w-[300px] px-5 bg-klightGrey  h-[100vh] flex flex-col fixed">
         <div>
           <div className="flex items-center py-5    gap-4">
             <div className="w-[50px] rounded-xl h-[50px] bg-gradient-to-br from-kpurple to-kpink"></div>

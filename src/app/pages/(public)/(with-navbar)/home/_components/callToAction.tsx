@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Button from "../../../../../components/general-components/button";
-import { Titles } from "../../../../../components/general-components/Titles";
+import Button from "../../../../../components/button";
+import { Titles } from "../../../../../components/Titles";
 
 const CallToAction = ({}) => {
   return <div className="w-full  h-fit flex items-center justify-center relative ">

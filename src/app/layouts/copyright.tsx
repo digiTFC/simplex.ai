@@ -1,5 +1,5 @@
-import { Socials } from "@/app/components/general-components/socials";
-import { Titles } from "@/app/components/general-components/Titles";
+import { Socials } from "@/app/components/socials";
+import { Titles } from "@/app/components/Titles";
 
 const CopyRight = ({}) => {
   return (
@@ -7,7 +7,7 @@ const CopyRight = ({}) => {
       <div className="w-10/12 items-center m-auto flex justify-between" >
       <Titles
         title=""
-        subtitleStyle="text-[14px]"
+        subtitleStyle="md:text-[14px] text-[10px]"
         subTitle="All Rights Reserveds 2024"
       ></Titles>
         <div>
