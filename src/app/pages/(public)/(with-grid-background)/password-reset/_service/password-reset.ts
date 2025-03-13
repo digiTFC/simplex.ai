@@ -3,7 +3,7 @@ import { passwwordResetInput } from "../_schema/password-test-schema";
 import { AxiosError } from "axios";
 import { PasswordResetPageParams } from "../[uuid]/[token]/page";
 import { headers } from "next/headers";
-import { getUser } from "@/app/pages/auth/_service/user-info";
+import { getUser } from "@/app/pages/(public)/auth/_service/user-info";
 import { Base64 } from "js-base64";
 
 export async function passwordReset(data : passwwordResetInput, params : PasswordResetPageParams) : Promise<{success:boolean, message:string}>{

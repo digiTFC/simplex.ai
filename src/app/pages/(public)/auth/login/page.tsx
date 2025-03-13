@@ -1,6 +1,6 @@
 "use client";
-import GridCard from "@/app/components/general-components/gridCard";
-import RegisterForm from "@/app/pages/auth/_components/RegisterForm";
+import GridCard from "@/app/components/gridCard";
+import RegisterForm from "@/app/pages/(public)/auth/_components/RegisterForm";
 import { useEffect, useState } from "react";
 
 import { useParams } from "next/navigation";
@@ -15,7 +15,7 @@ const Login= () => {
     <div>
       <div className="flex items-center justify-center h-screen overflow-hidden">
    <Link href={"/pages/home"}>
-   <div className=" cursor-pointer fixed top-5 left-10">
+   <div className=" cursor-pointer fixed top-5 md:left-10">
           <span className="text-[30px] font-bold tracking-widest">
           SIMPLEX
           <span className="inline-block h-2 w-2 dark:bg-kpurple bg-kpink rounded-full"></span>

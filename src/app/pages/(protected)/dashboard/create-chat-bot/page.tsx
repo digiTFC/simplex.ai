@@ -1,13 +1,13 @@
 "use client";
-import { Input } from "@/app/components/general-components/input";
-import { TextArea } from "@/app/components/general-components/text-area";
+import { Input } from "@/app/components/input";
+import { TextArea } from "@/app/components/text-area";
 import { useFormik } from "formik";
 import React, { useState } from "react";
 import { CreateChatBotSchema } from "./schema/create-chatbot-schema";
 import createChatBot from "./_service/create-chat-bot";
-import Button from "@/app/components/general-components/button";
+import Button from "@/app/components/button";
 import { toast } from "sonner";
-import { Titles } from "@/app/components/general-components/Titles";
+import { Titles } from "@/app/components/Titles";
 import { useRouter } from "next/navigation";
 
 const options = [
@@ -117,7 +117,7 @@ const CreateChatBot = () => {
               name="performance_meting"
               value={formik.values.performance_meting}
               onChange={formik.handleChange}
-              placeholder="Performance Meting"
+              placeholder="Task Description"
               useLabel={false}
               error={formik.errors.performance_meting}
             />

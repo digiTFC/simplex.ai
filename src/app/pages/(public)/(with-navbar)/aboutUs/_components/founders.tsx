@@ -1,5 +1,5 @@
-import { MemberCard } from '@/app/components/general-components/memberCard';
-import Paragraph from '@/app/components/general-components/text';
+import { MemberCard } from '@/app/components/memberCard';
+import Paragraph from '@/app/components/text';
 import React from 'react';
 
 export const Founders = () => {

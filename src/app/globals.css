@@ -190,7 +190,7 @@ td {
 .fade-up{
   z-index: 1000;
   transform: translateY(64%);
-  animation: fade-in-up 400ms ease forwards!important;
+  animation: fade-in-up 200ms ease-out forwards!important;
 }
 
 @keyframes fade-in-up{

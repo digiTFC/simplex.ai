@@ -1,6 +1,6 @@
-import Nav from "@/app/components/general-components/nav";
+import Nav from "@/app/components/nav";
 import CopyRight from "./copyright";
-import { Titles } from "@/app/components/general-components/Titles";
+import { Titles } from "@/app/components/Titles";
 
 const Footer = ({}) => {
   return (
@@ -26,12 +26,12 @@ const Footer = ({}) => {
               subTitle="A good design is not only aesthetically pleasing, but also functional. It should be able to solve the problem "
             ></Titles>
           </div>
-          <div className="flex flex-col items-start h-full justify-between">
+          <div className="flex flex-col items-start h-full justify-between w-full">
             <Titles
               title="Sections"
               TitleStyle="text-[16px] text-white pb-6 font-semibold"
             ></Titles>
-            <div className="grid grid-cols-3 gap-32">
+            <div className="grid grid-cols-3 md:gap-32 gap-2 w-full place-content-between">
               <Nav column={true} footer={true} style="text-start"></Nav>
               <Nav column={true} footer={true} style="text-start"></Nav>
               <Nav column={true} footer={true} style="text-start"></Nav>

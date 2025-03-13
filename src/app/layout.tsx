@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { Toaster } from 'sonner'
 import "./globals.css"
-import CursorFollower from "./components/general-components/cursorFollower";
+import CursorFollower from "./components/cursorFollower";
 import DarkModeToggle from "./pages/(public)/(with-navbar)/_components/toggleMode";
 
 

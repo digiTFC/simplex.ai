@@ -1,4 +1,4 @@
-import { loginUser } from "@/app/pages/auth/_service/login";
+import { loginUser } from "@/app/pages/(public)/auth/_service/login";
 import apiClient from "@/app/config/axios/axiosConfig";
 import { AxiosError } from "axios";
 

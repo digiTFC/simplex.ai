@@ -3,8 +3,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-import Button from "@/app/components/general-components/button";
-import Nav from "@/app/components/general-components/nav";
+import Button from "@/app/components/button";
+import Nav from "@/app/components/nav";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
@@ -41,7 +41,8 @@ const NavBar = ({}) => {
     <motion.div
       animate={{translateY:isVisible? 0 : "-100%"}}
       transition={{
-        type:"tween",
+        type:"spring",
+        bounce:0,
         duration:0.2
       }}
       className=" w-full bg-kwhiteBg dark:bg-black z-[100] fixed"
@@ -68,7 +69,7 @@ const NavBar = ({}) => {
             <AnimatePresence>
               <Nav column={isOpen} onClick={() => setIsOpen(false)}></Nav>
             </AnimatePresence>
-            <div className=" items-center gap-4 md:hidden flex ">
+            <div className=" items-center gap-4 md:hidden flex mb-4 mt-2 ">
               <Link href={`/pages/auth/${"login"}`}>
                 <Button
                   label="Login"

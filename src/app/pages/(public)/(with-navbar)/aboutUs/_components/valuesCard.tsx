@@ -1,4 +1,4 @@
-import { Titles } from "../../../../../components/general-components/Titles";
+import { Titles } from "../../../../../components/Titles";
 
 interface valuesCardProps {
   title: string;
@@ -13,7 +13,7 @@ export const ValuesCard:React.FC<valuesCardProps> = ({
 }) => {
   return (
     <div>
-      <div className="flex bg-white shadow flex-col items-center justify-evenly dark:bg-klightGrey  p-8 px-10 w-[320px] h-[230px] rounded-2xl">
+      <div className="flex bg-white shadow flex-col items-center justify-evenly dark:bg-klightGrey  p-8 px-10 max-w-[90vw] md:w-[320px] py-4 md:h-[230px] rounded-2xl">
         <span className="text-[45px]">
           {letter}
         </span>

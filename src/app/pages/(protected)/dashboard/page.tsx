@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { StatCard } from "./_components/stat-card";
-import Loader from "@/app/components/general-components/loader";
+import Loader from "@/app/components/loader";
 import { ChatbotsStats } from "./_components/chatbot-graph";
 
 const DashBoard = () => {

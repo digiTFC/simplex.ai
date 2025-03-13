@@ -1,4 +1,4 @@
-import ContactForm from "@/app/components/general-components/contactForm";
+import ContactForm from "@/app/components/contactForm";
 import "../../../../../globals.css";
 
 const Contact = ({}) => {

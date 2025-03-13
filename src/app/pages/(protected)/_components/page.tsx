@@ -1,10 +1,10 @@
 "use client";
-import { Input } from "@/app/components/general-components/input";
+import { Input } from "@/app/components/input";
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { Titles } from "@/app/components/general-components/Titles";
+import { Titles } from "@/app/components/Titles";
 import verifyEmail from "../../(public)/(with-grid-background)/verifyAccount/_service/verify-email";
 import { verificationScheme } from "../../(public)/(with-grid-background)/verifyAccount/_schema/verfiaction-schema";
 import MotionButton from "../../(public)/(with-grid-background)/_components/motion-button";

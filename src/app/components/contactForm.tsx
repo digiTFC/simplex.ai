@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Button from "./button";
 import { Titles } from "./Titles";
+import { Input } from "./input";
+import { TextArea } from "./text-area";
 
 interface contactForm {
   hideTitle?: boolean;
@@ -13,7 +15,7 @@ const ContactForm: React.FC<contactForm> = ({ hideTitle }) => {
     "bg-gradient-to-r from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700 w-full  mt-3 rounded-[5px] py-[10px] px-[22px] cursor-pointer";
   return (
     <div>
-      <div className="flex flex-col px-8">
+      <div className="flex flex-col md:px-8">
         <div className={hideTitle ? "hidden" : ""}>
           <Titles
             title="Get In Touch"
@@ -21,15 +23,10 @@ const ContactForm: React.FC<contactForm> = ({ hideTitle }) => {
             subTitle="A good design is not only aesthetically pleasing, but also functional. It should be able to solve the problem "
           ></Titles>
         </div>
-        <div className="flex flex-col items-end">
-        <input type="text" placeholder="name" className={`${inputStyle} `} />
-        <input type="text" placeholder="email" className={`${inputStyle} `} />
-        <textarea
-          name="description"
-          id="description"
-          className={`${inputStyle} `}
-          placeholder="message"
-        ></textarea>
+        <div className="flex flex-col md:items-end space-y-4">
+          <Input placeholder="name" useLabel={false}/>
+          <Input placeholder="email" useLabel={false}/>
+          <TextArea placeholder="message" useLabel={false}/>
         <Link className="w-full " href={"mailto:sanguojoseph17@gmail.com"}>
           <Button
             label="Get in Touch"

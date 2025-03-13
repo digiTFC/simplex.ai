@@ -1,5 +1,5 @@
 import { ValuesCard } from '@/app/pages/(public)/(with-navbar)/aboutUs/_components/valuesCard';
-import { Titles } from '@/app/components/general-components/Titles';
+import { Titles } from '@/app/components/Titles';
 import React from 'react'
 
 export const Values = () => {

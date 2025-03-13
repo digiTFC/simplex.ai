@@ -22,18 +22,18 @@ const Nav: React.FC<navPros> = ({ column, style, footer, onClick }) => {
   ) => {
     return `${
       footer
-        ? "hover:text-white hover:underline underline-offset-8 text-start"
+        ? "hover:text-white hover:underline underline-offset-8 text-left"
         : "text-[17px] text-center  after:dark:bg-white after:bg-black dark:hover:text-white hover:text-black"
-    } text-hover transition-all duration-200 border-kOnSecondary py-4 ${
+    } text-hover ${style} transition-all duration-200 border-kOnSecondary md:py-4 py-2  ${
       column ? "md:py-2 text-start" : "text-center md:py-0"
     }`;
   };
 
-  
+
   return (
     <nav
-      className={`relative  text-md w-full  md:gap-8 md:items-end items-center black:text-klight  text-gray-500  flex  text-center md:justify-center   ${
-        column ? "flex-col text-center" : `h-full md:flex-row `
+      className={`relative  text-md w-full  md:gap-8 md:items-end items-center black:text-klight  text-gray-500  flex  md:text-center md:justify-center   ${
+        column ? "flex-col text-start" : `h-full md:flex-row `
       } `}
     >
       {links.map((link) => {

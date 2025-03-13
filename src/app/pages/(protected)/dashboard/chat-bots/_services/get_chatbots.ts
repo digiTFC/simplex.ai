@@ -3,7 +3,7 @@ import apiClient from "@/app/config/axios/axiosConfig";
 import { AxiosError } from "axios";
 import { toast } from "sonner";
 import { Chatbot } from "../_dto/chatBot";
-import { loginUser } from "@/app/pages/auth/_service/login";
+import { loginUser } from "@/app/pages/(public)/auth/_service/login";
 
 export interface UseChatBotsResult {
   chatbots: Chatbot[] | null;

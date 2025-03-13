@@ -16,13 +16,13 @@ interface cardProps{
 
 export const MemberCard:React.FC<cardProps> = ({name,position,image,textEnd,link}) => {
   return (
-    <ContentBox isBlack={true} height="h-[405px]">
-    <div className="bg-klightGrey text-white w-[325px] h-[355px]  w-fit rounded-lg">
+    <ContentBox isBlack={true} width='max-w-[90vw]' height="h-[405px] h-[350px]">
+    <div className="bg-klightGrey text-white  w-[325px] h-[355px]  w-fit rounded-lg">
       <Image
         src={
           image
         }
-        className="w-[325px] h-[325px]  rounded-lg"
+        className="w-[325px]  md:h-[325px] h-[300] rounded-lg"
         alt={name}
         width={700}
         height={400}
