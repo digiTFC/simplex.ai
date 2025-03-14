@@ -1,6 +1,10 @@
+import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 const SocialAuths = () => {
+
+  const router = useRouter();
+
   useEffect(() => {
     const loadGoogleScript = () => {
       return new Promise<void>((resolve, reject) => {
@@ -14,6 +18,7 @@ const SocialAuths = () => {
         script.async = true;
         script.onload = () => resolve();
         script.onerror = () => reject();
+
         document.body.appendChild(script);
       });
     };
@@ -21,11 +26,11 @@ const SocialAuths = () => {
     const initGoogleLogin = async () => {
       try {
         await loadGoogleScript();
-        (window as any).google.accounts.id.initialize({
+        ((window as any).google.accounts.id.initialize({
           client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
           callback: handleGoogleLogin,
-        });
-        ((window as any).google.accounts.id.renderButton)(
+        }));
+        (window as any).google.accounts.id.renderButton(
           document.getElementById("google-login-button"),
           { theme: "outline", size: "large" }
         );
@@ -40,10 +45,13 @@ const SocialAuths = () => {
   const handleGoogleLogin = async (response: { credential: string }) => {
     try {
       const userData = jwt_decode(response.credential);
+
       console.log("User Data:", userData);
+
       localStorage.setItem("user-email", userData.email);
       localStorage.setItem("user-name", `${userData.given_name} ${userData.family_name}`);
-      window.location.href = "../dashboard";
+
+      router.replace("../dashboard");
     } catch (error) {
       console.error("Error during Google login:", error);
       alert("An error occurred during login.");
