@@ -1,30 +1,72 @@
-import React from 'react'
-import { FcGoogle } from 'react-icons/fc'
+import React, { useEffect } from "react";
 
 const SocialAuths = () => {
-    const social_btn = "center h-[45px] w-[50px]  rounded-lg bg-klightGrey hover:bg-klightGreyHover transition-all"
+  useEffect(() => {
+    const loadGoogleScript = () => {
+      return new Promise<void>((resolve, reject) => {
+        if ((window as any).google && (window as any).google.accounts) {
+          resolve();
+          return;
+        }
+
+        const script = document.createElement("script");
+        script.src = "https://accounts.google.com/gsi/client";
+        script.async = true;
+        script.onload = () => resolve();
+        script.onerror = () => reject();
+        document.body.appendChild(script);
+      });
+    };
+
+    const initGoogleLogin = async () => {
+      try {
+        await loadGoogleScript();
+        (window as any).google.accounts.id.initialize({
+          client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+          callback: handleGoogleLogin,
+        });
+        ((window as any).google.accounts.id.renderButton)(
+          document.getElementById("google-login-button"),
+          { theme: "outline", size: "large" }
+        );
+      } catch (error) {
+        console.error("Error loading Google Identity Services:", error);
+      }
+    };
+
+    initGoogleLogin();
+  }, []);
+
+  const handleGoogleLogin = async (response: { credential: string }) => {
+    try {
+      const userData = jwt_decode(response.credential);
+      console.log("User Data:", userData);
+      localStorage.setItem("user-email", userData.email);
+      localStorage.setItem("user-name", `${userData.given_name} ${userData.family_name}`);
+      window.location.href = "../dashboard";
+    } catch (error) {
+      console.error("Error during Google login:", error);
+      alert("An error occurred during login.");
+    }
+  };
+
   return (
-    <div className="flex gap-2">
-              
-    <div className={social_btn}>
-      <FcGoogle size={25} />
+    <div id="google-login-button" className="flex gap-2">
+      {/* google button rendered here */}
     </div>
-    <div className={social_btn}>
-      <svg
-        width="22"
-        height="18"
-        viewBox="0 0 22 18"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M22 2.13092C21.1819 2.49231 20.3101 2.73185 19.4012 2.84815C20.3363 2.286 21.0499 1.40262 21.3854 0.337846C20.5136 0.861231 19.5511 1.23092 18.5254 1.43723C17.6976 0.549693 16.5179 0 15.2309 0C12.7339 0 10.7236 2.04092 10.7236 4.54292C10.7236 4.90292 10.7539 5.24908 10.8281 5.57862C7.0785 5.39446 3.76063 3.58477 1.53175 0.828C1.14262 1.50785 0.914375 2.286 0.914375 3.12369C0.914375 4.69662 1.71875 6.09092 2.91775 6.89815C2.19313 6.88431 1.48225 6.67246 0.88 6.33877C0.88 6.35262 0.88 6.37062 0.88 6.38862C0.88 8.59569 2.44337 10.4289 4.4935 10.8512C4.12637 10.9523 3.72625 11.0008 3.311 11.0008C3.02225 11.0008 2.73075 10.9842 2.45712 10.9232C3.0415 12.7218 4.69975 14.0442 6.6715 14.0871C5.137 15.2958 3.18863 16.0242 1.07938 16.0242C0.7095 16.0242 0.35475 16.0075 0 15.9618C1.99787 17.2592 4.36562 18 6.919 18C15.2185 18 19.756 11.0769 19.756 5.076C19.756 4.87523 19.7491 4.68139 19.7395 4.48892C20.6346 3.84923 21.3867 3.05031 22 2.13092Z"
-          fill="#03A9F4"
-        />
-      </svg>
-    </div>
-  </div>
-  )
+  );
+};
+
+function jwt_decode(token: string) {
+  const base64Url = token.split(".")[1];
+  const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+  const jsonPayload = decodeURIComponent(
+    atob(base64)
+      .split("")
+      .map((c) => `%${`00${c.charCodeAt(0).toString(16)}`.slice(-2)}`)
+      .join("")
+  );
+  return JSON.parse(jsonPayload);
 }
 
-export default SocialAuths
+export default SocialAuths;
