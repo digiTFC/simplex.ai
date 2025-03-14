@@ -9,36 +9,39 @@ export const registerUser = async (
   data: registerInput
 ): Promise<{ succes: boolean; message: string }> => {
   try {
-    await apiClient.post(
-      "manage_users/register/",
-      data
-    );
+    let response;
 
-    localStorage.setItem("email" , data.email)
-    localStorage.setItem("pass" , data.password)
+    if ('token' in data) {
+      // Handle Google registration
+      response = await apiClient.post("/auth/google", { token: data.token });
+    } else {
+      // Handle email/password registration
+      response = await apiClient.post("manage_users/register/", data);
+    }
+
+    localStorage.setItem("access-token", response.data.access_token);
+    localStorage.setItem("refresh-token", response.data.refresh_token);
 
     return {
       succes: true,
-      message: "SignUp Succesful !",
+      message: "SignUp Successful!",
     };
-
   } catch (error) {
     if (error instanceof AxiosError) {
       const serverErrorMessage = error.response?.data;
 
-      // Afficher l'erreur exacte envoyée par le serveur
       if (serverErrorMessage) {
-        console.error("Server Error:", serverErrorMessage); // Log pour déboguer
+        console.error("Server Error:", serverErrorMessage);
         return {
           succes: false,
-          message: serverErrorMessage.email,
+          message: serverErrorMessage.email || "Registration failed",
         };
-      } 
-  }}
-  return {
-    succes: false,
-    message: "Unexpected Error Check your Internet",
-  };
+      }
+    }
+
+    return {
+      succes: false,
+      message: "Unexpected Error: Check your Internet",
+    };
+  }
 };
-
-
