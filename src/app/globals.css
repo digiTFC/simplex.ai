@@ -20,15 +20,15 @@ input[type="number"] {
   transform: translate(-50%,-50%);
 }
 
-
-
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .text-hover {
   position: relative;
   cursor: pointer;
 }
+
 .text-hover::after {
   content: "";
   position: absolute;

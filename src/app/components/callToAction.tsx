@@ -15,7 +15,7 @@ export const CallToAction = () => {
               title="Join our team"
               bigTitle={true}
               TitleStyle=" z-50"
-              subTitle="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque, facere officiis cumque et, distinctio vero"
+              subTitle="Join a team that values your skills and ideas! Whether you're experienced or just starting, there's a place for you here."
               subtitleStyle="py-6 z-50"
             ></Titles>
           </div>

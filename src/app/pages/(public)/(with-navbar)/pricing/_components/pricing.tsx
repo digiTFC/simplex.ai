@@ -21,9 +21,15 @@ const Pricing = () => {
 
   return (
     <div className="w-10/12 m-auto">
-      <div className="flex justify-between flex-col text-center items-center">
-        <div className="flex items-center w-full justify-center">
-          <div className="text-white flex relative rounded-full bg-clip-content my-12 bg-klightGrey w-[277px] h-[50px] text-center">
+      <div className="flex justify-between flex-row items-center">
+        <div className="md:grid md:grid-cols-1 items-center w-full md:w-2/5 justify-center">
+          <div className="w-full flex justify-start">
+            <h2 className="text-6xl">Pricing Plans</h2>
+          </div>
+          <div className="w-full py-3 text-lg text-gray-700 pr-24 flex justify-start">
+            <p>Plans available for startups to growth-stage companies.</p>
+          </div>
+          <div className="text-white flex relative rounded-full bg-clip-content my-2 bg-klightGrey w-[277px] h-[50px] text-center">
             <Button
               label=""
               className={`${
@@ -42,32 +48,33 @@ const Pricing = () => {
             />
           </div>
         </div>
-      </div>
-      
-      <div className="flex items-center flex-col justify-end gap-2 mb-20">
-        <p>unable to afford ? no problem</p>
-        <p className="p-2 rounded-lg border-2 cursor-pointer hover:border-white transition-all ">START FREE</p>
-        <p className="text-xs text-klight dark:text-gray-100">No card needed</p>
-      </div>
 
-      <div className="place-items-center flex justify-center flex-col md:grid w-full md:grid-cols-3  gap-20 md:gap-4 m-auto">
+        {/* pricing card */}
+        <div className="grid md:w-4/5 flex-rows md:grid w-full md:grid-cols-3  gap-20 md:gap-2">
         {pricingData.slice(1, 4).map((plan, index) => 
         (
-          
           <div key={index}>
             <PricingCard
-              icon={plan.icon}
               title={plan.name}
-              features={plan.features}
               onClick={generateLink(index)}
               price={
-                val === "monthly" ? plan.monthlyPrice.toString() : plan.yearlyPrice.toString()
+                val === "monthly" 
+                  ? <><span>{`${plan.monthlyPrice.toString()} / `}</span><span className="text-gray-700">month</span></> 
+                  : <><span>{`${plan.yearlyPrice.toString()} / `}</span><span className="text-gray-700">year</span></>
               }
             />
           </div>
         ))}
       </div>
-
+      </div>
+      
+      <div className="flex items-center flex-row justify-end gap-2 my-4">
+        <p className="text-xl">Unable to afford ?</p>
+        <p className="border border-black text-black rounded-full hover:bg-black hover:text-white py-2 px-[32px]">Start Free</p>
+      </div>
+      {/* <div className="justify-end px-4 flex w-full">
+        <p className="text-sm text-klight dark:text-gray-100">No card needed</p>
+      </div> */}
     </div>
   );
 };
