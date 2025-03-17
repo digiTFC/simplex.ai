@@ -1,25 +1,17 @@
-import apiClient from "@/app/utils/axios/axiosConfig";
+import { loginUser } from "@/app/pages/(public)/auth/_service/login";
+import apiClient from "@/app/config/axios/axiosConfig";
 import { AxiosError } from "axios";
 
-export default async function sendChat(prompt : string) : Promise<{
+export default async function sendChat(prompt : string, uuid:string) : Promise<{
     data? : {user:string, assistant:string}[],
     error? : string,
 
 }> {
-
-
-    const token = localStorage.getItem("access-token")
+        
 
     try {
-        const reponse = await apiClient.post("http://13.91.1.165:8005/api/manage_chatbot/chat/",{"prompt" : prompt},
-            {
-                headers : {
-                    Authorization : `Bearer ${token}`
-                }
-            }
-
+        const reponse = await apiClient.post(`manage_chatbot/chat/${uuid}/`,{"prompt" : prompt},
             
-
         )
         
         

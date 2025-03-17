@@ -1,11 +1,34 @@
-import apiClient from "@/app/utils/axios/axiosConfig";
+import { loginUser } from "@/app/pages/(public)/auth/_service/login";
+import { loginInput } from "@/app/pages/(public)/auth/schema/loginSchema";
+import apiClient from "@/app/config/axios/axiosConfig";
 import { AxiosError } from "axios";
 
 export default async function verifyEmail(
   code: string
 ): Promise<{ sucess: boolean; message: string }> {
   try {
-      await apiClient.post("http://13.91.1.165:8005/api/manage_users/verify-email/", { "code": code });
+      await apiClient.post("manage_users/verify-email/", { "code": code });
+
+      const mail = localStorage.getItem("email")
+      const pass = localStorage.getItem("pass")
+
+      if( mail && pass ){      const loginData : loginInput = {
+        email : mail,
+        password :pass
+
+      }
+    
+      await loginUser(loginData)
+
+      
+       localStorage.removeItem("email")
+       localStorage.removeItem("pass")
+    }
+
+
+
+      
+
       return {
         sucess: true,
         message: "Verication Successful",

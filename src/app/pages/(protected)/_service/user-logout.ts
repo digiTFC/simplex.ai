@@ -1,34 +1,15 @@
-import apiClient from "@/app/utils/axios/axiosConfig";
+import apiClient from "@/app/config/axios/axiosConfig";
 import { AxiosError } from "axios";
 
 export default async function userLogout(): Promise<{
   success: boolean;
   message: string;
 }> {
-  const token = localStorage.getItem("access-token");
-
-  if (!token) {
-    console.log("aie, no token");
-    return {
-      success: false,
-      message: "No access token found",
-    };
-  }
-
-  console.log(`Bearer ${token}`);
   try {
-    const response = await apiClient.get(
-      "http://13.91.1.165:8005/api/manage_users/logout/",
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const response = await apiClient.get("manage_users/logout/");
     localStorage.removeItem("access-token");
     localStorage.removeItem("refresh-token");
-    console.log("good");
-    console.log(response.status);
+
 
     return {
       success: true,
@@ -36,9 +17,8 @@ export default async function userLogout(): Promise<{
     };
   } catch (error) {
     if (error instanceof AxiosError) {
-      console.log(error.response?.data);
+      return { success: false, message: error.response?.data.detail };
     }
-    console.log("aie");
 
     return {
       success: false,

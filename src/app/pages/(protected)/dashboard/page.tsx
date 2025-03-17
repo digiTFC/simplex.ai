@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { StatCard } from "./_components/stat-card";
-import Loader from "@/app/components/general-components/loader";
+import Loader from "@/app/components/loader";
 import { ChatbotsStats } from "./_components/chatbot-graph";
 
 const DashBoard = () => {
@@ -41,14 +41,14 @@ const DashBoard = () => {
         <div className="  w-9/12 h-full">
         <div className="flex justify-between items-center">
           <h1 className="text-[25px] font-bold my-4">Overview</h1>
-          <div className="flex gap-3">
-            <div className="bg-white px-4 cursor-pointer p-2 rounded-lg">
+          <div className="flex gap-3 text">
+            <div className="bg-white dark:bg-klightGrey px-4 cursor-pointer p-2 rounded-lg">
               Week
             </div>
-            <div className="hover:bg-gray-200 px-4 p-2 cursor-pointer rounded-lg">
+            <div className="hover:bg-gray-200 dark:hover:bg-klightGrey px-4 p-2 cursor-pointer rounded-lg">
               Month
             </div>
-            <div className="hover:bg-gray-200 px-4 p-2 cursor-pointer rounded-lg">
+            <div className="hover:bg-gray-200 px-4 p-2 dark:hover:bg-klightGrey cursor-pointer rounded-lg">
               Year
             </div>
           </div>
@@ -71,18 +71,18 @@ const DashBoard = () => {
             />
           </div>
           <div className="h-1/2 relative  bg-white rounded-2xl ">
-          <div className="`">
+          <div className="bg-white dark:bg-klightGrey rounded-xl">
           <ChatbotsStats stats={stats}></ChatbotsStats>
           </div>
           </div>
         </div>
-        <div className="w-3/12 h-5/6 p-4 flex  mt-4 flex-col rounded-3xl mx-4 bg-white">
+        <div className="w-3/12 h-5/6 p-4 flex  mt-4 flex-col rounded-3xl mx-4 bg-white dark:bg-klightGrey">
           <div className="flex items-center mb-2 h-fit w-full justify-between">
             <div className="flex gap-2">
-              <div className="rounded-lg cursor-pointer h-fit bg-gray-300 p-2 w-fit px-4 bg-opacity-40 ">
+              <div className="rounded-lg cursor-pointer h-fit bg-gray-300 dark:bg-gray-800 p-2 w-fit px-4 bg-opacity-40 ">
                 Chatbots
               </div>
-              <div className="rounded-lg cursor-pointer h-fit hover:bg-gray-100 p-2 w-fit px-4 bg-opacity-40 ">
+              <div className="rounded-lg cursor-pointer h-fit hover:bg-gray-100 dark:hover:bg-gray-800  p-2 w-fit px-4 bg-opacity-40 ">
                 Platforms
               </div>
             </div>

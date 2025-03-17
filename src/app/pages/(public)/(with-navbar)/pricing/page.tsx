@@ -1,7 +1,7 @@
-import { CallToAction } from "@/app/components/general-components/callToAction";
+import { CallToAction } from "@/app/components/callToAction";
 import React from "react";
 import Pricing from "./_components/pricing";
-import { Titles } from "@/app/components/general-components/Titles";
+import { Titles } from "@/app/components/Titles";
 
 const PricingPage = () => {
   return (
@@ -11,7 +11,7 @@ const PricingPage = () => {
           <Titles
             title="Purchase A Subscription"
             subTitle="Choose the plan that works for you"
-            TitleStyle="text-[48px]"
+            bigTitle={true}
           />
         </div>
         <Pricing />

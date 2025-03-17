@@ -1,56 +1,50 @@
 import { useState, useEffect } from "react";
-import apiClient from "@/app/utils/axios/axiosConfig";
+import apiClient from "@/app/config/axios/axiosConfig";
 import { AxiosError } from "axios";
 import { toast } from "sonner";
 import { Chatbot } from "../_dto/chatBot";
-import { loginUser } from "@/app/pages/auth/[loginSignup]/_service/login";
+import { loginUser } from "@/app/pages/(public)/auth/_service/login";
 
 export interface UseChatBotsResult {
-  chatbots: Chatbot[];
+  chatbots: Chatbot[] | null;
   loading: boolean;
   error: string | null;
   refetch: () => void;
 }
 
 export const useChatBots = (): UseChatBotsResult => {
-  const [chatbots, setChatbots] = useState<Chatbot[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [chatbots, setChatbots] = useState<Chatbot[] | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   const fetchChatBots = async () => {
+
+    if(loading){
+      return
+    }
+
     try {
       setLoading(true);
-      setError(null); // Reset error state
+      setError(null); 
 
-        await loginUser({
-            "email":"tmperseh@gmail.com",
-            "password":"tmperseh@gmail.com"
-        })
-      // Retrieve token from localStorage
       const token = localStorage.getItem("access-token");
 
       if (!token) {
         throw new Error("No access token found.");
       }
 
-      // Fetch chatbots data
+      
       const response = await apiClient.get(
-        "http://13.91.1.165:8005/api/manage_chatbot/list-chatbots/",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        "manage_chatbot/list/",
       );
 
       setChatbots(response.data);
     } catch (err) {
       if (err instanceof AxiosError) {
-        setError(err.response?.data || "An error occurred while fetching chatbots.");
-        // toast.error(err.response?.data || "An error occurred.");
-      } else {
-        setError((err as Error).message);
-        // toast.error((err as Error).message);
+        if (err.response?.status === 403) {      
+        } else {
+          setError(err.message || "An unexpected error occurred.");
+        }
       }
     } finally {
       setLoading(false);
@@ -58,7 +52,9 @@ export const useChatBots = (): UseChatBotsResult => {
   };
 
   useEffect(() => {
-    fetchChatBots(); // Fetch data on component mount
+   
+      fetchChatBots();
+     
   }, []);
 
   return { chatbots, loading, error, refetch: fetchChatBots };

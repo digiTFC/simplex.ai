@@ -1,16 +1,16 @@
 "use client";
-import { Input } from "@/app/components/general-components/input";
+import { Input } from "@/app/components/input";
 import { useFormik } from "formik";
 import React from "react";
 import sendChat from "../_service/send-chat";
 
-const ChatInput = () => {
+const ChatInput = (name:string) => {
   const formik = useFormik({
     initialValues: {
       prompt: "",
     },
     onSubmit: async (values) => {
-      const response = await sendChat(values.prompt);
+      const response = await sendChat(values.prompt,name);
       console.log(response.data);
     },
   });

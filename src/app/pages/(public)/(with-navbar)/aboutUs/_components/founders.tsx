@@ -1,11 +1,11 @@
-import { MemberCard } from '@/app/components/general-components/memberCard';
-import Paragraph from '@/app/components/general-components/text';
+import { MemberCard } from '@/app/components/memberCard';
+import Paragraph from '@/app/components/text';
 import React from 'react';
 
 export const Founders = () => {
   return (
     <div className="flex items-end flex-col md:flex-row justify-center">
-      <div className="md:w-1/2 2xl-w-1/3 text-center md:text-start order-last mt-4 md:m-0 md:order-first">
+      <div className="md:w-1/2 2xl-w-1/3 text-center  md:text-start order-last mt-4 md:m-0 md:order-first">
         <Paragraph
           chidlren="Simplex started as an idea between two innovators who saw the potential for African businesses to thrive with technology that speaks to their unique needs. Our founders share a vision of making chatbot creation as simple as a few clicks."
         ></Paragraph>
@@ -22,17 +22,17 @@ export const Founders = () => {
           <MemberCard
             name="Pamel Fichieu"
             position="Founder"
-            image="https://res.cloudinary.com/ddqkpyo5u/image/upload/v1732025369/de2efce3-65d4-45fd-a761-73e9f17b2940.png"
-            link=""
+            image="https://res.cloudinary.com/ddqkpyo5u/image/upload/v1740657724/WhatsApp_Image_2025-02-03_at_17.28.49_pzqiwn.jpg"
+            link="https://www.linkedin.com/in/pamel-fichieu-3778542b4/"
           ></MemberCard>
         </div>
-        <div className="md:relative bottom-28 md:right-36 z-0 text-end">
+        <div className="md:relative bottom-28 md:right-36 z-0 md:text-end">
           <MemberCard
             textEnd={true}
             name="Sanguo Ledoux"
             position="Co-founder"
             image="https://res.cloudinary.com/ddqkpyo5u/image/upload/v1727641034/c836ef26-2237-4b2e-b823-c5f49c38c878.png"
-            link=""
+            link="https://www.linkedin.com/in/ledoux-sanguo-501a54264/"
           ></MemberCard>
         </div>
       </div>

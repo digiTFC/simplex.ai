@@ -1,6 +1,6 @@
 "use client";
-import Button from "@/app/components/general-components/button";
-import { Input } from "@/app/components/general-components/input";
+import Button from "@/app/components/button";
+import { Input } from "@/app/components/input";
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import { resetPasswordScheme } from "./_schema/reset-password-schema";
@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 
 const ResetPasswordLink = () => {
   const [loading, setLoading] = useState<boolean | undefined>(undefined);
+  const [isSent, setisSent] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -17,30 +18,36 @@ const ResetPasswordLink = () => {
     validationSchema: resetPasswordScheme,
     onSubmit: async (values) => {
       setLoading(true);
-      await resetPassword(values.email);
+      const response = await resetPassword(values.email);
       setLoading(false);
+      setisSent(response.success);
     },
   });
 
-  const isSubmitDisabled = formik.errors.email || formik.values.email.length < 1;
+  const isSubmitDisabled =
+    formik.errors.email || formik.values.email.length < 1;
 
   return (
     <>
       <div className="text-center">
-        <h1 className="text-[34px] text-black">
-          {loading === false ? "Reset Link Sent" : "Enter Your Email Address"}
+        <h1 className="text-[34px] dark:text-white text-black">
+          {isSent ? "Reset Link Sent" : "Enter Your Email Address"}
         </h1>
         <h2 className="text-khr">
-          {loading === false
+          {isSent
             ? "Reset your password and try to login"
             : "We will send you a reset link"}
         </h2>
       </div>
 
       <motion.div
-        initial={{ height: "fit-content" }}
-        animate={loading !== undefined ? { height: "fit-content" } : { height: 0 }}
-        transition={{ type: "tween", duration: 0.3 }}
+        initial={{ height: "fit-content", opacity: 1 }}
+        animate={
+          isSent
+            ? { height: 0, opacity: 0 }
+            : { height: "fit-content", opacity: 1 }
+        }
+        transition={{ type: "tween", duration: 0.5 }}
         className="overflow-hidden pt-8"
       >
         <Input
@@ -50,6 +57,7 @@ const ResetPasswordLink = () => {
           useLabel={false}
           onChange={formik.handleChange}
           value={formik.values.email}
+          aria-label="Email address"
         />
 
         <div className="w-[375px] flex justify-center relative">

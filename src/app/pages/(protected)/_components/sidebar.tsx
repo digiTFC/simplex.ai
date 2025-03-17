@@ -140,21 +140,23 @@ const SideBar = () => {
   const router = useRouter()
   
   const logout = async ()=>{
+    toast.info("Loging Out")
+    
     const response = await userLogout()
 
     if(response.success){
-      toast.info("Loging Out")
-      setTimeout(()=> router.push(`../auth/${"login"}`),200)
+      
+      router.push(`/pages/auth/${"login"}`)
     } 
   }
   return (
-    <div className=" w-full h-full">
-      <div className="w-[300px] px-5 bg-klightGrey -100 h-[100vh] flex flex-col fixed">
+    <div className="  h-full">
+      <div className="w-[300px] px-5 bg-klightGrey  h-[100vh] flex flex-col fixed">
         <div>
           <div className="flex items-center py-5    gap-4">
             <div className="w-[50px] rounded-xl h-[50px] bg-gradient-to-br from-kpurple to-kpink"></div>
             <div className="flex flex-col bg-clip-text text-[24px] text-transparent bg-gradient-to-br from-kpurple to-kpink">
-              <span className="font-semibold">CHATBOOK</span>
+              <span className="font-semibold">SIMPLEX</span>
               <span className="text-white text-[12px]  opacity-50">
                 AI everwhere u go
               </span>

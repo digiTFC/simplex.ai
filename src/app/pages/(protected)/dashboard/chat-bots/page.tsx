@@ -1,16 +1,23 @@
 "use client";
-import Button from "@/app/components/general-components/button";
-import SearchInput from "@/app/components/general-components/search-input";
+import Button from "@/app/components/button";
+import SearchInput from "@/app/components/search-input";
+import { PiDotsThreeBold } from "react-icons/pi";
 import Link from "next/link";
 import "../../../../globals.css";
 import { TableRow } from "./_components/table-row";
 import { useChatBots } from "./_services/get_chatbots";
-import { Titles } from "@/app/components/general-components/Titles";
+import { Titles } from "@/app/components/Titles";
+import { BsChat, BsPlusLg } from "react-icons/bs";
+import { IoDocumentTextOutline, IoFilterOutline } from "react-icons/io5";
+import { BsDownload } from "react-icons/bs";
+import { useState } from "react";
+import { HiOutlineTrash } from "react-icons/hi2";
+import { AnimatePresence } from "framer-motion";
+import ChatbotCard from "./_components/chatbot-card";
 
 const ChatBotMenu = () => {
   const { chatbots, loading, error } = useChatBots();
-
-  const formatDate = (dateString: string): string => {
+const formatDate = (dateString: string): string => {
     const date = new Date(dateString); // Convert string to Date object
     return date.toLocaleDateString("fr-FR", {
       year: "numeric",
@@ -19,17 +26,18 @@ const ChatBotMenu = () => {
     });
   };
 
-  const tdStyle = "py-3 ";
-  const tabStyle = "text-white w-fit px-6 py-2 rounded-lg bg-klightGrey";
+  const tdStyle = "py-3 text-start";
+  const tabStyle =
+    "dark:text-white h-fit w-fit px-6 py-2 rounded-lg bg-white text-black dark:bg-klightGrey";
 
   if (loading)
     return (
       <div className="flex items-center h-full w-full justify-center">
-        <div className="w-10 h-10 animate-spin border-2 rounded-full border-black dark:border-white border-t-transparent"></div>
+        <div className="w-10 h-10 animate-spin border-2 rounded-full border-black border-t-transparent dark:border-white dark:border-t-transparent"></div>
       </div>
     );
 
-  if (chatbots.length == 0)
+  if (chatbots && chatbots.length == 0)
     return (
       <div className="text-center center  flex-1 h-full">
         <div className="h-full flex flex-col gap-8 items-center justify-center">
@@ -71,113 +79,95 @@ const ChatBotMenu = () => {
         ></Titles>
       </div>
     );
-  return (
-    <div className="h-[90%]  text-center">
-     
 
-      <div className="pt-12">
-        <div className="flex justify-between gap-3">
-          <div className="flex gap-3">
-            <div className={`bg-white !text-black ${tabStyle}`}>All</div>
-            <div className={tabStyle}>Active</div>
-            <div className={tabStyle}>Platform</div>
-          </div>
-          <Link href={"/pages/dashboard/create-chat-bot"}>
-            <div>
-              <div
-                className={`bg-white !text-black flex  gap-2  !px-3 ${tabStyle}`}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="size-6"
+  if (chatbots) {
+    return (
+      <div className="h-[90%]  text-center">
+        <div className="md:pt-12 pt-4">
+          <div>
+            <div className="flex justify-between gap-3">
+              <div className="flex gap-3">
+                <div className={`${tabStyle}`}>All</div>
+                <div className={tabStyle}>Active</div>
+                <div className={`${tabStyle} hidden md:block`}>Platform</div>
+              </div>
+              <Link href={"/pages/dashboard/create-chat-bot"}>
+                <div>
+                  <div
+                    className={` flex  gap-2 items-center  !px-4 ${tabStyle}`}
+                  >
+                    <BsPlusLg size={20} />
+                    New ChatBot
+                  </div>
+                </div>
+              </Link>
+            </div>
+            <hr className="md:my-8 my-4 border-khr " />
+            <div className="flex items-center w-full justify-between">
+              <span className="text-klight">{chatbots.length} bots found</span>
+              <div className="flex  gap-3 items-center">
+                <SearchInput></SearchInput>
+                <div
+                  className={`${tabStyle} h-full flex items-center dark:text-white gap-3 `}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 4.5v15m7.5-7.5h-15"
-                  />
-                </svg>
-                New ChatBot
+                  <IoFilterOutline size={25} />
+                  <span className="hidden md:inline">Filter</span>
+                </div>
+                <div className="h-6 my-autp border  border-khr"></div>
+                <div className={`${tabStyle} flex py-3 items-center  gap-3  `}>
+                  <BsDownload size={20} />
+                  <span className="hidden md:inline">Export</span>
+                </div>
               </div>
             </div>
-          </Link>
-        </div>
-        <hr className="my-8 border-khr " />
-        <div className="flex items-center w-full justify-between">
-          <span className="text-klight">{chatbots.length} bots found</span>
-          <div className="flex gap-3 items-center">
-            <SearchInput></SearchInput>
-            <div className={`${tabStyle} flex items-center text-white gap-3 `}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                fill="#ffffff"
-                viewBox="0 0 256 256"
-              >
-                <path d="M200,136a8,8,0,0,1-8,8H64a8,8,0,0,1,0-16H192A8,8,0,0,1,200,136Zm32-56H24a8,8,0,0,0,0,16H232a8,8,0,0,0,0-16Zm-80,96H104a8,8,0,0,0,0,16h48a8,8,0,0,0,0-16Z"></path>
-              </svg>
-              Filter
-            </div>
-            <div className="h-6 my-autp border  border-khr"></div>
-            <div
-              className={`${tabStyle} flex py-3 items-center text-white gap-3  `}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
-                />
-              </svg>
-              Export
+          </div>
+          <div className="mt-8">
+            <table className="  hidden md:block table-auto   border-tools-table-outline border-black border- rounded-lg w-full">
+              <thead className=" rounded-xl dark:bg-klightGrey bg-white">
+                <tr>
+                  <th className={`rounded-l-lg pl-8 ${tdStyle}`}>Name</th>
+                  {/* <th className={tdStyle}>Company</th> */}
+                  <th className={tdStyle}>Created At</th>
+                  <th className={tdStyle}>Platforms</th>
+                  <th className={tdStyle}>Url</th>
+                  <th className={`rounded-r-lg ${tdStyle}`}>Status</th>
+                  <th className={`rounded-r-lg ${tdStyle}`}></th>
+                </tr>
+              </thead>
+              <tbody>
+                {chatbots.map((bot, index) => {
+                  const date = formatDate(bot.date_time);
+                  const botInfo = {};
+                  return (
+                    <TableRow
+                      chatbot_name={bot.chatbot_name}
+                      objective={bot.objective}
+                      performance_meting={bot.performance_meting}
+                      // company={bot.UUID}
+                      date_time={date}
+                      platforms={bot.platforms}
+                      status={bot.status}
+                      url={bot.url}
+                      UUID={bot.UUID}
+                      key={index}
+                    ></TableRow>
+                  );
+                })}
+              </tbody>
+            </table>
+
+            <div className="grig space-y-4 grid-cols-1">
+              {chatbots.map((bot, index) => {
+                 
+                return (
+                  <ChatbotCard key={index} bot={bot}></ChatbotCard>
+                );
+              })}
             </div>
           </div>
         </div>
-        <div className="mt-8">
-          <table className=" table-auto  border  border-tools-table-outline border-black border- rounded-lg w-full">
-            <thead className=" rounded-xl bg-klightGrey">
-              <tr>
-                <th className={`rounded-l-lg ${tdStyle}`}>Name</th>
-                <th className={tdStyle}>Company</th>
-                <th className={tdStyle}>Created At</th>
-                <th className={tdStyle}>Platforms</th>
-                <th className={tdStyle}>Url</th>
-                <th className={`rounded-r-lg ${tdStyle}`}>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {chatbots.map((bot, index) => {
-                const date = formatDate(bot.date_time);
-                return (
-                  <TableRow
-                    chatbot_name={bot.chatbot_name}
-                    company={bot.company}
-                    date_time={date}
-                    platforms={bot.platforms}
-                    status={bot.status}
-                    url={bot.url}
-                    key={index}
-                  ></TableRow>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
-
 export default ChatBotMenu;

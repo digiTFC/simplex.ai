@@ -1,48 +1,37 @@
 import { CreateChatInput } from "../schema/create-chatbot-schema";
 import { AxiosError } from "axios";
-import apiClient from "@/app/utils/axios/axiosConfig";
-import { loginUser } from "@/app/pages/auth/[loginSignup]/_service/login";
+import apiClient from "@/app/config/axios/axiosConfig";
+import { loginUser } from "@/app/pages/(public)/auth/_service/login";
 
 export default async function createChatBot(
   data: CreateChatInput
-): Promise<{ success: boolean; message: string }> {
+): Promise<{ success: boolean; message: string; retrying? : boolean; uuid? : string  }> {
   try {
 
-        await loginUser({
-            "email":"tmperseh@gmail.com",
-            "password":"tmperseh@gmail.com"
-        })
-
-
-    const token = localStorage.getItem("access-token");
-
-    if (!token) {
-      return {
-        success: false,
-        message: "Invalid Token : Redirecting...",
-      };
-    }
-
-    await apiClient.post(
-      "http://13.91.1.165:8005/api/manage_chatbot/create-chatbot/",
+   const response =  await apiClient.post(
+      "manage_chatbot/create/",
       data,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
     );
+    console.log(response.data.UUID)
 
     return {
+      uuid: response.data.UUID,
       success: true,
       message: "ChatBot Created Sucessfully",
+      retrying:false,
     };
+
   } catch (error) {
+
+    
     if (error instanceof AxiosError) {
-      console.log(error.response?.data);
+      
+
       return {
         success: false,
-        message: "unexpected error",
+        message: error.response?.data.chatbot_name ?? error.response?.data.detail,
+        retrying:false,
+
       };
       
     }
@@ -50,6 +39,8 @@ export default async function createChatBot(
     return {
       success: false,
       message: "Unexpected error happended",
+      retrying:false,
+
     };
   }
 }

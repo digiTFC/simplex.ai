@@ -1,5 +1,5 @@
-import { ValuesCard } from '@/app/components/aboutUsComponents/valuesCard';
-import { Titles } from '@/app/components/general-components/Titles';
+import { ValuesCard } from '@/app/pages/(public)/(with-navbar)/aboutUs/_components/valuesCard';
+import { Titles } from '@/app/components/Titles';
 import React from 'react'
 
 export const Values = () => {
@@ -36,6 +36,7 @@ export const Values = () => {
     <div className="text-center">
       <div className="md:w-2/4 m-auto">
         <Titles
+        bigTitle={true}
           title="Our Core Values"
           subTitle="At Simplex, we believe amazing products come from amazing people. Our team celebrates diversity, creativity, and the values that keep us inspired to help businesses like yours thrive."
         />
