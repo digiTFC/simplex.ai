@@ -26,7 +26,7 @@ const ChatbotCard: React.FC<ChatbotCardProps> = ({ bot }) => {
 
   const date = formatDate(bot.date_time);
   return (
-      <motion.div  animate={{height: measures.height }} className="bg-white text-start rounded-xl relative">
+      <motion.div  animate={{height: measures.height }} className="bg-white text-start md:hidden rounded-xl relative">
 <div ref={ref} className="p-4">
 <AnimatePresence   mode="popLayout">
         {content == "default" ? (
