@@ -39,7 +39,7 @@ const PricingCard: React.FC<pricingProps> = ({
 
           {/* Price Display */}
           <h1 className="flex items-center text-4xl text-klightGrey py-1 font-medium transition-all">
-            {price}
+            ${price}
           </h1>
 
           {/* Description */}
