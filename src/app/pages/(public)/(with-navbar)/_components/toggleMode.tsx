@@ -25,7 +25,7 @@ const DarkModeToggle: React.FC = () => {
   return (
     <button
       onClick={toggleTheme}
-      className={`fixed bottom-5 transition-all duration-[2000ms] z-50 left-5 p-2 rounded-full ${
+      className={`fixed bottom-5 transition-all duration-[2000ms] z-50 right-5 p-2 rounded-full ${
         isDarkMode ? 'bg-black hover:bg-white hover:text-black border text-white rotate-[0deg]' :  ' rotate-[360deg]  hover:bg-black hover:text-white  bg-white border text-black'
       }`}
     >

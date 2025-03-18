@@ -122,7 +122,7 @@ const formatDate = (dateString: string): string => {
             </div>
           </div>
           <div className="mt-8">
-            <table className="  hidden md:block table-auto   border-tools-table-outline border-black border- rounded-lg w-full">
+            <table className="  hidden md:table table-auto   border-tools-table-outline border-black border- rounded-lg w-full">
               <thead className=" rounded-xl dark:bg-klightGrey bg-white">
                 <tr>
                   <th className={`rounded-l-lg pl-8 ${tdStyle}`}>Name</th>
@@ -156,7 +156,7 @@ const formatDate = (dateString: string): string => {
               </tbody>
             </table>
 
-            <div className="grig space-y-4 grid-cols-1">
+            <div className="md:hidden grig space-y-4 grid-cols-1">
               {chatbots.map((bot, index) => {
                  
                 return (

@@ -3,7 +3,7 @@ import { IoSearchOutline } from "react-icons/io5";
 
 const SearchInput = () => {
   return (
-    <div className="flex gap-3 w-fit py-3 px-5 h-fit dark:bg-klightGrey max-w-[100px] bg-white  dark:text-white  rounded-xl">
+    <div className="flex gap-3 w-fit py-3 px-5 h-fit dark:bg-klightGrey max-w-[100px] md:max-w-[300px] bg-white  dark:text-white  rounded-xl">
       <IoSearchOutline size={20} />
       <input
         type="text"

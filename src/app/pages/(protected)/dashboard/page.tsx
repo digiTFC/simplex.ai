@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { StatCard } from "./_components/stat-card";
 import Loader from "@/app/components/loader";
-import { ChatbotsStats } from "./_components/chatbot-graph";
+import ChatbotsStats from "./_components/chatbot-graph";
+
 
 const DashBoard = () => {
   type Stats = {
@@ -30,30 +31,30 @@ const DashBoard = () => {
         satisfactionRate: "87 %",
         activeChatbots: 5,
         bgColor: "kpurple",
-        chatsPerDay: [50, 75, 80, 100, 120,10,10],
+        chatsPerDay: [50, 75, 80, 100, 120, 10, 10],
       });
     }, 3000);
   }, []);
 
   if (stats) {
     return (
-      <div className="h-screen  flex">
-        <div className="  w-9/12 h-full">
-        <div className="flex justify-between items-center">
-          <h1 className="text-[25px] font-bold my-4">Overview</h1>
-          <div className="flex gap-3 text">
-            <div className="bg-white dark:bg-klightGrey px-4 cursor-pointer p-2 rounded-lg">
-              Week
-            </div>
-            <div className="hover:bg-gray-200 dark:hover:bg-klightGrey px-4 p-2 cursor-pointer rounded-lg">
-              Month
-            </div>
-            <div className="hover:bg-gray-200 px-4 p-2 dark:hover:bg-klightGrey cursor-pointer rounded-lg">
-              Year
+      <div className="md:h-screen  flex flex-col md:flex-row">
+        <div className="  md:w-9/12 h-full">
+          <div className="flex justify-between items-center">
+            <h1 className="text-[25px] font-bold my-4">Overview</h1>
+            <div className="flex gap-3 text">
+              <div className="bg-white dark:bg-klightGrey px-4 cursor-pointer p-2 rounded-lg">
+                Week
+              </div>
+              <div className="hover:bg-gray-200 dark:hover:bg-klightGrey px-4 p-2 cursor-pointer rounded-lg">
+                Month
+              </div>
+              <div className="hover:bg-gray-200 px-4 p-2 dark:hover:bg-klightGrey cursor-pointer rounded-lg">
+                Year
+              </div>
             </div>
           </div>
-        </div>
-          <div className=" grid grid-cols-3 gap-4 ">
+          <div className=" grid md:grid-cols-3  gap-4 place-items-center">
             <StatCard
               classname="bg-blue-400 text-blue-600"
               title="Total Chats"
@@ -71,12 +72,14 @@ const DashBoard = () => {
             />
           </div>
           <div className="h-1/2 relative  bg-white rounded-2xl ">
-          <div className="bg-white dark:bg-klightGrey rounded-xl">
-          <ChatbotsStats stats={stats}></ChatbotsStats>
-          </div>
+            <div className=" px-3 bg-white my-3 dark:bg-klightGrey rounded-xl">
+              <ChatbotsStats ></ChatbotsStats>
+            </div>
           </div>
         </div>
-        <div className="w-3/12 h-5/6 p-4 flex  mt-4 flex-col rounded-3xl mx-4 bg-white dark:bg-klightGrey">
+
+
+        <div className=" md:w-3/12 md:h-5/6 p-4 flex  my-4 md:my-0 flex-col rounded-3xl md:mx-4 bg-white dark:bg-klightGrey">
           <div className="flex items-center mb-2 h-fit w-full justify-between">
             <div className="flex gap-2">
               <div className="rounded-lg cursor-pointer h-fit bg-gray-300 dark:bg-gray-800 p-2 w-fit px-4 bg-opacity-40 ">
@@ -126,7 +129,7 @@ const DashBoard = () => {
           </div>
           <div className="flex border my-2 items-center justify-between rounded-xl py-3 px-3 pr-4">
             <div className="h-[40px]  w-[43px] rounded-lg bg-kpink bg-opacity-50 "></div>
-            Onboarding  Bot
+            Onboarding Bot
             <div className="text-red-400 text-sm flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +150,7 @@ const DashBoard = () => {
           </div>
           <div className="flex border my-2 items-center justify-between rounded-xl py-3 px-3 pr-4">
             <div className="h-[40px]  w-[43px] rounded-lg bg-kpurple bg-opacity-50 "></div>
-            Marketing  Bot
+            Marketing Bot
             <div className="text-green-400 text-sm flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
