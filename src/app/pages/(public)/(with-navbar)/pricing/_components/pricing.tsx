@@ -23,7 +23,7 @@ const Pricing = () => {
     <div className="w-10/12 m-auto">
       <div className="flex justify-between flex-col text-center items-center">
         <div className="flex items-center w-full justify-center">
-          <div className="text-white flex relative rounded-full bg-clip-content my-12 bg-klightGrey w-[277px] h-[50px] text-center">
+          <div className="text-white flex relative rounded-full z-10 bg-clip-content my-12 bg-klightGrey w-[277px] h-[50px] text-center">
             <Button
               label=""
               className={`${
