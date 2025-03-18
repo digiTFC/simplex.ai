@@ -8,6 +8,7 @@ import { HiOutlineTrash } from "react-icons/hi2";
 import { BsChat } from "react-icons/bs";
 import useMeasure from "react-use-measure";
 import Link from "next/link";
+import { deleteBot } from "../_services/delete_chatbot";
 interface ChatbotCardProps {
   bot: Chatbot;
 }
@@ -22,23 +23,26 @@ const ChatbotCard: React.FC<ChatbotCardProps> = ({ bot }) => {
     });
   };
   const [content, setContent] = useState("default");
-  const [ref,measures] = useMeasure()
+  const [ref, measures] = useMeasure();
 
   const date = formatDate(bot.date_time);
   return (
-      <motion.div  animate={{height: measures.height }} className="bg-white text-start md:hidden rounded-xl relative">
-<div ref={ref} className="p-4">
-<AnimatePresence   mode="popLayout">
-        {content == "default" ? (
-            <motion.div 
+    <motion.div
+      animate={{ height: measures.height }}
+      className="bg-white text-start md:hidden rounded-xl relative"
+    >
+      <div ref={ref} className="p-4">
+        <AnimatePresence mode="popLayout">
+          {content == "default" ? (
+            <motion.div
               key={"default"}
               initial={{ x: "-10%", opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "-10%", opacity: 0 }}
               transition={{
-                type:"spring",
-                bounce:0,
-                duration:0.5
+                type: "spring",
+                bounce: 0,
+                duration: 0.5,
               }}
             >
               <div className="flex justify-between  items-center">
@@ -64,16 +68,16 @@ const ChatbotCard: React.FC<ChatbotCardProps> = ({ bot }) => {
               <p>Task Description : </p>
               <p>{bot.performance_meting}</p>
             </motion.div>
-        ) : (       
-            <motion.div 
+          ) : (
+            <motion.div
               key={"options"}
               initial={{ x: "10%", opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "10%", opacity: 0 }}
               transition={{
-                type:"spring",
-                bounce:0,
-                duration:0.5
+                type: "spring",
+                bounce: 0,
+                duration: 0.5,
               }}
             >
               <div className="backdrop-blur-3xl flex flex-col gap-3">
@@ -89,21 +93,22 @@ const ChatbotCard: React.FC<ChatbotCardProps> = ({ bot }) => {
                 </div>
                 <hr></hr>
                 <Link href={`/pages/dashboard/chat/${bot.UUID}`}>
-                <div className="flex gap-4 w-full">
-                  <BsChat size={25} color="" strokeWidth={0.001} />
-                  Chat
-                </div></Link>
+                  <div className="flex gap-4 w-full">
+                    <BsChat size={25} color="" strokeWidth={0.001} />
+                    Chat
+                  </div>
+                </Link>
                 <hr></hr>
-                <div className="flex  gap-3">
+                <div className="flex  gap-3" onClick={()=>deleteBot(bot.UUID)}>
                   <HiOutlineTrash size={30} />
                   <span>Delete</span>
                 </div>
               </div>
             </motion.div>
-        )}
+          )}
         </AnimatePresence>
-</div>
-      </motion.div>
+      </div>
+    </motion.div>
   );
 };
 

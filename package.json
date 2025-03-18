@@ -9,13 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@hookform/resolvers": "^3.9.1",
     "@hugeicons/react": "^1.0.3",
+    "@mui/material": "^6.4.8",
+    "@mui/styled-engine-sc": "^6.4.6",
+    "@mui/x-charts": "^7.28.0",
     "@typescript-eslint/eslint-plugin": "^8.19.0",
+    "apexcharts": "^4.5.0",
     "axios": "^1.7.9",
     "chart.js": "^4.4.7",
     "class-variance-authority": "^0.7.0",
@@ -44,6 +50,7 @@
     "react-use-measure": "^2.1.7",
     "remark-gfm": "^4.0.1",
     "sonner": "^1.7.0",
+    "styled-components": "^6.1.16",
     "swiper": "^11.1.14",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7"

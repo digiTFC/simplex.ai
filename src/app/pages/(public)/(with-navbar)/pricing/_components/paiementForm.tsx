@@ -44,7 +44,7 @@ export const PaiementForm: React.FC<paiementFormProprs> = ({
   const tva = price * 0.2;
   const total = price + tva;
   return (
-    <div className="text-white">
+    <div className="">
       <form onSubmit={formik.handleSubmit}>
         <div className="">
           <Titles
@@ -78,7 +78,7 @@ export const PaiementForm: React.FC<paiementFormProprs> = ({
                 onChange={formik.handleChange}
               />
 
-              <div className="font-thin text-khr bg-klightGrey pt-2n absolute right-5 bottom-[50%] translate-y-[100%] z-50">
+              <div className="font-thin text-khr dark:bg-klightGrey pt-2n absolute right-5 bottom-[50%] translate-y-[100%] z-50">
                 MM/YY
               </div>
             </div>
@@ -92,7 +92,7 @@ export const PaiementForm: React.FC<paiementFormProprs> = ({
                 name="cvc"
                 onChange={formik.handleChange}
               />
-              <div className="font-thin text-khr bg-klightGrey pt-2n absolute right-5 bottom-[50%] translate-y-[100%] z-50">
+              <div className="font-thin text-khr darK:bg-klightGrey pt-2n absolute right-5 bottom-[50%] translate-y-[100%] z-50">
                 CVC
               </div>
             </div>
@@ -142,10 +142,10 @@ export const PaiementForm: React.FC<paiementFormProprs> = ({
             </div>
           </div>
 
-        <div className="w-fit text-center mt-10 flex flex-col">
+        <div className="w-full text-center mt-10 flex flex-col">
           <div className="relative">
             <Button
-              className="bg-gradient-to-br from-kpink to-kpurple  rounded h-[44px] w-[380px] focus:w-[375px]"
+              className="bg-gradient-to-br from-kpink to-kpurple text-white rounded h-[44px] w-full md:w-[380px] focus:w-[375px]"
               isLoading={isLoading}
               onClick={() => formik.submitForm()}
               label={isLoading ? "Processing..." : `Pay ${total.toFixed(2)}$`}

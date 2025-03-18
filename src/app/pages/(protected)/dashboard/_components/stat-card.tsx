@@ -6,7 +6,7 @@ type StatCardProps = {
   
   export function StatCard({ title, value, classname }: StatCardProps) {
     return (
-      <div className="bg-white dark:bg-klightGrey p-6 rounded-2xl shadow-sm">
+      <div className="bg-white dark:bg-klightGrey p-6 rounded-2xl w-full shadow-sm">
         <div className="flex items-center gap-3">
           <div
             className={`h-[40px] center w-[40px] rounded-full bg-opacity-25  ${classname}`}
