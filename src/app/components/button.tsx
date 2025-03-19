@@ -23,26 +23,24 @@ const Button: React.FC<ButtonProps> = ({
   loadindIsWhite = true,
   isDisabled
 }) => {
-  const defaultStyle =
-    "  bg-gradient-to-r from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700  w-fit h-[44px]  rounded-[5px]  px-[32px]";
+  const defaultStyle ="bg-gradient-to-r from-kpink to-kpurple text-white hover:from-pink-600 hover:to-purple-700  w-fit h-[44px]  rounded-[5px]  px-[32px]";
+  const loadingStyle =`${
+            isLoading
+              ? `transition-all  transition-all  border-t-transparent border border-white    mr-3 w left-0 border-2 w-[20px] h-[20px] rounded-full animate-spin`
+              : "absolute"
+          } ${loadindIsWhite ? "border-white" : "border-black"} `
 
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`${className ?? defaultStyle} transition-all  cursor-pointer! ${
-        isLoading != null ? "overflow-hidden " : ""
-      }  z-50 `}
+      className={`${className ?? defaultStyle} ${isLoading != null ? "overflow-hidden " : ""} transition-all  cursor-pointer! z-40 `}
       disabled={isLoading || isDisabled}
     >
       <div className="flex items-center justify-center">
         {children}
         <div
-          className={`${
-            isLoading
-              ? `transition-all  transition-all  border-t-transparent border border-white    mr-3 w left-0 border-2 w-[20px] h-[20px] rounded-full animate-spin`
-              : "absolute"
-          } ${loadindIsWhite ? "border-white" : "border-black"} `}
+          className={loadingStyle}
         ></div>
 
         {label}

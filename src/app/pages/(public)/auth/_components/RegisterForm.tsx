@@ -54,7 +54,7 @@ const RegisterForm = () => {
 
   return (
     <div>
-      <div className="w-[375px] max-w-[95vw]  rounded-[1px]">
+      <div className="w-[395px] max-w-[95vw]  rounded-[1px]">
         <form onSubmit={formik.handleSubmit}>
           <div>
             <Titles title="Register" TitleStyle="md:text-[48px] text-[38px]" />
@@ -118,7 +118,7 @@ const RegisterForm = () => {
           </div>
           <div className="flex gap-3 my-4 mt-8 justify-center items-center  w-full ">
             <Button
-              label="Signup Now"
+              label="Signup"
               isLoading={isLoading}
               className={`${buttonSign} w-full `}
               onClick={() => formik.submitForm()}

@@ -62,7 +62,7 @@ const LoginForm = () => {
 
   return (
     <div>
-      <div className="w-[359px] max-w-[90vw]   rounded-[1px]">
+      <div className="w-[370px] max-w-[90vw]   rounded-[1px]">
         <form onSubmit={formik.handleSubmit}>
           <div>
             <Titles title="Login" TitleStyle="md:text-[48px] text-[38px] mb-4" />
